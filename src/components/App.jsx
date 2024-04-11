@@ -1,3 +1,13 @@
+import { Route, Routes } from 'react-router-dom';
+import SharedLayout from './SharedLayout/SharedLayout';
+import WelcomePage from 'pages/WelcomePage/WelcomePage';
+
 export const App = () => {
-  return <div>React homework template</div>;
+  return (
+    <Routes>
+      <Route path="/" element={<SharedLayout />}>
+        <Route index element={<WelcomePage />} />
+      </Route>
+    </Routes>
+  );
 };
