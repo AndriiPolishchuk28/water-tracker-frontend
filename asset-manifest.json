@@ -1,0 +1,10 @@
+{
+  "files": {
+    "main.js": "/water-tracker-frontend/static/js/main.e599bd7e.js",
+    "index.html": "/water-tracker-frontend/index.html",
+    "main.e599bd7e.js.map": "/water-tracker-frontend/static/js/main.e599bd7e.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.e599bd7e.js"
+  ]
+}
