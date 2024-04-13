@@ -1,9 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { DB_HOST } from "../../constants/constants.jsx"
 
 export const $authInstance = axios.create({
-    baseURL: DB_HOST,
+    baseURL: "https://watertracker-backand-codekartel.onrender.com/",
   });
 
   const setToken = token => {

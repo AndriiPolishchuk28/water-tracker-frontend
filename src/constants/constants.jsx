@@ -1,1 +1,0 @@
-export const DB_HOST="https://mongodb+srv://watertracker:Ms3poIW5BN75Db1c@cluster0.qem1xyp.mongodb.net/watertracker?retryWrites=true&w=majority&appName=Cluster0"
