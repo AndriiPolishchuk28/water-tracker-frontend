@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import { persistor, store } from './redux/store';
 import { PersistGate } from 'redux-persist/integration/react';
 import { BrowserRouter } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 import './styles/index.css';
 import './styles/fonts.css';
 
@@ -14,6 +15,18 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <PersistGate persistor={persistor} loading={null}>
         <BrowserRouter basename="/water-tracker-frontend">
           <App />
+          <ToastContainer
+            position="top-center"
+            autoClose={2000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="dark"
+          />
         </BrowserRouter>
       </PersistGate>
     </Provider>
