@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   CalendarWrapper,
   TitleWrapper,
@@ -10,23 +10,25 @@ import {
   Ul,
   ProcentageWater,
 } from './Calendar.styled';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { icons } from '../../assets';
+import { getMonthPercentageThunk } from '../../redux/water/operations';
+import { selectMonthPercentage } from '../../redux/water/selectors';
 
 const Calendar = () => {
+  const dispatch = useDispatch();
+  const percentagePerMonth = useSelector(selectMonthPercentage);
+
   const [todayDate] = useState(new Date());
   const [currentDate, setCurrentDate] = useState(new Date());
   const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
   const monthName = currentDate.toLocaleString('en-US', { month: 'long' });
+  const month = currentDate.getMonth() + 1;
 
-  const month = currentDate.getMonth();
-
-  const lastDayOfMonth = new Date(currentYear, month + 1, 0).getDate();
-
-  const daysOfMonth = Array.from(
-    { length: lastDayOfMonth },
-    (_, index) => index + 1
-  );
+  useEffect(() => {
+    dispatch(getMonthPercentageThunk(`${currentYear}-${month}`));
+  }, [month, currentYear]);
 
   const goToPreviousMonth = () => {
     const previousMonth = new Date(
@@ -73,12 +75,13 @@ const Calendar = () => {
         </div>
       </TitleWrapper>
       <Ul>
-        {daysOfMonth.map(elem => (
-          <LiItem key={elem}>
-            <LiCircle>{elem}</LiCircle>
-            <ProcentageWater>100%</ProcentageWater>
-          </LiItem>
-        ))}
+        {percentagePerMonth.length > 0 &&
+          percentagePerMonth.map(elem => (
+            <LiItem key={elem.date}>
+              <LiCircle>{parseInt(elem.date)}</LiCircle>
+              <ProcentageWater>{elem.percentOfDailyNorm}%</ProcentageWater>
+            </LiItem>
+          ))}
       </Ul>
     </CalendarWrapper>
   );
