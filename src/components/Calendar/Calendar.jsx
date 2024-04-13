@@ -1,8 +1,20 @@
-import { useEffect, useState } from 'react';
-import css from './style.module.css';
+import { useState } from 'react';
+import {
+  CalendarWrapper,
+  TitleWrapper,
+  MonthText,
+  SvgIcon,
+  MonthYearText,
+  LiItem,
+  LiCircle,
+  Ul,
+  ProcentageWater,
+} from './Calendar.styled';
+
+import { icons } from '../../assets';
 
 const Calendar = () => {
-  const [todayDate, setTodayDate] = useState(new Date());
+  const [todayDate] = useState(new Date());
   const [currentDate, setCurrentDate] = useState(new Date());
   const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
   const monthName = currentDate.toLocaleString('en-US', { month: 'long' });
@@ -45,15 +57,30 @@ const Calendar = () => {
   };
 
   return (
-    <div>
-      <div className={css.wrapper_btn}>
-        <button onClick={goToPreviousMonth}>Previous</button>
-        <p>
-          {monthName} {currentYear}
-        </p>
-        <button onClick={goToNextMonth}>Next</button>
-      </div>
-    </div>
+    <CalendarWrapper>
+      <TitleWrapper>
+        <MonthText>Month</MonthText>
+        <div>
+          <SvgIcon onClick={goToPreviousMonth} width={6} height={10}>
+            <use href={`${icons}#icon-chevron-left`}></use>
+          </SvgIcon>
+          <MonthYearText>
+            {monthName}, {currentYear}
+          </MonthYearText>
+          <SvgIcon onClick={goToNextMonth} width={6} height={10}>
+            <use href={`${icons}#icon-chevron-right`}></use>
+          </SvgIcon>
+        </div>
+      </TitleWrapper>
+      <Ul>
+        {daysOfMonth.map(elem => (
+          <LiItem key={elem}>
+            <LiCircle>{elem}</LiCircle>
+            <ProcentageWater>100%</ProcentageWater>
+          </LiItem>
+        ))}
+      </Ul>
+    </CalendarWrapper>
   );
 };
 
