@@ -1,37 +1,48 @@
 import {
-  WaterConsumptionContainer,
-  WaterConsumptionTitle,
-  WaterConsumptionRecord,
-  WaterConsumptionBenefits,
-  WaterConsumptionUl,
-  WaterConsumptionLi,
+  WaterConsumption,
+  Title,
+  Record,
+  Benefits,
+  List,
+  Item,
   Icon,
   Description,
+  Button,
 } from './WaterConsumptionTracker.styled';
+import { icons } from '../../../assets';
 
 const WaterConsumptionTracker = () => {
   return (
-    <WaterConsumptionContainer>
-      <WaterConsumptionTitle>Water consumption tracker</WaterConsumptionTitle>
-      <WaterConsumptionRecord>
-        Record daily water intake and track
-      </WaterConsumptionRecord>
-      <WaterConsumptionBenefits>Tracker Benefits</WaterConsumptionBenefits>
-      <WaterConsumptionUl>
-        <WaterConsumptionLi>
-          <Icon></Icon>
+    <WaterConsumption>
+      <Title>Water consumption tracker</Title>
+      <Record>Record daily water intake and track</Record>
+      <Benefits>Tracker Benefits</Benefits>
+      <List>
+        <Item>
+          <Icon>
+            <use href={`${icons}#icon-calendar-days`}></use>
+          </Icon>
           <Description>Habit drive</Description>
-        </WaterConsumptionLi>
-        <WaterConsumptionLi>
-          <Icon></Icon>
+        </Item>
+        <Item>
+          <Icon>
+            <svg>
+              <use href={`${icons}#icon-calendar-days`}></use>
+            </svg>
+          </Icon>
           <Description>View statistics</Description>
-        </WaterConsumptionLi>
-        <WaterConsumptionLi>
-          <Icon></Icon>
+        </Item>
+        <Item>
+          <Icon>
+            <svg>
+              <use href={`${icons}#icon-calendar-days`}></use>
+            </svg>
+          </Icon>
           <Description>Personal rate setting</Description>
-        </WaterConsumptionLi>
-      </WaterConsumptionUl>
-    </WaterConsumptionContainer>
+        </Item>
+      </List>
+      <Button type="button">Try tracker</Button>
+    </WaterConsumption>
   );
 };
 

@@ -1,17 +1,47 @@
 import styled from 'styled-components';
 
-export const WaterConsumptionContainer = styled.div``;
+export const WaterConsumption = styled.div`
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+`;
 
-export const WaterConsumptionTitle = styled.h1``;
+export const Title = styled.h1`
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 32px;
 
-export const WaterConsumptionRecord = styled.h2``;
+  color: var(--primary-color-black);
+`;
 
-export const WaterConsumptionBenefits = styled.h3``;
+export const Record = styled.h2`
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 30px;
 
-export const WaterConsumptionUl = styled.ul``;
+  color: var(--primary-color-black);
+`;
 
-export const WaterConsumptionLi = styled.li``;
+export const Benefits = styled.h3`
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 20px;
 
-export const Icon = styled.svg``;
+  color: var(--primary-color-black);
+`;
+
+export const List = styled.ul``;
+
+export const Item = styled.li`
+  display: flex;
+`;
+
+export const Icon = styled.svg`
+  width: 32px;
+  height: 32px;
+  fill: var(--primary-color-blue);
+`;
 
 export const Description = styled.p``;
+
+export const Button = styled.button``;
