@@ -9,7 +9,7 @@ const initialState = {
     waterRate: null,
     gender: '',
   },
-  isLoggedIn: false,
+  isSignedIn: false,
   isRefreshing: false,
   error: null,
 };
