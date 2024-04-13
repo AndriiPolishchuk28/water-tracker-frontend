@@ -2,8 +2,9 @@ import styled from 'styled-components';
 
 export const WaterConsumption = styled.div`
   display: block;
-  margin-right: auto;
-  margin-left: auto;
+  margin: 0 auto;
+  width: 280px;
+  height: 284px;
 `;
 
 export const Title = styled.h1`
@@ -44,4 +45,16 @@ export const Icon = styled.svg`
 
 export const Description = styled.p``;
 
-export const Button = styled.button``;
+export const Button = styled.button`
+  height: 36px;
+  width: 280px;
+  background-color: var(--primary-color-blue);
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px 0px rgba(64, 123, 255, 0.34);
+  padding: 8px 30px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  color: var(--primary-color-white);
+`;
