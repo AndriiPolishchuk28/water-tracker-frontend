@@ -1,3 +1,4 @@
+import CircleImages from 'components/CircleImages/CircleImages';
 import {
   HomePageWrapper,
   DailyNormaWrapper,
@@ -9,6 +10,7 @@ import {
 const HomePage = () => {
   return (
     <HomePageWrapper>
+      <CircleImages />
       <DailyNormaWrapper imgUrl="../../assets/images/bottleImage.png">
         <MyDailyNorma> Place for my daily norma </MyDailyNorma>
         <MyDailyTracker>Place for water tracker </MyDailyTracker>
