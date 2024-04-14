@@ -1,10 +1,10 @@
-import Calendar from 'components/Calendar/Calendar';
+import TodayMonthTable from 'components/TodayMonthTable/TodayMonthTable';
 
 const HomePage = () => {
   return (
     <div>
       Home Page
-      <Calendar />
+      <TodayMonthTable />
     </div>
   );
 };

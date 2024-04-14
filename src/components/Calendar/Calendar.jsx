@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import {
-  CalendarWrapper,
   TitleWrapper,
   MonthText,
   SvgIcon,
@@ -10,6 +9,7 @@ import {
   Ul,
   ProcentageWater,
 } from './Calendar.styled';
+import PopUp from './PopUp/PopUp';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { icons } from '../../assets';
@@ -25,10 +25,12 @@ const Calendar = () => {
   const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
   const monthName = currentDate.toLocaleString('en-US', { month: 'long' });
   const month = currentDate.getMonth() + 1;
+  const [openIndex, setOpenIndex] = useState(null);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     dispatch(getMonthPercentageThunk(`${currentYear}-${month}`));
-  }, [month, currentYear]);
+  }, [month, currentYear, dispatch]);
 
   const goToPreviousMonth = () => {
     const previousMonth = new Date(
@@ -58,8 +60,17 @@ const Calendar = () => {
     }
   };
 
+  const popUpHandle = elemIndex => {
+    setIsOpen(true);
+    setOpenIndex(elemIndex);
+  };
+
+  const handleCloseClick = () => {
+    setIsOpen(false);
+  };
+
   return (
-    <CalendarWrapper>
+    <>
       <TitleWrapper>
         <MonthText>Month</MonthText>
         <div>
@@ -76,14 +87,27 @@ const Calendar = () => {
       </TitleWrapper>
       <Ul>
         {percentagePerMonth.length > 0 &&
-          percentagePerMonth.map(elem => (
-            <LiItem key={elem.date}>
-              <LiCircle>{parseInt(elem.date)}</LiCircle>
-              <ProcentageWater>{elem.percentOfDailyNorm}%</ProcentageWater>
-            </LiItem>
-          ))}
+          percentagePerMonth.map(
+            ({ dailyNorm, date, percentOfDailyNorm, recordsCount }, index) => {
+              return (
+                <LiItem onClick={() => popUpHandle(index)} key={date}>
+                  <LiCircle>{parseInt(date)}</LiCircle>
+                  <ProcentageWater>{percentOfDailyNorm}%</ProcentageWater>
+                  {openIndex === index && isOpen && (
+                    <PopUp
+                      date={date}
+                      dailyNorm={dailyNorm}
+                      percentOfDailyNorm={percentOfDailyNorm}
+                      recordsCount={recordsCount}
+                      handleCloseClick={handleCloseClick}
+                    />
+                  )}
+                </LiItem>
+              );
+            }
+          )}
       </Ul>
-    </CalendarWrapper>
+    </>
   );
 };
 

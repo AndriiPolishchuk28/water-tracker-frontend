@@ -1,10 +1,5 @@
 import styled from 'styled-components';
 
-export const CalendarWrapper = styled.div`
-  max-width: 264px;
-  margin: 0 auto;
-`;
-
 export const TitleWrapper = styled.div`
   display: flex;
   justify-content: space-between;
@@ -17,6 +12,9 @@ export const MonthText = styled.h3`
   font-size: 24px;
   line-height: 1.25;
   color: var(--primary-color-black);
+  @media screen and (min-width: 768px) {
+    font-size: 26px;
+  }
 `;
 
 export const SvgIcon = styled.svg`
@@ -39,15 +37,30 @@ export const Ul = styled.ul`
   flex-wrap: wrap;
   gap: 16px 26px;
   margin-top: 16px;
+  position: relative;
+  @media screen and (min-width: 768px) {
+    gap: 20px 34px;
+  }
+  @media screen and (min-width: 1440px) {
+    gap: 20px 22px;
+  }
 `;
 
-export const LiItem = styled.li``;
+export const LiItem = styled.li`
+  cursor: pointer;
+  @media screen and (min-width: 768px) {
+    position: relative;
+  }
+  @media screen and (min-width: 1440px) {
+    position: relative;
+  }
+`;
 
 export const LiCircle = styled.div`
   width: 32px;
   height: 32px;
   border-radius: 20px;
-  background-color: aqua;
+  background-color: var(--primary-color-white);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -56,6 +69,10 @@ export const LiCircle = styled.div`
   font-size: 14px;
   line-height: 1.28571;
   color: var(--primary-color-black);
+  @media screen and (min-width: 768px) {
+    width: 34px;
+    height: 34px;
+  }
 `;
 
 export const ProcentageWater = styled.p`
