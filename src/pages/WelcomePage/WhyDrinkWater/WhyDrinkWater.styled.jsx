@@ -7,6 +7,13 @@ export const WhyDrinkContainer = styled.div`
   background-color: var(--secondary-color-blue-1);
   border-radius: 10px;
   box-shadow: 0px 4px 14px 0px rgba(64, 123, 255, 0.3);
+  @media screen and (min-width: 768px) {
+    padding: 32px 24px;
+    max-width: 494px;
+  }
+
+  @media screen and (min-width: 1440px) {
+  }
 `;
 
 export const Title = styled.h3`

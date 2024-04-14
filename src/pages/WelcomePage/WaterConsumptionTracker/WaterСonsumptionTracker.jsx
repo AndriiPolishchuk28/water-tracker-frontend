@@ -9,10 +9,8 @@ import {
   HabitDriveIcon,
   ViewStatisticsIcon,
   PersonalSettingsIcon,
-  // Icon,
   Button,
 } from './WaterConsumptionTracker.styled';
-// import { icons } from '../../../assets';
 
 const WaterConsumptionTracker = () => {
   const navigate = useNavigate();
@@ -28,23 +26,16 @@ const WaterConsumptionTracker = () => {
       <List>
         <Item>
           <HabitDriveIcon />
-          {/* <Icon>
-            <use href={`${icons}#icon-calendar-days`}></use>
-          </Icon> */}
           <p>Habit drive</p>
         </Item>
         <Item>
           <ViewStatisticsIcon />
-          {/* <Icon>
-            <use href={`${icons}#icon-calendar-days`}></use>
-          </Icon> */}
+
           <p>View statistics</p>
         </Item>
         <Item>
           <PersonalSettingsIcon />
-          {/* <Icon>
-            <use href={`${icons}#icon-calendar-days`}></use>
-          </Icon> */}
+
           <p>Personal rate setting</p>
         </Item>
       </List>

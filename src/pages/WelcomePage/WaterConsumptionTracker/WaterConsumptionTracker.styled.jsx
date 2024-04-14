@@ -5,9 +5,17 @@ import { ReactComponent as SettingsIcon } from '../../../assets/icons/personal-r
 
 export const WaterConsumption = styled.div`
   display: block;
-  margin-right: auto;
-  margin-left: auto;
+  /* margin-right: auto;
+  margin-left: auto; */
   margin-bottom: 40px;
+
+  @media only screen and (min-width: 767px) and (max-width: 1439px) {
+    margin-bottom: 60px;
+  }
+
+  @media only screen and (min-width: 1440px) {
+    margin-bottom: 185px;
+  }
 `;
 
 export const Title = styled.h1`
@@ -17,6 +25,10 @@ export const Title = styled.h1`
   text-align: left;
   margin-bottom: 16px;
   color: var(--primary-color-black);
+  @media only screen and (min-width: 768px) {
+    font-size: 36px;
+    line-height: calc(42 / 36);
+  }
 `;
 
 export const Record = styled.h2`
@@ -26,6 +38,10 @@ export const Record = styled.h2`
   text-align: left;
   margin-bottom: 24px;
   color: var(--primary-color-black);
+  @media only screen and (min-width: 768px) {
+    font-size: 26px;
+    line-height: calc(32 / 26);
+  }
 `;
 
 export const Benefits = styled.h3`
@@ -39,6 +55,12 @@ export const Benefits = styled.h3`
 
 export const List = styled.ul`
   margin-bottom: 24px;
+
+  @media screen and (min-width: 768px) and (max-width: 1439px) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 `;
 
 export const Item = styled.li`
@@ -52,6 +74,17 @@ export const Item = styled.li`
     font-size: 18px;
     line-height: calc(20 / 16);
   }
+
+  @media screen and (max-width: 767px) {
+    &:not(:last-child) {
+      margin-bottom: 16px;
+    }
+  }
+  @media screen and (min-width: 1440px) {
+    &:not(:last-child) {
+      margin-bottom: 16px;
+    }
+  }
 `;
 
 export const HabitDriveIcon = styled(CalendarDaysIcon)``;
@@ -59,12 +92,6 @@ export const HabitDriveIcon = styled(CalendarDaysIcon)``;
 export const ViewStatisticsIcon = styled(StatisticsIcon)``;
 
 export const PersonalSettingsIcon = styled(SettingsIcon)``;
-
-// export const Icon = styled.svg`
-//   width: 32px;
-//   height: 32px;
-//   fill: var(--primary-color-blue);
-// `;
 
 export const Button = styled.button`
   display: flex;
@@ -86,5 +113,16 @@ export const Button = styled.button`
   }
   &:active {
     box-shadow: none;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 336px;
+    height: 44px;
+    line-height: calc(24 / 18);
+    font-size: 18px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 384px;
+    height: 44px;
   }
 `;
