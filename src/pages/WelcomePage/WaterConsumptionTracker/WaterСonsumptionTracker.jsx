@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import {
   WaterConsumption,
   Title,
@@ -5,13 +6,20 @@ import {
   Benefits,
   List,
   Item,
-  Icon,
-  Description,
+  HabitDriveIcon,
+  ViewStatisticsIcon,
+  PersonalSettingsIcon,
+  // Icon,
   Button,
 } from './WaterConsumptionTracker.styled';
-import { icons } from '../../../assets';
+// import { icons } from '../../../assets';
 
 const WaterConsumptionTracker = () => {
+  const navigate = useNavigate();
+
+  function TryClick() {
+    navigate('/signup');
+  }
   return (
     <WaterConsumption>
       <Title>Water consumption tracker</Title>
@@ -19,29 +27,30 @@ const WaterConsumptionTracker = () => {
       <Benefits>Tracker Benefits</Benefits>
       <List>
         <Item>
-          <Icon>
+          <HabitDriveIcon />
+          {/* <Icon>
             <use href={`${icons}#icon-calendar-days`}></use>
-          </Icon>
-          <Description>Habit drive</Description>
+          </Icon> */}
+          <p>Habit drive</p>
         </Item>
         <Item>
-          <Icon>
-            <svg>
-              <use href={`${icons}#icon-calendar-days`}></use>
-            </svg>
-          </Icon>
-          <Description>View statistics</Description>
+          <ViewStatisticsIcon />
+          {/* <Icon>
+            <use href={`${icons}#icon-calendar-days`}></use>
+          </Icon> */}
+          <p>View statistics</p>
         </Item>
         <Item>
-          <Icon>
-            <svg>
-              <use href={`${icons}#icon-calendar-days`}></use>
-            </svg>
-          </Icon>
-          <Description>Personal rate setting</Description>
+          <PersonalSettingsIcon />
+          {/* <Icon>
+            <use href={`${icons}#icon-calendar-days`}></use>
+          </Icon> */}
+          <p>Personal rate setting</p>
         </Item>
       </List>
-      <Button type="button">Try tracker</Button>
+      <Button type="button" onClick={TryClick}>
+        Try tracker
+      </Button>
     </WaterConsumption>
   );
 };
