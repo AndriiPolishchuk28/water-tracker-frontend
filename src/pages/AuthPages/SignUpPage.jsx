@@ -4,7 +4,7 @@ import { Link, Navigate } from 'react-router-dom';
 import {AuthForm} from 'components/AuthForm/AuthForm';
 import { signupUser } from '../../redux/auth/operations';
 import Container from "components/Container/Container";
-import { AuthHeder} from "./AuthPagesStyled"
+import { BgImageWrapper,AuthHeder} from "./AuthPagesStyled.js"
 
 
 
@@ -24,12 +24,11 @@ if (isSignedUp) {
     return <Navigate to="/signin"/>
 }
 
-  return( <Container>
-    
+  return( <BgImageWrapper><Container>
     <AuthHeder>Sign Up</AuthHeder>
     <AuthForm onSubmit={handleSubmit} isSignUp={true} />
     <Link to="/signin">Sign in</Link>
-  </Container>);
+  </Container></BgImageWrapper>);
 };
 
 export default SignUpPage;

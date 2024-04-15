@@ -56,6 +56,8 @@ export const AuthForm = ({ onSubmit, isSignUp }) => {
               placeholder="Repeat Password" pattern=".{8,}"
             /><SvgIcon width={16} height={16}>
             <use href={`${icons}#icon-eye-slash`}></use>
+          </SvgIcon> <SvgIcon width={16} height={16}>
+            <use href={`${icons}#icon-eye`}></use>
           </SvgIcon>
             <StyledErrorMessage name="repeatPassword" component="div" />
           </InputWrapper>
