@@ -4,6 +4,7 @@ export const WrapperContainer = styled.div`
   max-width: 280px;
   margin: 0 auto;
   padding: 0 16px;
+
   @media screen and (min-width: 768px) {
     max-width: 704px;
     padding: 0 32px;
