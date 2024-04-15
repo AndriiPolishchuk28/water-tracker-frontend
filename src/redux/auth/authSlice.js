@@ -4,16 +4,12 @@ import {signupUser, signinUser, signoutUser, RefreshUser} from './operations';
 const initialState = {
   token: null,
   user: {
-    _id: '',
-    password: '',
-    oldPassword: null,
     email: '',
     avatarURL: '',
     name: '',
     waterRate: null,
     gender: '',
   },
-  isSignedIn: false,
   isRefreshing: false,
   isLoading: false,
   isLoggedIn: false,
@@ -23,7 +19,6 @@ const initialState = {
 const authSlice = createSlice({
   name: 'auth',
   initialState,
-  reducers: {},
   extraReducers: builder =>
     builder
       .addCase(signupUser.fulfilled, (state, action) => {
