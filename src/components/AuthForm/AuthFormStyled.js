@@ -56,7 +56,9 @@ top: 70%;
   right: 10px;
   transform: translateY( -50%);
   cursor: pointer;
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `
  
 export const StyledErrorMessage = styled(ErrorMessage)`
