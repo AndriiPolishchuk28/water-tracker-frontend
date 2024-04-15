@@ -1,7 +1,7 @@
 import React from 'react';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
-import { StyledForm, InputWrapper, StaledLabel, StyledField, SvgIcon, StyledErrorMessage, Button} from './AuthFormStyled';
+import { StyledForm, InputWrapper, StaledLabel, StyledField, StyledSpan, SvgIcon, StyledErrorMessage, Button} from './AuthFormStyled';
 import { icons } from '../../assets';
 
 export const AuthForm = ({ onSubmit, isSignUp }) => {
@@ -40,10 +40,12 @@ export const AuthForm = ({ onSubmit, isSignUp }) => {
 
         <InputWrapper>
           <StaledLabel htmlFor="password">Password</StaledLabel>
-          <StyledField type="password" name="password" placeholder="Password" pattern=".{8,}"  />
+          <StyledField type="password" name="password" placeholder="Password" pattern=".{8,}"  /><StyledSpan>
           <SvgIcon width={16} height={16}>
             <use href={`${icons}#icon-eye-slash`}></use>
-          </SvgIcon>
+          </SvgIcon><SvgIcon width={16} height={16}>
+            <use href={`${icons}#icon-eye`}></use>
+          </SvgIcon></StyledSpan>
           <StyledErrorMessage name="password" component="div" />
         </InputWrapper>
 
@@ -54,11 +56,11 @@ export const AuthForm = ({ onSubmit, isSignUp }) => {
               type="password"
               name="repeatPassword"
               placeholder="Repeat Password" pattern=".{8,}"
-            /><SvgIcon width={16} height={16}>
+            /><StyledSpan><SvgIcon width={16} height={16}>
             <use href={`${icons}#icon-eye-slash`}></use>
           </SvgIcon> <SvgIcon width={16} height={16}>
             <use href={`${icons}#icon-eye`}></use>
-          </SvgIcon>
+          </SvgIcon></StyledSpan>
             <StyledErrorMessage name="repeatPassword" component="div" />
           </InputWrapper>
         )}

@@ -2,10 +2,12 @@ import styled from 'styled-components';
 import { Form, Field, ErrorMessage } from 'formik';
 
 
+
 export const StyledForm = styled(Form)`
 display: flex;
 flex-direction: column;
 gap: 16px;
+
   }
 `
 export const InputWrapper = styled.div`
@@ -49,6 +51,8 @@ background: var(--primary-color-white);
  
   }
 `
+export const StyledSpan = styled.span`
+display: none;`
 export const SvgIcon = styled.svg`
 fill: var(--primary-color-blue);
 position: absolute;

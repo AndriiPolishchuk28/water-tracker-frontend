@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { Link, Navigate } from 'react-router-dom';
+import {Navigate } from 'react-router-dom';
 import {AuthForm} from 'components/AuthForm/AuthForm';
 import { signupUser } from '../../redux/auth/operations';
 import Container from "components/Container/Container";
-import { BgImageWrapper,AuthHeder} from "./AuthPagesStyled.js"
+import { FirstBgImageWrapper, SecondBgImageWrapper,AuthHeder, StyledLink} from "./AuthPagesStyled.js"
 
 
 
@@ -24,11 +24,14 @@ if (isSignedUp) {
     return <Navigate to="/signin"/>
 }
 
-  return( <BgImageWrapper><Container>
+  return( <FirstBgImageWrapper >
+    <Container>
     <AuthHeder>Sign Up</AuthHeder>
     <AuthForm onSubmit={handleSubmit} isSignUp={true} />
-    <Link to="/signin">Sign in</Link>
-  </Container></BgImageWrapper>);
+    <StyledLink to="/signin">Sign in</StyledLink>
+    <SecondBgImageWrapper />
+  </Container></FirstBgImageWrapper >
+  );
 };
 
 export default SignUpPage;
