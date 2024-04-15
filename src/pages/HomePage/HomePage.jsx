@@ -1,4 +1,4 @@
-import CircleImages from 'components/CircleImages/CircleImages';
+import Container from 'components/Container/Container';
 import {
   HomePageWrapper,
   DailyNormaWrapper,
@@ -9,17 +9,18 @@ import {
 
 const HomePage = () => {
   return (
-    <HomePageWrapper>
-      <CircleImages />
-      <DailyNormaWrapper imgUrl="../../assets/images/bottleImage.png">
-        <MyDailyNorma> Place for my daily norma </MyDailyNorma>
-        <MyDailyTracker>Place for water tracker </MyDailyTracker>
-      </DailyNormaWrapper>
-      <TodayMonthWrapper>
-        <div>Place for Today component</div>
-        <div>Place for Calendar component</div>
-      </TodayMonthWrapper>
-    </HomePageWrapper>
+    <Container>
+      <HomePageWrapper>
+        <DailyNormaWrapper>
+          <MyDailyNorma> </MyDailyNorma>
+          <MyDailyTracker> </MyDailyTracker>
+        </DailyNormaWrapper>
+        <TodayMonthWrapper>
+          <div></div>
+          <div></div>
+        </TodayMonthWrapper>
+      </HomePageWrapper>
+    </Container>
   );
 };
 
