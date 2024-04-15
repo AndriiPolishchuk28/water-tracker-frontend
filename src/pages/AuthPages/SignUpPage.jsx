@@ -3,6 +3,8 @@ import { useDispatch } from 'react-redux';
 import { Link, Navigate } from 'react-router-dom';
 import {AuthForm} from 'components/AuthForm/AuthForm';
 import { signupUser } from '../../redux/auth/operations';
+import Container from "components/Container/Container";
+import { AuthHeder} from "./AuthPagesStyled"
 
 
 
@@ -22,11 +24,12 @@ if (isSignedUp) {
     return <Navigate to="/signin"/>
 }
 
-  return( <div>
-    <h2>Sign Up</h2>
+  return( <Container>
+    
+    <AuthHeder>Sign Up</AuthHeder>
     <AuthForm onSubmit={handleSubmit} isSignUp={true} />
     <Link to="/signin">Sign in</Link>
-  </div>);
+  </Container>);
 };
 
 export default SignUpPage;

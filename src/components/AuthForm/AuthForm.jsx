@@ -1,6 +1,8 @@
 import React from 'react';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik } from 'formik';
 import * as Yup from 'yup';
+import { StyledForm, InputWrapper, StaledLabel, StyledField, SvgIcon, StyledErrorMessage, Button} from './AuthFormStyled';
+import { icons } from '../../assets';
 
 export const AuthForm = ({ onSubmit, isSignUp }) => {
   return (
@@ -29,33 +31,38 @@ export const AuthForm = ({ onSubmit, isSignUp }) => {
         setSubmitting(false);
       }}
     >
-      <Form>
-        <div>
-          <label htmlFor="email">Enter your email</label>
-          <Field type="email" name="email" placeholder="E-mail" />
-          <ErrorMessage name="email" component="div" />
-        </div>
+      <StyledForm>
+        <InputWrapper>
+          <StaledLabel htmlFor="email">Enter your email</StaledLabel>
+          <StyledField type="email" name="email" placeholder="E-mail" />
+          <StyledErrorMessage name="email" component="div" />
+        </InputWrapper>
 
-        <div>
-          <label htmlFor="password">Password</label>
-          <Field type="password" name="password" placeholder="Password" />
-          <ErrorMessage name="password" component="div" />
-        </div>
+        <InputWrapper>
+          <StaledLabel htmlFor="password">Password</StaledLabel>
+          <StyledField type="password" name="password" placeholder="Password" pattern=".{8,}"  />
+          <SvgIcon width={16} height={16}>
+            <use href={`${icons}#icon-eye-slash`}></use>
+          </SvgIcon>
+          <StyledErrorMessage name="password" component="div" />
+        </InputWrapper>
 
         {isSignUp && ( 
-          <div>
-            <label htmlFor="repeatPassword">Repeat Password</label>
-            <Field
+          <InputWrapper>
+            <StaledLabel htmlFor="repeatPassword">Repeat Password</StaledLabel>
+            <StyledField
               type="password"
               name="repeatPassword"
-              placeholder="Repeat Password"
-            />
-            <ErrorMessage name="repeatPassword" component="div" />
-          </div>
+              placeholder="Repeat Password" pattern=".{8,}"
+            /><SvgIcon width={16} height={16}>
+            <use href={`${icons}#icon-eye-slash`}></use>
+          </SvgIcon>
+            <StyledErrorMessage name="repeatPassword" component="div" />
+          </InputWrapper>
         )}
 
-        <button type="submit">{isSignUp ? 'Sign up' : 'Sign in'}</button>
-      </Form>
+        <Button type="submit">{isSignUp ? 'Sign up' : 'Sign in'}</Button>
+      </StyledForm>
     </Formik>
   );
 };
