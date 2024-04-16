@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Modal = styled.div`
+export const ModalWrap = styled.div`
   height: 100vh;
   width: 100vw;
   background-color: rgba(0, 0, 0, 0.4);

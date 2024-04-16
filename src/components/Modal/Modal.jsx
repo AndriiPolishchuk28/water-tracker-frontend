@@ -1,22 +1,31 @@
-import React from 'react';
-// import { ModalContent } from './Modal.styled';
-import './Modal.css';
+import React, { useEffect } from 'react';
+import { ModalContent, ModalWrap } from './Modal.styled';
 
 const Modal = ({ modalActive, setModalActive, children }) => {
+
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.keyCode === 27) {
+        setModalActive(false);
+      }
+    };
+
+    if (modalActive) {
+      window.addEventListener('keydown', handleKeyDown);
+    }
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [modalActive, setModalActive]);
+
   return (
-    <div className={modalActive ? 'modal active' : 'modal'} onClick={() => setModalActive(false)}>
-      <div className={modalActive ? 'modal_content active' : 'modal_content'} onClick={e => e.stopPropagation()}>
+    <ModalWrap className={modalActive ? 'modal active' : 'modal'} onClick={() => setModalActive(false)}>
+      <ModalContent className={modalActive ? 'modal_content active' : 'modal_content'} onClick={e => e.stopPropagation()}>
         {children}
-      </div>
-    </div>
-  )
-  // return (
-  //   <Modal className={modalActive ? 'modal active' : 'modal'} onClick={() => setModalActive(false)}>
-  //     <ModalContent className={modalActive ? 'modal_content active' : 'modal_content'} onClick={e => e.stopPropagation()}>
-  //       {children}
-  //     </ModalContent>
-  //   </Modal>
-  // );
+      </ModalContent>
+    </ModalWrap>
+  );
 }
 
 export default Modal;
