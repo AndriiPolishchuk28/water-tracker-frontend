@@ -1,3 +1,4 @@
+import { Backdrop } from '@mui/material';
 import styled from 'styled-components';
 
 export const HeaderAvatar = styled.img`
@@ -5,11 +6,20 @@ export const HeaderAvatar = styled.img`
   height: 28px;
   border-radius: 50%;
   margin-right: 4px;
-  background-color: blue;
+  background-color: transparent;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 `;
 
-export const ModalLogo = styled.div`
-  position: relative;
+export const UserInitial = styled.div`
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  margin-right: 4px;
+  background-color: var(--secondary-color-blue-2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--secondary-color-blue-1);
 `;
 
 export const UserLogoBtn = styled.button`
@@ -43,6 +53,7 @@ export const ActionsContainer = styled.div`
   top: 48px;
   left: 182px;
   background-color: var(--primary-color-white);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 
   @media screen and (min-width: 768px) {
     top: 56px;
@@ -78,4 +89,8 @@ export const IconBtnStyle = styled.button`
   background-color: transparent;
   border: none;
   cursor: pointer;
+`;
+
+export const BackdropModal = styled(Backdrop)`
+  background-color: rgba(0, 0, 0, 0);
 `;
