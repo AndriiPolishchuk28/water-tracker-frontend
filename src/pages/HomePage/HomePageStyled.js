@@ -5,14 +5,15 @@ export const HomePageWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 40px;
+  background-color: var(--primary-color-white);
+  margin: 0 auto;
 
   @media screen and (min-width: 768px) {
   }
 
   @media screen and (min-width: 1440px) {
     max-width: 1440px;
-    margin: 0 auto;
-    background-color: #ffffff;
+
     padding: 20px 0 40px;
     display: flex;
     flex-direction: row;
@@ -50,7 +51,7 @@ export const DailyNormaWrapper = styled.div`
 
 export const MyDailyNorma = styled.div`
   box-shadow: 0px 4px 8px 0px RGBA(158, 187, 255, 0.12);
-  border: 1px solid #ecf2ff;
+  border: 1px solid var(--secondary-color-blue-1);
   width: 164px;
   height: 74px;
   padding: 8px 20px;
@@ -82,7 +83,7 @@ export const TodayMonthWrapper = styled.div`
   border-radius: 10px;
   width: 100%;
   padding: 24px 8px;
-  background-color: #ecf2ff;
+  background-color: var(--secondary-color-blue-1);
   height: 836px;
 
   @media screen and (min-width: 768px) {
