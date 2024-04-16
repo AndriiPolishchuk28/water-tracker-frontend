@@ -11,14 +11,14 @@ export const BackgroundImage = styled.div`
   background-position: center bottom;
   background-repeat: no-repeat;
   margin: 0 auto;
-  padding: 24px 20px 40px 20px;
+  padding: 24px 0px 40px 0px;
 
   @media screen and (max-width: 767px) and (-webkit-min-device-pixel-ratio: 2),
     (max-width: 767px) and (min-resolution: 192dpi) {
   }
 
   @media screen and (min-width: 768px) and (max-width: 1439px) {
-    padding: 40px 32px 50px 32px;
+    padding: 40px 0px 50px 0px;
     min-height: calc(100vh - 88px);
     background-image: url(${backgroundTablet});
   }
@@ -31,7 +31,7 @@ export const BackgroundImage = styled.div`
     /* display: flex;
     flex-direction: row;
     gap: 81px;
-    align-items: flex-end; */
+    align-items: flex-end;
     padding: 49px 18px 109px 18px;
     min-height: calc(100vh - 80px);
     background-image: url(${backgroundDesktop}), url(${backgroundDecor});
