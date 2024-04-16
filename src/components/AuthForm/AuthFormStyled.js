@@ -25,9 +25,7 @@ display: flex;
 flex-direction: column;
 gap: 8px;
 position: relative;
-@media screen and (min-width: 768px) {
-  
-}
+z-index: 1;
 @media screen and (min-width: 1440px) {
   
 }
@@ -45,13 +43,12 @@ color: var(--primary-color-black);
 `
 export const StyledField = styled(Field)`
 border: 1px solid var(--secondary-color-blue-3);
-z-index: 2;
 border-radius: 6px;
 padding: 12px 10px;
 width: 280px;
 height: 44px;
 color: var(--primary-color-blue);
-background: var(--primary-color-white);
+background: var(--primary-color-white); 
 &::placeholder {
     line-height: 1.25;
     color: var(--secondary-color-blue-2);
@@ -70,7 +67,8 @@ background: var(--primary-color-white);
     color: var(--secondary-color-red);
     border-color: var(--secondary-color-red);
   }
- 
+  @media screen and (min-width: 768px) {
+    width: 336px;
   }
   @media screen and (min-width: 1440px) {
     
@@ -122,6 +120,7 @@ margin-bottom: 16px;
 
 @media screen and (min-width: 768px) {
   padding: 10px 30px;
+  width: 336px;
   height: 44px;
   font-size: 18px;
 line-height: 1.33;
