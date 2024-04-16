@@ -1,0 +1,19 @@
+import sprite from '../../../assets/icons/sprite.svg';
+import {
+  HeaderSignInLink,
+  IconUser,
+  TextHeaderSingIn,
+} from './UserAuth.styled';
+
+const UserAuth = () => {
+  return (
+    <HeaderSignInLink to="/signin">
+      <TextHeaderSingIn>Sing in</TextHeaderSingIn>
+      <IconUser>
+        <use href={`${sprite}#icon-user`} />
+      </IconUser>
+    </HeaderSignInLink>
+  );
+};
+
+export default UserAuth;

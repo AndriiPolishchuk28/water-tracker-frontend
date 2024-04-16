@@ -92,7 +92,9 @@ const Calendar = () => {
               return (
                 <LiItem onClick={() => popUpHandle(index)} key={date}>
                   <LiCircle>{parseInt(date)}</LiCircle>
-                  <ProcentageWater>{percentOfDailyNorm}%</ProcentageWater>
+                  <ProcentageWater>
+                    {percentOfDailyNorm ? percentOfDailyNorm : 0}%
+                  </ProcentageWater>
                   {openIndex === index && isOpen && (
                     <PopUp
                       date={date}
