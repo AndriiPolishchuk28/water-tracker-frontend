@@ -13,6 +13,10 @@ export const WhyDrinkContainer = styled.div`
   }
 
   @media screen and (min-width: 1440px) {
+    padding: 32px 24px;
+    max-width: 494px;
+    margin-top: 34px;
+    margin-bottom: 185px;
   }
 `;
 

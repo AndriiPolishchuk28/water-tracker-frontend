@@ -5,8 +5,6 @@ import { ReactComponent as SettingsIcon } from '../../../assets/icons/personal-r
 
 export const WaterConsumption = styled.div`
   display: block;
-  /* margin-right: auto;
-  margin-left: auto; */
   margin-bottom: 40px;
 
   @media only screen and (min-width: 767px) and (max-width: 1439px) {
@@ -99,10 +97,13 @@ export const Button = styled.button`
   align-items: center;
   gap: 15px;
   padding: 8px 30px;
+  height: 36px;
   width: 280px;
   border: none;
   border-radius: 10px;
   outline: none;
+  line-height: calc(20 / 16);
+  font-size: 16px;
   color: var(--primary-color-white);
   background-color: var(--primary-color-blue);
   box-shadow: 0px 4px 8px 0px rgba(64, 123, 255, 0.34);
