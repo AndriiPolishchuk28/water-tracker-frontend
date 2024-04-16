@@ -7,23 +7,41 @@ export const StyledForm = styled(Form)`
 display: flex;
 flex-direction: column;
 gap: 16px;
-
   }
+  @media screen and (min-width: 768px) {
+  width: 336px;
+  }
+  
+  @media screen and (min-width: 1440px) {
+    
+  }
+  
 `
 export const InputWrapper = styled.div`
 display: flex;
 flex-direction: column;
 gap: 8px;
 position: relative;
+@media screen and (min-width: 768px) {
+  
+}
+@media screen and (min-width: 1440px) {
+  
+}
+
 `
 export const StaledLabel = styled.label`
-font-weight: 400;
 font-size: 18px;
 line-height: 1.33;
 color: var(--primary-color-black);
+
+@media screen and (min-width: 1440px) {
+  
+}
+
 `
 export const StyledField = styled(Field)`
-border: var(--secondary-color-blue-3);
+border: 1px solid var(--secondary-color-blue-3);
 border-radius: 6px;
 padding: 12px 10px;
 width: 280px;
@@ -50,6 +68,10 @@ background: var(--primary-color-white);
   }
  
   }
+  @media screen and (min-width: 1440px) {
+    
+  }
+  
 `
 export const StyledSpan = styled.span`
 display: none;`
@@ -63,10 +85,16 @@ top: 70%;
   display: flex;
   justify-content: center;
   align-items: center;
+  @media screen and (min-width: 768px) {
+  
+  }
+  @media screen and (min-width: 1440px) {
+    
+  }
+  
 `
  
 export const StyledErrorMessage = styled(ErrorMessage)`
-font-weight: 400;
 font-size: 12px;
 line-height: 1.25;
 color: var(--secondary-color-red);
@@ -77,6 +105,8 @@ padding: 8px 30px;
 width: 280px;
 height: 36px;
 font-weight: 500;
+font-size: 16px;
+line-height: 1.25;
 text-align: center;
 display: flex;
   justify-content: center;
@@ -85,4 +115,15 @@ color: var(--primary-color-white);
 box-shadow: 0 4px 8px 0 rgba(64, 123, 255, 0.34);
 background: var(--primary-color-blue);
 margin-bottom: 16px;
+
+@media screen and (min-width: 768px) {
+  padding: 10px 30px;
+  height: 44px;
+  font-size: 18px;
+line-height: 1.33;
+}
+@media screen and (min-width: 1440px) {
+  
+}
+
 `
