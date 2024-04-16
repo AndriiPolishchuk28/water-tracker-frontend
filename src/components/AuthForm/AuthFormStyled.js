@@ -10,6 +10,9 @@ gap: 16px;
   }
   @media screen and (min-width: 768px) {
   width: 336px;
+  display: grid;
+grid-template-columns: repeat(4, 1fr);
+column-gap: 32px;
   }
   
   @media screen and (min-width: 1440px) {
@@ -42,6 +45,7 @@ color: var(--primary-color-black);
 `
 export const StyledField = styled(Field)`
 border: 1px solid var(--secondary-color-blue-3);
+z-index: 2;
 border-radius: 6px;
 padding: 12px 10px;
 width: 280px;
@@ -121,6 +125,7 @@ margin-bottom: 16px;
   height: 44px;
   font-size: 18px;
 line-height: 1.33;
+z-index: 2;
 }
 @media screen and (min-width: 1440px) {
   
