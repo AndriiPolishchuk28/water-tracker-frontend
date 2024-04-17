@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Form, Field, ErrorMessage } from 'formik';
 
 export const StyledForm = styled(Form)`
@@ -31,7 +31,11 @@ export const StaledLabel = styled.label`
   color: var(--primary-color-black);
 `;
 export const StyledField = styled(Field)`
-  border: 1px solid var(--secondary-color-blue-3);
+  border: 1px solid
+    ${props =>
+      props.errors && props.touched === 'true'
+        ? css`var(--secondary-color-red)`
+        : css`var(--secondary-color-blue-3)`};
   border-radius: 6px;
   padding: 12px 10px;
   width: 280px;
@@ -43,9 +47,6 @@ export const StyledField = styled(Field)`
     color: var(--secondary-color-blue-2);
   }
   &:focus {
-    border-color: var(--secondary-color-blue-1);
-  }
-  &:hover {
     border-color: var(--secondary-color-blue-1);
   }
 
