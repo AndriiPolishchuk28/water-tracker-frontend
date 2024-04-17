@@ -4,6 +4,7 @@ import WelcomePage from 'pages/WelcomePage/WelcomePage';
 import HomePage from 'pages/HomePage/HomePage';
 import ModalTest from './Modal/ModalTest';
 
+
 export const App = () => {
   return (
     <Routes>
@@ -11,6 +12,7 @@ export const App = () => {
         <Route index element={<WelcomePage />} />
         <Route path="/homepage" element={<HomePage />} />
         <Route path='/modal' element={<ModalTest />} />
+
       </Route>
     </Routes>
   );
