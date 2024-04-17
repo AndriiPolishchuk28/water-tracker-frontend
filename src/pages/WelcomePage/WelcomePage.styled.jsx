@@ -28,7 +28,7 @@ export const BackgroundImage = styled.div`
   }
 
   @media screen and (min-width: 1440px) {
-    /* display: flex;
+    // display: flex;
     flex-direction: row;
     gap: 81px;
     align-items: flex-end;
