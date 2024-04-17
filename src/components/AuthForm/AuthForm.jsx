@@ -9,7 +9,7 @@ import {
   SvgIcon,
   StyledErrorMessage,
   Button,
-  TestWrapper,
+  InputSvgWrapper,
 } from './AuthFormStyled';
 import { useState } from 'react';
 import { icons } from '../../assets';
@@ -64,7 +64,7 @@ export const AuthForm = ({ onSubmit, isSignUp }) => {
 
         <InputWrapper>
           <StaledLabel htmlFor="password">Password</StaledLabel>
-          <TestWrapper>
+          <InputSvgWrapper>
             <StyledField
               type={lookPassword ? 'text' : 'password'}
               name="password"
@@ -76,7 +76,7 @@ export const AuthForm = ({ onSubmit, isSignUp }) => {
                 ? 'Hide' && <use href={`${icons}#icon-eye`}></use>
                 : 'Show' && <use href={`${icons}#icon-eye-slash`}></use>}
             </SvgIcon>
-          </TestWrapper>
+          </InputSvgWrapper>
 
           <StyledErrorMessage name="password" component="div" />
         </InputWrapper>
@@ -84,17 +84,20 @@ export const AuthForm = ({ onSubmit, isSignUp }) => {
         {isSignUp && (
           <InputWrapper>
             <StaledLabel htmlFor="repeatPassword">Repeat Password</StaledLabel>
-            <StyledField
-              type={lookRepeatPassword ? 'text' : 'password'}
-              name="repeatPassword"
-              placeholder="Repeat Password"
-              pattern=".{8,}"
-            />
-            <SvgIcon type="button" onClick={passwordRepeatVisibile}>
-              {lookRepeatPassword
-                ? 'Hide' && <use href={`${icons}#icon-eye`}></use>
-                : 'Show' && <use href={`${icons}#icon-eye-slash`}></use>}
-            </SvgIcon>
+            <InputSvgWrapper>
+              <StyledField
+                type={lookRepeatPassword ? 'text' : 'password'}
+                name="repeatPassword"
+                placeholder="Repeat Password"
+                pattern=".{8,}"
+              />
+              <SvgIcon type="button" onClick={passwordRepeatVisibile}>
+                {lookRepeatPassword
+                  ? 'Hide' && <use href={`${icons}#icon-eye`}></use>
+                  : 'Show' && <use href={`${icons}#icon-eye-slash`}></use>}
+              </SvgIcon>
+            </InputSvgWrapper>
+
             <StyledErrorMessage name="repeatPassword" component="div" />
           </InputWrapper>
         )}

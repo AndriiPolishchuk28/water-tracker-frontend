@@ -36,7 +36,7 @@ const SignUpPage = () => {
           <AuthForm onSubmit={handleSubmit} isSignUp={true} />
           <StyledLink to="/signin">Sign in</StyledLink>
         </PageWrapper>
-        {/* <SecondBgImageWrapper /> */}
+        <SecondBgImageWrapper />
       </Container>
     </FirstBgImageWrapper>
   );

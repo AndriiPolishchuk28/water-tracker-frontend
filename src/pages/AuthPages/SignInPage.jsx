@@ -9,6 +9,7 @@ import {
   StyledLink,
   FirstBgImageWrapper,
   SecondBgImageWrapper,
+  PageWrapper,
 } from './AuthPagesStyled';
 
 const SignInPage = () => {
@@ -30,10 +31,12 @@ const SignInPage = () => {
   return (
     <FirstBgImageWrapper>
       <WrapperContainer>
-        <AuthHeder>Sign in</AuthHeder>
-        <AuthForm onSubmit={handleSubmit} />
-        <StyledLink to="/signup">Sign up</StyledLink>
-        {/* <SecondBgImageWrapper /> */}
+        <PageWrapper>
+          <AuthHeder>Sign In</AuthHeder>
+          <AuthForm onSubmit={handleSubmit} />
+          <StyledLink to="/signup">Sign up</StyledLink>
+        </PageWrapper>
+        <SecondBgImageWrapper />
       </WrapperContainer>
     </FirstBgImageWrapper>
   );
