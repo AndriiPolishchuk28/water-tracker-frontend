@@ -10,6 +10,7 @@ import {
   UserLogoBtn,
 } from '../UserLogoModal/UserLogoModal.styled';
 import sprite from '../../../assets/icons/sprite.svg';
+
 import { useState } from 'react';
 import { Dialog } from '@mui/material';
 import { useSelector } from 'react-redux';
@@ -26,7 +27,6 @@ const UserLogoModal = () => {
   };
 
   const { name, email, avatarURL } = useSelector(selectAuthUserData);
-
 
   const displayName = name || (email && email.split('@')[0]);
   const displayAvatar = avatarURL || (email && email.charAt(0).toUpperCase());
@@ -74,8 +74,8 @@ const UserLogoModal = () => {
             </IconBtnStyle>
           </ActionsContainer>
         </Dialog>
-      </>
     </>
+   </>
   );
 };
 

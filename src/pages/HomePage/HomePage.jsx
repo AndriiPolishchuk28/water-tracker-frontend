@@ -1,11 +1,26 @@
-import TodayMonthTable from 'components/TodayMonthTable/TodayMonthTable';
+import Container from 'components/Container/Container';
+import {
+  HomePageWrapper,
+  DailyNormaWrapper,
+  MyDailyNorma,
+  MyDailyTracker,
+  TodayMonthWrapper,
+} from './HomePageStyled';
+import Calendar from 'components/Calendar/Calendar';
 
 const HomePage = () => {
   return (
-    <div>
-      Home Page
-      <TodayMonthTable />
-    </div>
+    <Container>
+      <HomePageWrapper>
+        <DailyNormaWrapper>
+          <MyDailyNorma> </MyDailyNorma>
+          <MyDailyTracker> </MyDailyTracker>
+        </DailyNormaWrapper>
+        <TodayMonthWrapper>
+          <Calendar />
+        </TodayMonthWrapper>
+      </HomePageWrapper>
+    </Container>
   );
 };
 
