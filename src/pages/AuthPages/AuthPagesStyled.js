@@ -19,9 +19,6 @@ font-size: 26px;
 line-height: 1,23;
 color: var(--primary-color-black);
 margin-bottom: 16px;
-@media screen and (min-width: 1440px) {
-
-}
 `
 export const PageWrapper = styled.div`
 width: 100%;
@@ -103,13 +100,8 @@ z-index: 1;
    
    `
    export const StyledLink = styled(Link)`
-z-index: 2;
+z-index: 9999;
 font-size: 16px;
 line-height: 1.25;
 color: var(--primary-color-blue);
-@media screen and (min-width: 768px){
-z-index: 2;
-}
-@media screen and (min-width: 1440px) {
-  
-}`
+`

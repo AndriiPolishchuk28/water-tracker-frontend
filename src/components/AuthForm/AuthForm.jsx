@@ -1,10 +1,20 @@
 import React from 'react';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
-import { StyledForm, InputWrapper, StaledLabel, StyledField, StyledSpan, SvgIcon, StyledErrorMessage, Button} from './AuthFormStyled';
+import { StyledForm, InputWrapper, StaledLabel, StyledField, SvgIcon, StyledErrorMessage, Button} from './AuthFormStyled';
+import { useState } from 'react';
 import { icons } from '../../assets';
 
 export const AuthForm = ({ onSubmit, isSignUp }) => {
+  const [lookPassword, setLookPassword] = useState(false);
+  const [lookRepeatPassword, seLookRepeatPassword] = useState(false);
+
+  const passwordVisibile = () => {
+    setLookPassword((prevLookPassword) => !prevLookPassword);
+  };
+  const passwordRepeatVisibile = () => {
+    seLookRepeatPassword((prevLookPassword) => !prevLookPassword);
+  };
   return (
     <Formik
       initialValues={{
@@ -40,12 +50,10 @@ export const AuthForm = ({ onSubmit, isSignUp }) => {
 
         <InputWrapper>
           <StaledLabel htmlFor="password">Password</StaledLabel>
-          <StyledField type="password" name="password" placeholder="Password" pattern=".{8,}"  /><StyledSpan>
-          <SvgIcon width={16} height={16}>
-            <use href={`${icons}#icon-eye-slash`}></use>
-          </SvgIcon><SvgIcon width={16} height={16}>
-            <use href={`${icons}#icon-eye`}></use>
-          </SvgIcon></StyledSpan>
+          <StyledField type={lookPassword ? 'text' : 'password'} name="password" placeholder="Password" pattern=".{8,}"  />
+          <SvgIcon type="button" onClick={passwordVisibile}>
+            {lookPassword ? 'Hide' && <use href={`${icons}#icon-eye`}></use> : 'Show' && <use href={`${icons}#icon-eye-slash`}></use>}
+          </SvgIcon>
           <StyledErrorMessage name="password" component="div" />
         </InputWrapper>
 
@@ -53,14 +61,13 @@ export const AuthForm = ({ onSubmit, isSignUp }) => {
           <InputWrapper>
             <StaledLabel htmlFor="repeatPassword">Repeat Password</StaledLabel>
             <StyledField
-              type="password"
+              type={lookRepeatPassword ? 'text' : 'password'}
               name="repeatPassword"
               placeholder="Repeat Password" pattern=".{8,}"
-            /><StyledSpan><SvgIcon width={16} height={16}>
-            <use href={`${icons}#icon-eye-slash`}></use>
-          </SvgIcon> <SvgIcon width={16} height={16}>
-            <use href={`${icons}#icon-eye`}></use>
-          </SvgIcon></StyledSpan>
+            />
+            <SvgIcon type="button" onClick={passwordRepeatVisibile}>
+            {lookRepeatPassword ? 'Hide' && <use href={`${icons}#icon-eye`}></use> : 'Show' && <use href={`${icons}#icon-eye-slash`}></use>}
+          </SvgIcon>
             <StyledErrorMessage name="repeatPassword" component="div" />
           </InputWrapper>
         )}

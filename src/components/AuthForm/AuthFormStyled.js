@@ -14,6 +14,7 @@ gap: 16px;
   }
   
   @media screen and (min-width: 1440px) {
+    width: 384px;
   }
   
 `
@@ -32,10 +33,6 @@ export const StaledLabel = styled.label`
 font-size: 18px;
 line-height: 1.33;
 color: var(--primary-color-black);
-
-@media screen and (min-width: 1440px) {
-  
-}
 
 `
 export const StyledField = styled(Field)`
@@ -68,29 +65,31 @@ background: var(--primary-color-white);
     width: 336px;
   }
   @media screen and (min-width: 1440px) {
-    
+    width: 384px;
   }
   
 `
 export const StyledSpan = styled.span`
 display: none;`
+
+
 export const SvgIcon = styled.svg`
 fill: var(--primary-color-blue);
+width: 16px;
+  height: 16px;
 position: absolute;
-top: 70%;
-  right: 10px;
-  transform: translateY( -50%);
+top: 60%;
+  right: 14px;
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
   @media screen and (min-width: 768px) {
-  
+left: 310px;
   }
-  @media screen and (min-width: 1440px) {
-    
+  @media screen and (min-width: 1440px){
+    left: 355px;
   }
-  
 `
  
 export const StyledErrorMessage = styled(ErrorMessage)`
@@ -124,7 +123,7 @@ line-height: 1.33;
 z-index: 2;
 }
 @media screen and (min-width: 1440px) {
-  
+  width: 384px;
 }
 
 `
