@@ -1,3 +1,4 @@
+
 import Container from 'components/Container/Container';
 import {
   HomePageWrapper,
@@ -21,6 +22,7 @@ const HomePage = () => {
         </TodayMonthWrapper>
       </HomePageWrapper>
     </Container>
+
   );
 };
 
