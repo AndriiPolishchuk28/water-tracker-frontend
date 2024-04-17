@@ -9,7 +9,7 @@ import {
   TextUserLogoModal,
   UserLogoBtn,
 } from './UserLogoModal.styled';
-import {  Dialog } from '@mui/material';
+import { Dialog } from '@mui/material';
 import { useState } from 'react';
 
 const UserLogoModal = () => {
@@ -57,8 +57,6 @@ const UserLogoModal = () => {
           </IconBtnStyle>
         </ActionsContainer>
       </Dialog>
-
-      
     </>
   );
 };

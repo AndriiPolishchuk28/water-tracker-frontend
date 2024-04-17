@@ -2,8 +2,8 @@ import { Route, Routes } from 'react-router-dom';
 import SharedLayout from './SharedLayout/SharedLayout';
 import WelcomePage from 'pages/WelcomePage/WelcomePage';
 import HomePage from 'pages/HomePage/HomePage';
-import SignUpPage from 'pages/AuthPages/SignUpPage';
-import SignInPage from 'pages/AuthPages/SignInPage';
+import ModalTest from './Modal/ModalTest';
+
 
 export const App = () => {
   return (
@@ -11,8 +11,8 @@ export const App = () => {
       <Route path="/" element={<SharedLayout />}>
         <Route index element={<WelcomePage />} />
         <Route path="/homepage" element={<HomePage />} />
-        <Route path="/signup" element={<SignUpPage />} />
-        <Route path="/signin" element={<SignInPage />} />
+        <Route path='/modal' element={<ModalTest />} />
+
       </Route>
     </Routes>
   );
