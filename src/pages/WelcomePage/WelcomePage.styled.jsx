@@ -11,14 +11,19 @@ export const BackgroundImage = styled.div`
   background-position: center bottom;
   background-repeat: no-repeat;
   margin: 0 auto;
-  padding: 24px 0px 40px 0px;
+  min-height: calc(100vh - 80px);
+  padding: 24px 0px 0px 0px;
+  overflow: hidden;
+  &::-webkit-scrollbar {
+    width: 0;
+  }
 
   @media screen and (max-width: 767px) and (-webkit-min-device-pixel-ratio: 2),
     (max-width: 767px) and (min-resolution: 192dpi) {
   }
 
   @media screen and (min-width: 768px) and (max-width: 1439px) {
-    padding: 40px 0px 50px 0px;
+    padding: 40px 0px 0px 0px;
     min-height: calc(100vh - 88px);
     background-image: url(${backgroundTablet});
   }
@@ -28,11 +33,10 @@ export const BackgroundImage = styled.div`
   }
 
   @media screen and (min-width: 1440px) {
-    // display: flex;
     flex-direction: row;
     gap: 81px;
     align-items: flex-end;
-    padding: 49px 18px 109px 18px;
+    padding: 49px 0px 0px 0px;
     min-height: calc(100vh - 80px);
     background-image: url(${backgroundDesktop}), url(${backgroundDecor});
   }

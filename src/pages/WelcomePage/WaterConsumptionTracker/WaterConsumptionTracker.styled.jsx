@@ -16,7 +16,6 @@ export const WaterConsumption = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-}
   }
 `;
 
@@ -106,6 +105,7 @@ export const Button = styled.button`
   border: none;
   border-radius: 10px;
   outline: none;
+  font-family: Roboto, sans-serif;
   line-height: calc(20 / 16);
   font-size: 16px;
   color: var(--primary-color-white);
