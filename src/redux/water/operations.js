@@ -4,7 +4,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 axios.defaults.baseURL = 'https://watertracker-backand-codekartel.onrender.com';
 
 const token =
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MWJhZmRlY2U3NmYyMzhkOGNhZTMyZCIsImlhdCI6MTcxMzMxNDAzNSwiZXhwIjoxNzEzMzk2ODM1fQ.PGljsDK-LNMhiRN54EvnfV_gDF4nZ1SbJrI6ZQwgDts';
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MWZhOTc4NDRjZjc2NThiM2NhMTk0NyIsImlhdCI6MTcxMzM1MTA0MSwiZXhwIjoxNzEzNDMzODQxfQ.tPBqWbD4OVO73plDndGJRlzSEO7_CWKPupZfKGu7t-0';
 axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 
 const getMonthPercentage = async date => {
