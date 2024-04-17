@@ -1,7 +1,16 @@
 import React from 'react';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
-import { StyledForm, InputWrapper, StaledLabel, StyledField, SvgIcon, StyledErrorMessage, Button} from './AuthFormStyled';
+import {
+  StyledForm,
+  InputWrapper,
+  StaledLabel,
+  StyledField,
+  SvgIcon,
+  StyledErrorMessage,
+  Button,
+  TestWrapper,
+} from './AuthFormStyled';
 import { useState } from 'react';
 import { icons } from '../../assets';
 
@@ -10,17 +19,17 @@ export const AuthForm = ({ onSubmit, isSignUp }) => {
   const [lookRepeatPassword, seLookRepeatPassword] = useState(false);
 
   const passwordVisibile = () => {
-    setLookPassword((prevLookPassword) => !prevLookPassword);
+    setLookPassword(prevLookPassword => !prevLookPassword);
   };
   const passwordRepeatVisibile = () => {
-    seLookRepeatPassword((prevLookPassword) => !prevLookPassword);
+    seLookRepeatPassword(prevLookPassword => !prevLookPassword);
   };
   return (
     <Formik
       initialValues={{
         email: '',
         password: '',
-        repeatPassword: '', 
+        repeatPassword: '',
       }}
       validationSchema={Yup.object({
         email: Yup.string()
@@ -33,7 +42,7 @@ export const AuthForm = ({ onSubmit, isSignUp }) => {
           ? Yup.string()
               .oneOf([Yup.ref('password'), null], 'Passwords must match')
               .required('Please repeat your password')
-          :  Yup.string(), 
+          : Yup.string(),
       })}
       onSubmit={(values, { setSubmitting }) => {
         const { email, password } = values;
@@ -44,30 +53,48 @@ export const AuthForm = ({ onSubmit, isSignUp }) => {
       <StyledForm>
         <InputWrapper>
           <StaledLabel htmlFor="email">Enter your email</StaledLabel>
-          <StyledField type="email" name="email" placeholder="E-mail" />
+          <StyledField
+            type="email"
+            id="email"
+            name="email"
+            placeholder="E-mail"
+          />
           <StyledErrorMessage name="email" component="div" />
         </InputWrapper>
 
         <InputWrapper>
           <StaledLabel htmlFor="password">Password</StaledLabel>
-          <StyledField type={lookPassword ? 'text' : 'password'} name="password" placeholder="Password" pattern=".{8,}"  />
-          <SvgIcon type="button" onClick={passwordVisibile}>
-            {lookPassword ? 'Hide' && <use href={`${icons}#icon-eye`}></use> : 'Show' && <use href={`${icons}#icon-eye-slash`}></use>}
-          </SvgIcon>
+          <TestWrapper>
+            <StyledField
+              type={lookPassword ? 'text' : 'password'}
+              name="password"
+              placeholder="Password"
+              pattern=".{8,}"
+            />
+            <SvgIcon type="button" onClick={passwordVisibile}>
+              {lookPassword
+                ? 'Hide' && <use href={`${icons}#icon-eye`}></use>
+                : 'Show' && <use href={`${icons}#icon-eye-slash`}></use>}
+            </SvgIcon>
+          </TestWrapper>
+
           <StyledErrorMessage name="password" component="div" />
         </InputWrapper>
 
-        {isSignUp && ( 
+        {isSignUp && (
           <InputWrapper>
             <StaledLabel htmlFor="repeatPassword">Repeat Password</StaledLabel>
             <StyledField
               type={lookRepeatPassword ? 'text' : 'password'}
               name="repeatPassword"
-              placeholder="Repeat Password" pattern=".{8,}"
+              placeholder="Repeat Password"
+              pattern=".{8,}"
             />
             <SvgIcon type="button" onClick={passwordRepeatVisibile}>
-            {lookRepeatPassword ? 'Hide' && <use href={`${icons}#icon-eye`}></use> : 'Show' && <use href={`${icons}#icon-eye-slash`}></use>}
-          </SvgIcon>
+              {lookRepeatPassword
+                ? 'Hide' && <use href={`${icons}#icon-eye`}></use>
+                : 'Show' && <use href={`${icons}#icon-eye-slash`}></use>}
+            </SvgIcon>
             <StyledErrorMessage name="repeatPassword" component="div" />
           </InputWrapper>
         )}
