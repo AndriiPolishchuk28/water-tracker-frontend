@@ -13,6 +13,10 @@ export const WaterConsumption = styled.div`
 
   @media only screen and (min-width: 1440px) {
     margin-bottom: 185px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
   }
 `;
 
