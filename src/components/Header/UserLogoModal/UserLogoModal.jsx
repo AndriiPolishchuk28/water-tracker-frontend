@@ -17,6 +17,7 @@ import { selectAuthUserData } from '../../../redux/auth/selectors';
 
 const UserLogoModal = () => {
   const [open, setOpen] = useState(false);
+
   const handleOpen = () => {
     setOpen(true);
   };
@@ -25,6 +26,7 @@ const UserLogoModal = () => {
   };
 
   const { name, email, avatarURL } = useSelector(selectAuthUserData);
+
 
   const displayName = name || (email && email.split('@')[0]);
   const displayAvatar = avatarURL || (email && email.charAt(0).toUpperCase());
@@ -46,6 +48,7 @@ const UserLogoModal = () => {
           <use href={`${sprite}#icon-chevron-double-up`} />
         </ArrowHeader>
       </UserLogoBtn>
+
       <>
         <Dialog
           open={open}
