@@ -1,4 +1,3 @@
-
 import Container from 'components/Container/Container';
 import {
   HomePageWrapper,
@@ -7,6 +6,7 @@ import {
   MyDailyTracker,
   TodayMonthWrapper,
 } from './HomePageStyled';
+import Calendar from 'components/Calendar/Calendar';
 
 const HomePage = () => {
   return (
@@ -17,12 +17,10 @@ const HomePage = () => {
           <MyDailyTracker> </MyDailyTracker>
         </DailyNormaWrapper>
         <TodayMonthWrapper>
-          <div></div>
-          <div></div>
+          <Calendar />
         </TodayMonthWrapper>
       </HomePageWrapper>
     </Container>
-
   );
 };
 
