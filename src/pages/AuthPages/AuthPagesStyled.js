@@ -20,9 +20,17 @@ line-height: 1,23;
 color: var(--primary-color-black);
 margin-bottom: 16px;
 @media screen and (min-width: 1440px) {
-  text-align: left;
+
 }
 `
+export const PageWrapper = styled.div`
+width: 100%;
+@media screen and (min-width: 1440px) {
+   
+   padding-top: 148px;
+   padding-left: 738px;
+}
+ `
 
 export const FirstBgImageWrapper = styled.div`
    position: relative;
@@ -41,19 +49,22 @@ export const FirstBgImageWrapper = styled.div`
 background-position: right 0px top -97px;
 background-size: cover;
 
+
   @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi) {
     background-image: url(${tabSignupBgRetina});
     
  }
  @media screen and (min-width: 1440px) {
    background-image: url(${deskSignupBg});
-   background-position:  right 8px;
-
+   background-position:  top 0px left 0px;
+   background-size: contain;
+  
   
    
 
    @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi) {
       background-image: url(${deskSignupBgRetina});
+      
  }
  `
 
@@ -61,8 +72,8 @@ background-size: cover;
    background-image: url(${bottleBg});
    width: 280px;
    height: 210px;
-   bottom: 40px;
-   background-position: bottom 20px right 0px;
+   bottom: 60px;
+   background-position: bottom: 20px right 0px;
    position: absolute;
    background-repeat: no-repeat;
    background-size: contain;
@@ -73,8 +84,8 @@ background-size: cover;
       background-image: url(${tabBottleBg});
       width: 736px;
    height: 548px;
-   background-position: bottom 40px right 5px;
-
+   background-position: bottom 20px right 5px;
+z-index: 1;
       @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi) {
          background-image: url(${tabBottleBgRetina});
    }
@@ -82,7 +93,9 @@ background-size: cover;
       background-image: url(${deskBottleBg});
       width: 916px;
       height: 680px;
-      background-position: left 50px bottom 40px;
+      background-position: bottom 20px right 60px;
+      top: 55px;
+      left: 0px;
 
       @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi) {
          background-image: url(${deskBottleBgRetina});
@@ -95,7 +108,7 @@ font-size: 16px;
 line-height: 1.25;
 color: var(--primary-color-blue);
 @media screen and (min-width: 768px){
-
+z-index: 2;
 }
 @media screen and (min-width: 1440px) {
   

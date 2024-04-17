@@ -4,7 +4,7 @@ import {Navigate } from 'react-router-dom';
 import {AuthForm} from 'components/AuthForm/AuthForm';
 import { signupUser } from '../../redux/auth/operations';
 import Container from "components/Container/Container";
-import { FirstBgImageWrapper, SecondBgImageWrapper,AuthHeder, StyledLink} from "./AuthPagesStyled.js"
+import { FirstBgImageWrapper,PageWrapper, SecondBgImageWrapper,AuthHeder, StyledLink} from "./AuthPagesStyled.js"
 
 
 
@@ -25,10 +25,10 @@ if (isSignedUp) {
 }
 
   return( <FirstBgImageWrapper >
-    <Container>
+    <Container><PageWrapper>
     <AuthHeder>Sign Up</AuthHeder>
     <AuthForm onSubmit={handleSubmit} isSignUp={true} />
-    <StyledLink to="/signin">Sign in</StyledLink>
+    <StyledLink to="/signin">Sign in</StyledLink></PageWrapper>
     <SecondBgImageWrapper />
   </Container></FirstBgImageWrapper >
   );

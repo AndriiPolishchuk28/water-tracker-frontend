@@ -10,13 +10,10 @@ gap: 16px;
   }
   @media screen and (min-width: 768px) {
   width: 336px;
-  display: grid;
-grid-template-columns: repeat(4, 1fr);
-column-gap: 32px;
+  
   }
   
   @media screen and (min-width: 1440px) {
-    
   }
   
 `
