@@ -73,12 +73,14 @@ export const SvgIcon = styled.svg`
   width: 16px;
   height: 16px;
   position: absolute;
-  top: 60%;
+  // top: 60%;
   right: 14px;
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
+  top: 50%;
+  transform: translate(-50%, -50%);
   @media screen and (min-width: 768px) {
     left: 310px;
   }
@@ -122,6 +124,6 @@ export const Button = styled.button`
   }
 `;
 
-export const TestWrapper = styled.div`
+export const InputSvgWrapper = styled.div`
   position: relative;
 `;

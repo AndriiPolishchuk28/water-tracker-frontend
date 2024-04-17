@@ -6,28 +6,27 @@ import bottleBg from '../../assets/images/1xmob-bottle-signup.png';
 import bottleBgRetina from '../../assets/images/2xmob-bottle-signup.png';
 import tabSignupBg from '../../assets/images/1xtab-bg-signup.png';
 import tabSignupBgRetina from '../../assets/images/2xtab-bg-signup.png';
-import tabBottleBg  from "../../assets/images/1xtab-bottle-signup.png";
-import tabBottleBgRetina from "../../assets/images/2xtab-bottle-signup.png";
+import tabBottleBg from '../../assets/images/1xtab-bottle-signup.png';
+import tabBottleBgRetina from '../../assets/images/2xtab-bottle-signup.png';
 import deskSignupBg from '../../assets/images/1xdesc-bg-signup.png';
 import deskSignupBgRetina from '../../assets/images/2xdesc-bg-signup.png';
 import deskBottleBg from '../../assets/images/1xdesk-bottle-signup.png';
 import deskBottleBgRetina from '../../assets/images/2xdesk-bottle-signup.png';
 
 export const AuthHeder = styled.h2`
-font-weight: 500;
-font-size: 26px;
-line-height: 1,23;
-color: var(--primary-color-black);
-margin-bottom: 16px;
-`
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 1, 23;
+  color: var(--primary-color-black);
+  margin-bottom: 16px;
+`;
 export const PageWrapper = styled.div`
-width: 100%;
-@media screen and (min-width: 1440px) {
-   
-   padding-top: 148px;
-   padding-left: 738px;
-}
- `
+  width: 100%;
+  @media screen and (min-width: 1440px) {
+    padding-top: 148px;
+    padding-left: 738px;
+  }
+`;
 
 export const FirstBgImageWrapper = styled.div`
    position: relative;
@@ -63,9 +62,9 @@ background-size: cover;
       background-image: url(${deskSignupBgRetina});
       
  }
- `
+ `;
 
-   export const SecondBgImageWrapper = styled.div`
+export const SecondBgImageWrapper = styled.div`
    background-image: url(${bottleBg});
    width: 280px;
    height: 210px;
@@ -98,10 +97,10 @@ z-index: 1;
          background-image: url(${deskBottleBgRetina});
    }
    
-   `
-   export const StyledLink = styled(Link)`
-z-index: 9999;
-font-size: 16px;
-line-height: 1.25;
-color: var(--primary-color-blue);
-`
+   `;
+export const StyledLink = styled(Link)`
+  z-index: 9999;
+  font-size: 16px;
+  line-height: 1.25;
+  color: var(--primary-color-blue);
+`;
