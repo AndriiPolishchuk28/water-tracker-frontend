@@ -7,7 +7,7 @@ import UserAuth from './UserAuth/UserAuth';
 import UserLogoModal from './UserLogoModal/UserLogoModal';
 
 
-const Header = () => {
+  const Header = () => {
 
 
   const { isLoggedIn } = useSelector(selectAuthIsSignedIn);
@@ -22,6 +22,7 @@ const Header = () => {
         ) : (
           <UserAuth />
         )}
+       
       </HeaderContainer>
     </WrapperContainer>
   );
