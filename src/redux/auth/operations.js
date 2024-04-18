@@ -17,10 +17,10 @@ export const $authInstance = axios.create({
     'auth/signupUser',
     async (formData, thunkApi) => {
       try {
-        const { data } = await $authInstance.post('/users/signup', formData);
+        const { data } = await $authInstance.post('/users/register', formData);
       
         setToken(data.token);
-  
+        console.log(data);
         return data;
       } catch (error) {
         thunkApi.rejectWithValue(error.message);
@@ -32,9 +32,9 @@ export const $authInstance = axios.create({
     'auth/signinUser',
     async (formData, thunkApi) => {
       try {
-        const { data } = await $authInstance.post('/users/signin', formData);
+        const { data } = await $authInstance.post('/users/login', formData);
         setToken(data.token);
-  
+ 
         return data;
       } catch (error) {
         thunkApi.rejectWithValue(error.message);
@@ -46,7 +46,7 @@ export const $authInstance = axios.create({
     'auth/signoutUser',
     async (_, thunkApi) => {
       try {
-        await $authInstance.post('/users/signout');
+        await $authInstance.post('/users/logout');
         clearToken();
   
         return;
