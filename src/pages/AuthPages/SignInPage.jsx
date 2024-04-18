@@ -4,14 +4,8 @@ import { Navigate } from 'react-router-dom';
 import { AuthForm } from 'components/AuthForm/AuthForm';
 import { signinUser } from '../../redux/auth/operations';
 import { WrapperContainer } from 'components/Container/ContainerStyled';
-import {
-  AuthHeder,
-  StyledLink,
-  FirstBgImageWrapper,
-  SecondBgImageWrapper,
-  PageWrapper,
-} from './AuthPagesStyled';
-
+import {AuthHeder, StyledLink,PageWrapper,} from './AuthPagesStyled';
+import Background from 'components/Background/Background';
 const SignInPage = () => {
   const dispatch = useDispatch();
   const [isSignedIn, setIsSignedIn] = useState(false);
@@ -28,17 +22,16 @@ const SignInPage = () => {
     return <Navigate to="/homepage" />;
   }
 
-  return (
-    <FirstBgImageWrapper>
+  return (<div>
       <WrapperContainer>
         <PageWrapper>
           <AuthHeder>Sign In</AuthHeder>
           <AuthForm onSubmit={handleSubmit} />
           <StyledLink to="/signup">Sign up</StyledLink>
         </PageWrapper>
-        <SecondBgImageWrapper />
+        <Background/>
       </WrapperContainer>
-    </FirstBgImageWrapper>
+    </div>
   );
 };
 

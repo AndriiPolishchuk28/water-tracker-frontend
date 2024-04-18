@@ -3,14 +3,9 @@ import { useDispatch } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 import { AuthForm } from 'components/AuthForm/AuthForm';
 import { signupUser } from '../../redux/auth/operations';
-import Container from 'components/Container/Container';
-import {
-  FirstBgImageWrapper,
-  PageWrapper,
-  SecondBgImageWrapper,
-  AuthHeder,
-  StyledLink,
-} from './AuthPagesStyled.js';
+import Container from 'components/Container/Container'; 
+ import{ PageWrapper, AuthHeder, StyledLink } from './AuthPagesStyled.js';
+import Background from 'components/Background/Background';
 
 const SignUpPage = () => {
   const dispatch = useDispatch();
@@ -29,16 +24,14 @@ const SignUpPage = () => {
   }
 
   return (
-    <FirstBgImageWrapper>
-      <Container>
-        <PageWrapper>
-          <AuthHeder>Sign Up</AuthHeder>
-          <AuthForm onSubmit={handleSubmit} isSignUp={true} />
-          <StyledLink to="/signin">Sign in</StyledLink>
-        </PageWrapper>
-        <SecondBgImageWrapper />
-      </Container>
-    </FirstBgImageWrapper>
+<div><Background/>
+    <Container>
+    <PageWrapper>
+      <AuthHeder>Sign Up</AuthHeder>
+      <AuthForm onSubmit={handleSubmit} isSignUp={true} />
+      <StyledLink to="/signin">Sign in</StyledLink>
+    </PageWrapper>
+  </Container></div>
   );
 };
 

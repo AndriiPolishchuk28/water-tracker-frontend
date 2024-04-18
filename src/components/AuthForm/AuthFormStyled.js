@@ -21,11 +21,12 @@ export const InputWrapper = styled.div`
   flex-direction: column;
   gap: 8px;
   position: relative;
-  z-index: 1;
+  z-index: 5;
   @media screen and (min-width: 1440px) {
   }
 `;
 export const StaledLabel = styled.label`
+font-family: "Roboto", sans-serif;
   font-size: 18px;
   line-height: 1.33;
   color: var(--primary-color-black);
@@ -44,6 +45,7 @@ export const StyledField = styled(Field)`
   }
   &:focus {
     border-color: var(--secondary-color-blue-1);
+    outline: none;
   }
   &:hover {
     border-color: var(--secondary-color-blue-1);
@@ -96,6 +98,8 @@ export const StyledErrorMessage = styled(ErrorMessage)`
 `;
 export const Button = styled.button`
   border-radius: 10px;
+  position: relative;
+  z-index: 5;
   padding: 8px 30px;
   width: 280px;
   height: 36px;
@@ -110,14 +114,12 @@ export const Button = styled.button`
   box-shadow: 0 4px 8px 0 rgba(64, 123, 255, 0.34);
   background: var(--primary-color-blue);
   margin-bottom: 16px;
-
   @media screen and (min-width: 768px) {
     padding: 10px 30px;
     width: 336px;
     height: 44px;
     font-size: 18px;
     line-height: 1.33;
-    z-index: 2;
   }
   @media screen and (min-width: 1440px) {
     width: 384px;
