@@ -1,4 +1,3 @@
-import { Backdrop } from '@mui/material';
 import styled from 'styled-components';
 
 export const HeaderAvatar = styled.img`
@@ -41,28 +40,16 @@ export const ArrowHeader = styled.svg`
   fill: var(--primary-color-blue);
 `;
 
-export const ActionsContainer = styled.div`
+export const ActionsPopupContainer = styled.div`
   display: flex;
   flex-direction: column;
-  max-width: 118px;
+  width: 118px;
   height: 88px;
   border-radius: 10px;
   padding: 16px;
   gap: 16px;
-  position: fixed;
-  top: 48px;
-  left: 182px;
-  background-color: var(--primary-color-white);
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-
-  @media screen and (min-width: 768px) {
-    top: 56px;
-    left: 618px;
-  }
-  @media screen and (min-width: 1440px) {
-    top: 56px;
-    left: 1210px;
-  }
+  background-color: var(--primary-color-white);
 `;
 
 export const SvgSetting = styled.svg`
@@ -89,8 +76,4 @@ export const IconBtnStyle = styled.button`
   background-color: transparent;
   border: none;
   cursor: pointer;
-`;
-
-export const BackdropModal = styled(Backdrop)`
-  background-color: rgba(0, 0, 0, 0);
 `;
