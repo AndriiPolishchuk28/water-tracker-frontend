@@ -74,8 +74,8 @@ const UserLogoModal = () => {
             </IconBtnStyle>
           </ActionsContainer>
         </Dialog>
+      </>
     </>
-   </>
   );
 };
 

@@ -31,8 +31,8 @@ export const signinUser = createAsyncThunk(
   async (formData, thunkApi) => {
     try {
       const { data } = await $authInstance.post('/users/login', formData);
+      console.log(data);
       setToken(data.token);
-
       return data;
     } catch (error) {
       thunkApi.rejectWithValue(error.message);
@@ -54,7 +54,7 @@ export const signoutUser = createAsyncThunk(
   }
 );
 
-export const RefreshUser = createAsyncThunk(
+export const refreshUser = createAsyncThunk(
   'auth/RefreshUser',
   async (_, thunkApi) => {
     const state = thunkApi.getState();

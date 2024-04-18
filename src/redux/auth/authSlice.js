@@ -1,5 +1,5 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
-import { signupUser, signinUser, signoutUser, RefreshUser } from './operations';
+import { signupUser, signinUser, signoutUser, refreshUser } from './operations';
 
 const initialState = {
   token: null,
@@ -25,18 +25,18 @@ const authSlice = createSlice({
         state.isLoading = false;
         state.isLoggedIn = true;
         state.userData = action.payload.user;
-        state.token = action.payload.token;
+        state.token = action.payload.user.token;
       })
       .addCase(signinUser.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isLoggedIn = true;
         state.user = action.payload.user;
-        state.token = action.payload.token;
+        state.token = action.payload.user.token;
       })
-      .addCase(RefreshUser.fulfilled, (state, action) => {
+      .addCase(refreshUser.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isLoggedIn = true;
-        state.userData = action.payload;
+        state.user = action.payload.user;
         state.isRefreshing = false;
       })
       .addCase(signoutUser.fulfilled, state => {
@@ -49,24 +49,26 @@ const authSlice = createSlice({
         isAnyOf(
           signupUser.pending,
           signinUser.pending,
-          RefreshUser.pending,
+          refreshUser.pending,
           signoutUser.pending
         ),
         state => {
           state.isLoading = true;
           state.error = null;
+          state.isRefreshing = true;
         }
       )
       .addMatcher(
         isAnyOf(
           signupUser.rejected,
           signinUser.rejected,
-          RefreshUser.rejected,
+          refreshUser.rejected,
           signoutUser.rejected
         ),
         (state, action) => {
           state.isLoading = false;
           state.error = action.payload;
+          state.isRefreshing = false;
         }
       ),
 });
