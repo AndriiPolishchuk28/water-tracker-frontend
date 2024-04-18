@@ -14,6 +14,7 @@ const initialState = {
   isLoading: false,
   isLoggedIn: false,
   error: null,
+  isRegisteredSuccess: false,
 };
 
 const authSlice = createSlice({
@@ -23,9 +24,9 @@ const authSlice = createSlice({
     builder
       .addCase(signupUser.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.isLoggedIn = true;
-        state.userData = action.payload.user;
-        state.token = action.payload.user.token;
+        // state.isLoggedIn = true;
+        // state.userData = action.payload.user;
+        state.isRegisteredSuccess = true;
       })
       .addCase(signinUser.fulfilled, (state, action) => {
         state.isLoading = false;

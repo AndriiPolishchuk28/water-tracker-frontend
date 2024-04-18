@@ -1,37 +1,39 @@
-import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { AuthForm } from 'components/AuthForm/AuthForm';
 import { signupUser } from '../../redux/auth/operations';
-import Container from 'components/Container/Container'; 
- import{ PageWrapper, AuthHeder, StyledLink } from './AuthPagesStyled.js';
+import Container from 'components/Container/Container';
+import { PageWrapper, AuthHeder, StyledLink } from './AuthPagesStyled.js';
 import Background from 'components/Background/Background';
+import { successToast, errorToast } from '../../services/services';
 
 const SignUpPage = () => {
   const dispatch = useDispatch();
-  const [isSignedUp, setIsSignedUp] = useState(false);
+  const navigate = useNavigate();
+
   const handleSubmit = formData => {
     dispatch(signupUser(formData))
+      .unwrap()
       .then(() => {
-        setIsSignedUp(true);
+        successToast('Registration Successful');
+        navigate('/signin');
       })
       .catch(error => {
-        console.log(error);
+        errorToast(error);
       });
   };
-  if (isSignedUp) {
-    return <Navigate to="/signin" />;
-  }
 
   return (
-<div><Background/>
-    <Container>
-    <PageWrapper>
-      <AuthHeder>Sign Up</AuthHeder>
-      <AuthForm onSubmit={handleSubmit} isSignUp={true} />
-      <StyledLink to="/signin">Sign in</StyledLink>
-    </PageWrapper>
-  </Container></div>
+    <div>
+      <Background />
+      <Container>
+        <PageWrapper>
+          <AuthHeder>Sign Up</AuthHeder>
+          <AuthForm onSubmit={handleSubmit} isSignUp={true} />
+          <StyledLink to="/signin">Sign in</StyledLink>
+        </PageWrapper>
+      </Container>
+    </div>
   );
 };
 
