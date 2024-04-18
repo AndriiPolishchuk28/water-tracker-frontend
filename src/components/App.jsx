@@ -2,7 +2,6 @@ import { Route, Routes } from 'react-router-dom';
 import SharedLayout from './SharedLayout/SharedLayout';
 import WelcomePage from 'pages/WelcomePage/WelcomePage';
 import HomePage from 'pages/HomePage/HomePage';
-import ModalTest from './Modal/ModalTest';
 import SignInPage from 'pages/AuthPages/SignInPage';
 import SignUpPage from 'pages/AuthPages/SignUpPage';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
@@ -48,7 +47,6 @@ export const App = () => {
             </PublicRoute>
           }
         />
-        <Route path="/modal" element={<ModalTest />} />
       </Route>
     </Routes>
     // )

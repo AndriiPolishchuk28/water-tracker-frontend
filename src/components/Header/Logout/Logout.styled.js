@@ -1,16 +1,5 @@
 import styled from 'styled-components';
 
-export const ModalLogoutContaiter = styled.div`
-  position: fixed;
-  top: 80px;
-  left: 20px;
-  width: 280px;
-  height: 280px;
-  padding: 32px 24px;
-  background-color: white;
-  border-radius: 10px;
-`;
-
 export const BtnBoxDelete = styled.div`
   margin-bottom: 24px;
   display: flex;
