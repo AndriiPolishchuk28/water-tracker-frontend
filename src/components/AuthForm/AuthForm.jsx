@@ -51,8 +51,6 @@ export const AuthForm = ({ onSubmit, isSignUp }) => {
       }}
     >
       {({ errors, touched }) => {
-        console.log(errors);
-        console.log(touched);
         return (
           <StyledForm>
             <InputWrapper>

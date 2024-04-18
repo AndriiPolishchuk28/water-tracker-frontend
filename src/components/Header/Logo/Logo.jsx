@@ -9,7 +9,7 @@ export const LogoHeader = () => {
   const isLoggedIn = useSelector(selectAuthIsSignedIn);
 
   return (
-    <Link to={isLoggedIn ? '/homepage' : '/'}>
+    <Link to={isLoggedIn ? '/home' : '/'}>
       <ImgLogo srcSet={`${logo} 1x, ${logo2x} 2x`} src={logo} alt="Logo" />
     </Link>
   );

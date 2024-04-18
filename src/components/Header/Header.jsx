@@ -6,22 +6,14 @@ import { useSelector } from 'react-redux';
 import UserAuth from './UserAuth/UserAuth';
 import UserLogoModal from './UserLogoModal/UserLogoModal';
 
-
 const Header = () => {
-
-
-  const { isLoggedIn } = useSelector(selectAuthIsSignedIn);
+  const isLoggedIn = useSelector(selectAuthIsSignedIn);
 
   return (
     <WrapperContainer>
       <HeaderContainer>
         <LogoHeader />
-        {isLoggedIn ? (
-          <UserLogoModal
-          />
-        ) : (
-          <UserAuth />
-        )}
+        {isLoggedIn ? <UserLogoModal /> : <UserAuth />}
       </HeaderContainer>
     </WrapperContainer>
   );
