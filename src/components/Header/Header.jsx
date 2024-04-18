@@ -1,21 +1,30 @@
 import { LogoHeader } from './Logo/Logo';
-
 import { WrapperContainer } from 'components/Container/ContainerStyled';
-import UserAuth from './UserAuth/UserAuth';
 import { HeaderContainer } from './Header.styled';
+import { selectAuthIsSignedIn } from '../../redux/auth/selectors';
+import { useSelector } from 'react-redux';
+import UserAuth from './UserAuth/UserAuth';
 import UserLogoModal from './UserLogoModal/UserLogoModal';
 
+
 const Header = () => {
-  const { isLoggedIn } = UserAuth();
+
+
+  const { isLoggedIn } = useSelector(selectAuthIsSignedIn);
+
   return (
-    <WrapperContainer to={isLoggedIn ? '/homepage' : '/'}>
+    <WrapperContainer>
       <HeaderContainer>
         <LogoHeader />
-        {isLoggedIn ? <UserLogoModal /> : <UserAuth />}
+        {isLoggedIn ? (
+          <UserLogoModal
+          />
+        ) : (
+          <UserAuth />
+        )}
       </HeaderContainer>
     </WrapperContainer>
   );
 };
 
 export default Header;
-

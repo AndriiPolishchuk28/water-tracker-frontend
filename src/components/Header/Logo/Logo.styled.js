@@ -1,8 +1,6 @@
-import styled from 'styled-components'
-
-
+import styled from 'styled-components';
 
 export const ImgLogo = styled.img`
-width: 102;
-height: 48;
-`
+  width: 102;
+  height: 48;
+`;
