@@ -26,7 +26,7 @@ export const InputWrapper = styled.div`
   }
 `;
 export const StaledLabel = styled.label`
-font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 18px;
   line-height: 1.33;
   color: var(--primary-color-black);
@@ -98,6 +98,7 @@ export const StyledErrorMessage = styled(ErrorMessage)`
   color: var(--secondary-color-red);
 `;
 export const Button = styled.button`
+  cursor: pointer;
   border-radius: 10px;
   position: relative;
   z-index: 5;

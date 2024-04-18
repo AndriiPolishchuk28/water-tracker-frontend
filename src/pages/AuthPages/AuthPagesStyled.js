@@ -9,13 +9,16 @@ export const AuthHeder = styled.h2`
   margin-bottom: 16px;
 `;
 export const PageWrapper = styled.div`
+  padding-top: 24px;
   width: 100%;
+  @media screen and (min-width: 768px) {
+    padding-top: 40px;
+  }
   @media screen and (min-width: 1440px) {
-    padding-top: 148px;
+    padding-top: 113px;
     padding-left: 738px;
   }
 `;
-
 
 export const StyledLink = styled(Link)`
   z-index: 5;

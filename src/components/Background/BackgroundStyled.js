@@ -23,7 +23,7 @@ export const FirstBgImageWrapper = styled.div`
    left: 0px;
    display: block;
    overflow: hidden;
-   z-index: 1;
+   z-index: -1;
    background-image: url(${signupBg});
    background-repeat: no-repeat;
    background-position: center top 115px;
@@ -60,7 +60,7 @@ export const SecondBgImageWrapper = styled.div`
   content: '';
   position: fixed;
   background-image: url(${bottleBg});
-  z-index: 1;
+  z-index: -1;
   display: block;
   min-width: 100%;
   min-height: 100%;
@@ -100,5 +100,4 @@ export const SecondBgImageWrapper = styled.div`
          background-image: url(${deskBottleBgRetina});
    }
 }
-   `    
-
+   `;

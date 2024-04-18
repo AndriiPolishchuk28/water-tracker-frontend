@@ -9,8 +9,8 @@ import UserLogoModal from './UserLogoModal/UserLogoModal';
 
   const Header = () => {
 
+  const isLoggedIn = useSelector(selectAuthIsSignedIn);
 
-  const { isLoggedIn } = useSelector(selectAuthIsSignedIn);
 
   return (
     <WrapperContainer>
