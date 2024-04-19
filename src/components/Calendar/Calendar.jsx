@@ -59,9 +59,14 @@ const Calendar = () => {
     }
   };
 
+  // const testClick = () => {
+  //   dispatch(getWaterPerDayThunk());
+  // };
+
   return (
     <>
       <TitleWrapper>
+        {/* <button onClick={testClick}>UPDATE</button> */}
         <MonthText>Month</MonthText>
         <div>
           <SvgIcon onClick={goToPreviousMonth} width={6} height={10}>
@@ -78,14 +83,14 @@ const Calendar = () => {
       <Ul>
         {percentagePerMonth.length > 0 &&
           percentagePerMonth.map(
-            ({ dailyNorm, date, percentOfDailyNorm, recordsCount }, index) => {
+            ({ dailyNorm, date, percentOfWaterRate, recordsCount }) => {
               return (
                 <Popup
                   trigger={
                     <LiItem key={date}>
                       <LiCircle>{parseInt(date)}</LiCircle>
                       <ProcentageWater>
-                        {percentOfDailyNorm ? percentOfDailyNorm : 0}%
+                        {percentOfWaterRate ? percentOfWaterRate : 0}%
                       </ProcentageWater>
                     </LiItem>
                   }
@@ -100,7 +105,7 @@ const Calendar = () => {
                   <PopUpCard
                     date={date}
                     dailyNorm={dailyNorm}
-                    percentOfDailyNorm={percentOfDailyNorm}
+                    percentOfWaterRate={percentOfWaterRate}
                     recordsCount={recordsCount}
                   />
                 </Popup>
