@@ -5,21 +5,24 @@ export const DailyNormaModal = ({ onClose, waterRate }) => {
   const [gender, setGender] = useState(null);
   const [weight, setWeight] = useState(0);
   const [activityTime, setActivityTime] = useState(0);
-  const [waterIntake, setWaterIntake] = useState(2.0);
+  const [waterIntake, setWaterIntake] = useState(0);
   const [dailyNorm, setDailyNorm] = useState(waterRate);
-
-  const calculateNorm = () => {
-   
-    const norm = (weight * 30) + (activityTime * 10) + (waterIntake * 0.3);
-    return norm;
-  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const newWaterRate = calculateNorm();
-    setDailyNorm(newWaterRate); 
+    let waterIntakeValue = 0;
+    if (gender === 'For girl') {
+        waterIntakeValue = weight * 0.03 + activityTime * 0.4;
+    } else if (gender === 'For man') {
+        waterIntakeValue = weight * 0.04 + activityTime * 0.6;
+    }
+    const newWaterRate = waterIntakeValue;
+    console.log("New water rate:", newWaterRate);
     onClose(newWaterRate);
-  };
+};
+
+
+  
 
   return (
     <div >
@@ -49,7 +52,7 @@ export const DailyNormaModal = ({ onClose, waterRate }) => {
         Write down how much water you will drink:
           <input type="number" value={waterIntake} onChange={(e) => setWaterIntake(e.target.value)} />
         </label>
-        <button type="submit" onClick={() => onClose(dailyNorm)}>Save</button>
+        <button type="submit" >Save</button>
       </form>
       {dailyNorm && <p>Daily Norm: {dailyNorm}</p>}
     </div>

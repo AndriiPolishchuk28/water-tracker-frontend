@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://AndriiPolishchuk28.github.io/water-tracker-frontend/",
   "dependencies": {
+    "@mui/material": "^5.15.15",
     "@reduxjs/toolkit": "^2.2.3",
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^12.1.4",
