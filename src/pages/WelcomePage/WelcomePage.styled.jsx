@@ -11,8 +11,8 @@ export const BackgroundImage = styled.div`
   background-position: center bottom;
   background-repeat: no-repeat;
   margin: 0 auto;
-  min-height: calc(100vh - 80px);
-  padding: 24px 0px 0px 0px;
+  min-height: calc(100vh - 60px);
+  padding: 24px 0px 40px 0px;
   overflow: hidden;
   &::-webkit-scrollbar {
     width: 0;
@@ -24,7 +24,7 @@ export const BackgroundImage = styled.div`
 
   @media screen and (min-width: 768px) and (max-width: 1439px) {
     padding: 40px 0px 0px 0px;
-    min-height: calc(100vh - 88px);
+    min-height: calc(100vh - 64px);
     background-image: url(${backgroundTablet});
   }
 
@@ -37,9 +37,18 @@ export const BackgroundImage = styled.div`
     gap: 81px;
     align-items: flex-end;
     padding: 49px 0px 0px 0px;
-    min-height: calc(100vh - 80px);
-    background-image: url(${backgroundDesktop}), url(${backgroundDecor});
+    // min-height: calc(100vh - 80px);
+    background-image: url(${backgroundDesktop});
+    // background-image: url(${backgroundDesktop}), url(${backgroundDecor});
   }
+`;
+
+export const Bg2 = styled.div`
+  background-size: cover;
+  background-size: 100%;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-image: url(${backgroundDecor});
 `;
 
 export const DesktopCover = styled.div`
