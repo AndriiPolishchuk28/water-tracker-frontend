@@ -1,20 +1,20 @@
 import WaterConsumptionTracker from './WaterConsumptionTracker/WaterСonsumptionTracker';
 import WhyDrinkWater from './WhyDrinkWater/WhyDrinkWater.jsx';
-import { BackgroundImage, DesktopCover } from './WelcomePage.styled';
+import { BackgroundImage, DesktopCover, Bg2 } from './WelcomePage.styled';
 import Container from '../../components/Container/Container';
 
 const WelcomePage = () => {
   return (
-    <>
-      <BackgroundImage>
+    <BackgroundImage>
+      <Bg2>
         <Container>
           <DesktopCover>
             <WaterConsumptionTracker />
             <WhyDrinkWater />
           </DesktopCover>
         </Container>
-      </BackgroundImage>
-    </>
+      </Bg2>
+    </BackgroundImage>
   );
 };
 

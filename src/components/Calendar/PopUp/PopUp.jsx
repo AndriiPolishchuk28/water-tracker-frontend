@@ -1,29 +1,8 @@
-import { useEffect, useRef } from 'react';
 import { PopUpWrap, DateText, WaterInfo, AccentColor } from './PopUp.styled';
 
-const PopUp = ({
-  dailyNorm,
-  date,
-  percentOfDailyNorm,
-  recordsCount,
-  handleCloseClick,
-}) => {
-  const popRef = useRef(null);
-
-  useEffect(() => {
-    const handleClose = event => {
-      if (popRef.current && !popRef.current.contains(event.target)) {
-        handleCloseClick();
-      }
-    };
-    window.addEventListener('mousedown', handleClose);
-    return () => {
-      window.removeEventListener('mousedown', handleClose);
-    };
-  }, [handleCloseClick]);
-
+const PopUpCard = ({ dailyNorm, date, percentOfDailyNorm, recordsCount }) => {
   return (
-    <PopUpWrap ref={popRef}>
+    <PopUpWrap>
       <DateText>{date}</DateText>
       <WaterInfo>
         Daily norma: <AccentColor>{dailyNorm}</AccentColor>
@@ -39,4 +18,4 @@ const PopUp = ({
   );
 };
 
-export default PopUp;
+export default PopUpCard;

@@ -9,7 +9,8 @@ import {
   Ul,
   ProcentageWater,
 } from './Calendar.styled';
-import PopUp from './PopUp/PopUp';
+import PopUpCard from './PopUp/PopUp';
+import Popup from 'reactjs-popup';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { icons } from '../../assets';
@@ -25,8 +26,6 @@ const Calendar = () => {
   const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
   const monthName = currentDate.toLocaleString('en-US', { month: 'long' });
   const month = currentDate.getMonth() + 1;
-  const [openIndex, setOpenIndex] = useState(null);
-  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     dispatch(getMonthPercentageThunk(`${currentYear}-${month}`));
@@ -60,15 +59,6 @@ const Calendar = () => {
     }
   };
 
-  const popUpHandle = elemIndex => {
-    setIsOpen(true);
-    setOpenIndex(elemIndex);
-  };
-
-  const handleCloseClick = () => {
-    setIsOpen(false);
-  };
-
   return (
     <>
       <TitleWrapper>
@@ -90,21 +80,30 @@ const Calendar = () => {
           percentagePerMonth.map(
             ({ dailyNorm, date, percentOfDailyNorm, recordsCount }, index) => {
               return (
-                <LiItem onClick={() => popUpHandle(index)} key={date}>
-                  <LiCircle>{parseInt(date)}</LiCircle>
-                  <ProcentageWater>
-                    {percentOfDailyNorm ? percentOfDailyNorm : 0}%
-                  </ProcentageWater>
-                  {openIndex === index && isOpen && (
-                    <PopUp
-                      date={date}
-                      dailyNorm={dailyNorm}
-                      percentOfDailyNorm={percentOfDailyNorm}
-                      recordsCount={recordsCount}
-                      handleCloseClick={handleCloseClick}
-                    />
-                  )}
-                </LiItem>
+                <Popup
+                  trigger={
+                    <LiItem key={date}>
+                      <LiCircle>{parseInt(date)}</LiCircle>
+                      <ProcentageWater>
+                        {percentOfDailyNorm ? percentOfDailyNorm : 0}%
+                      </ProcentageWater>
+                    </LiItem>
+                  }
+                  position={['top left', 'top right']}
+                  on="click"
+                  closeOnDocumentClick
+                  keepTooltipInside={true}
+                  arrow={false}
+                  offsetX={8}
+                  offsetY={8}
+                >
+                  <PopUpCard
+                    date={date}
+                    dailyNorm={dailyNorm}
+                    percentOfDailyNorm={percentOfDailyNorm}
+                    recordsCount={recordsCount}
+                  />
+                </Popup>
               );
             }
           )}
