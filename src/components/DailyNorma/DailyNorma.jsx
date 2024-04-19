@@ -1,22 +1,25 @@
-import React , { useState } from 'react';
+import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { selectWaterRate } from '../../redux/water/selectors';
+import { updateWaterRateThunk } from '../../redux/water/operations';
 import {DailyNormaModal} from 'components/DailyNormaModal/DailyNormaModal';
 
-export const DailyNorma = ({newNorma}) => {
-const [dailyNorm, setDailyNorm] = useState(2.0);
-const [openModal, setOpenModal] = useState(false);
-
- const handleEditClick = () => {
-     setOpenModal(true);
- }
-
- const handleCloseModal = () => {
-     setDailyNorm(newNorma);
-     setOpenModal(false);
- }
+export const DailyNorma = () => {
+    const waterRate = useSelector(selectWaterRate);
+    const dispatch = useDispatch();
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const handleEditClick = () => {
+        setIsModalOpen(true);
+      };
+      const handleWaterRateUpdate = newWaterRate => {
+        dispatch(updateWaterRateThunk(newWaterRate));
+        setIsModalOpen(false);
+      };
+ 
     return (<div><h3>DailyNorma</h3>
-    <p>{dailyNorm}</p><p>L</p>
+    <p>{waterRate}</p><p>L</p>
     <button onClick={handleEditClick}>Edit</button>
-    {openModal && <DailyNormaModal onClose={handleCloseModal}/>}
+    {isModalOpen && <DailyNormaModal onClose={() => setIsModalOpen(false)} onUpdateWaterRate={handleWaterRateUpdate} />}
     </div>)
 }
 

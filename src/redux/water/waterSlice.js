@@ -7,7 +7,7 @@ import {
 } from './operations';
 
 const initialState = {
-  waterRate: null,
+  waterRate: 2,
   isLoading: false,
   error: null,
   percentOfDailyNorm: null,
@@ -33,7 +33,7 @@ const waterSlice = createSlice({
         state.itemsPerMonth = payload;
       })
       .addCase(updateWaterRateThunk.fulfilled, (state, { payload }) => {
-        // state.waterRate = payload.updatedUser.waterRate;
+        state.waterRate = payload.updatedUser.waterRate;
         state.waterRate = payload.waterRate;
       })
       .addCase(addWaterRateThunk.fulfilled, state => {
