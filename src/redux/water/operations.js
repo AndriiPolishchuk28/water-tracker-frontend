@@ -53,3 +53,27 @@ export const getWaterPerDayThunk = createAsyncThunk(
     }
   }
 );
+
+export const updateWaterThunk = createAsyncThunk(
+  'water/update',
+  async ({ _id, ...water }, thunkApi) => {
+    try {
+      const { data } = await axios.patch(`water/${_id}`, water);
+      return data;
+    } catch (error) {
+      return thunkApi.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const deleteWaterThunk = createAsyncThunk(
+  'water/delete',
+  async (id, thunkApi) => {
+    try {
+      const { data } = await axios.delete(`water/${id}`);
+      return data;
+    } catch (error) {
+      return thunkApi.rejectWithValue(error.message);
+    }
+  }
+);

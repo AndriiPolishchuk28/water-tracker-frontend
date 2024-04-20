@@ -1,4 +1,5 @@
 import Container from 'components/Container/Container';
+import { WaterTracker } from 'components/WaterTracker/WaterTracker';
 import {
   HomePageWrapper,
   DailyNormaWrapper,
@@ -7,15 +8,16 @@ import {
   TodayMonthWrapper,
 } from './HomePageStyled';
 import Calendar from 'components/Calendar/Calendar';
-import { DailyNorma } from 'components/DailyNorma/DailyNorma';
 
 const HomePage = () => {
   return (
     <Container>
       <HomePageWrapper>
         <DailyNormaWrapper>
-          <MyDailyNorma><DailyNorma/> </MyDailyNorma>
-          <MyDailyTracker> </MyDailyTracker>
+          <MyDailyNorma> </MyDailyNorma>
+          <MyDailyTracker>
+            <WaterTracker></WaterTracker>
+          </MyDailyTracker>
         </DailyNormaWrapper>
         <TodayMonthWrapper>
           <Calendar />

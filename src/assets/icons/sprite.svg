@@ -60,5 +60,8 @@
 <symbol id="icon-x-mark" viewBox="0 0 32 32">
 <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M8 24l16-16M8 8l16 16"></path>
 </symbol>
+<symbol id="icon-plus" viewBox="0 0 32 32">
+<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="1.3333" d="M16 12v8M20 16h-8M28 16c0 6.627-5.373 12-12 12s-12-5.373-12-12v0c0-6.627 5.373-12 12-12s12 5.373 12 12v0z"></path>
+</symbol>
 </defs>
 </svg>

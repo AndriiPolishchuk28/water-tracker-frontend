@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { errorToast } from 'services/services';
 
 axios.defaults.baseURL =
   'https://watertracker-backand-codekartel.onrender.com/';
@@ -32,6 +33,8 @@ export const signinUser = createAsyncThunk(
       setToken(data.user.token);
       return data;
     } catch (error) {
+      console.log(error);
+      errorToast(error.response.data.message);
       return thunkApi.rejectWithValue(error.message);
     }
   }
@@ -66,3 +69,56 @@ export const refreshUser = createAsyncThunk(
     }
   }
 );
+
+export const updateUserAvatars = createAsyncThunk(
+  'user/updateAvatars',
+  async (file, thunkApi) => {
+    try {
+      const formData = new FormData();
+      formData.append('avatar', file);
+
+      const { data } = await axios.patch('users/avatars', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+      return data;
+    } catch (error) {
+      return thunkApi.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const updateUserInfo = createAsyncThunk(
+  'user/updateInfo',
+  async (userData, thunkApi) => {
+    try {
+      const { data } = await axios.patch('users/update', userData);
+      return data;
+    } catch (error) {
+      return thunkApi.rejectWithValue(error.message);
+    }
+  }
+);
+
+// export const updateUserInfoThunk = createAsyncThunk(
+//   'user/update',
+//   async ({ file, userData }, thunkApi) => {
+//     try {
+//       const formData = new FormData();
+//       formData.append('avatar', file);
+//       Object.entries(userData).forEach(([key, value]) => {
+//         formData.append(key, value);
+//       });
+
+//       const { data } = await axios.patch('users/update', formData, {
+//         headers: {
+//           'Content-Type': 'multipart/form-data',
+//         },
+//       });
+//       return data;
+//     } catch (error) {
+//       return thunkApi.rejectWithValue(error.message);
+//     }
+//   }
+// );

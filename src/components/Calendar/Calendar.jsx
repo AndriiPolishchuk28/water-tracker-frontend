@@ -14,7 +14,12 @@ import Popup from 'reactjs-popup';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { icons } from '../../assets';
-import { getMonthPercentageThunk } from '../../redux/water/operations';
+import {
+  getMonthPercentageThunk,
+  // getWaterPerDayThunk,
+  // updateWaterThunk,
+  // deleteWaterThunk,
+} from '../../redux/water/operations';
 import { selectMonthPercentage } from '../../redux/water/selectors';
 
 const Calendar = () => {
@@ -59,14 +64,22 @@ const Calendar = () => {
     }
   };
 
-  // const testClick = () => {
-  //   dispatch(getWaterPerDayThunk());
+  // const obj = {
+  //   value: 112,
+  //   time: '10:34',
+  //   _id: '6622401fc148ff004955f473',
   // };
+
+  const testClick = () => {
+    // dispatch(updateWaterThunk(obj));
+    // dispatch(getWaterPerDayThunk());
+    // dispatch(deleteWaterThunk('662244d8fa85da4512fc873c'));
+  };
 
   return (
     <>
       <TitleWrapper>
-        {/* <button onClick={testClick}>UPDATE</button> */}
+        <button onClick={testClick}>UPDATE</button>
         <MonthText>Month</MonthText>
         <div>
           <SvgIcon onClick={goToPreviousMonth} width={6} height={10}>
@@ -86,15 +99,16 @@ const Calendar = () => {
             ({ dailyNorm, date, percentOfWaterRate, recordsCount }) => {
               return (
                 <Popup
+                  key={date}
                   trigger={
-                    <LiItem key={date}>
+                    <LiItem>
                       <LiCircle>{parseInt(date)}</LiCircle>
                       <ProcentageWater>
                         {percentOfWaterRate ? percentOfWaterRate : 0}%
                       </ProcentageWater>
                     </LiItem>
                   }
-                  position={['top left', 'top right']}
+                  position={['top left', 'top right', 'center center']}
                   on="click"
                   closeOnDocumentClick
                   keepTooltipInside={true}
