@@ -8,6 +8,7 @@ import {
   TodayMonthWrapper,
 } from './HomePageStyled';
 import Calendar from 'components/Calendar/Calendar';
+import SettingModal from 'components/SettingModal/SettingModal';
 
 const HomePage = () => {
   return (

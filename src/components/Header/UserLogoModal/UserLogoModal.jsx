@@ -16,10 +16,12 @@ import { useState, useRef } from 'react';
 import { Popup } from 'reactjs-popup';
 
 import UserLogoutModal from '../Logout/Logout';
+import SettingModal from 'components/SettingModal/SettingModal';
 
 const UserLogoModal = () => {
   const popupRef = useRef(null);
   const [modalActive, setModalActive] = useState(false);
+  const [settingModalActive, setSettingModalActive] = useState(false);
 
   const handleClosePopup = () => {
     if (popupRef.current) {
@@ -31,6 +33,12 @@ const UserLogoModal = () => {
     setModalActive(true);
     handleClosePopup();
   };
+
+  const handleOpenSettingModal = () => {
+    setSettingModalActive(true);
+    handleClosePopup()
+  }
+
   const { name, email, avatarURL } = useSelector(selectAuthUserData);
 
   const displayName = name || (email && email.split('@')[0]);
@@ -64,10 +72,10 @@ const UserLogoModal = () => {
       >
         <ActionsPopupContainer>
           <IconBtnStyle>
-            <SvgSetting>
+            <SvgSetting onClick={handleOpenSettingModal}>
               <use href={`${sprite}#icon-cog-6-tooth`} />
             </SvgSetting>
-            <TextUserLogoModal onClick={handleClosePopup}>
+            <TextUserLogoModal onClick={handleOpenSettingModal}>
               Setting
             </TextUserLogoModal>
           </IconBtnStyle>
@@ -84,6 +92,10 @@ const UserLogoModal = () => {
       <UserLogoutModal
         isOpen={modalActive}
         onClose={() => setModalActive(false)}
+      />
+      <SettingModal
+        isModalOpen={settingModalActive}
+        onClose={() => setSettingModalActive(false)}
       />
     </>
   );
