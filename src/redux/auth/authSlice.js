@@ -1,5 +1,12 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
-import { signupUser, signinUser, signoutUser, refreshUser } from './operations';
+import {
+  signupUser,
+  signinUser,
+  signoutUser,
+  refreshUser,
+  updateUserAvatars,
+  updateUserInfo,
+} from './operations';
 
 const initialState = {
   token: null,
@@ -14,7 +21,6 @@ const initialState = {
   isLoading: false,
   isLoggedIn: false,
   error: null,
-  isRegisteredSuccess: false,
 };
 
 const authSlice = createSlice({
@@ -23,10 +29,10 @@ const authSlice = createSlice({
   extraReducers: builder =>
     builder
       .addCase(signupUser.fulfilled, (state, action) => {
+        state.token = action.payload.newUser.token;
         state.isLoading = false;
-        // state.isLoggedIn = true;
-        // state.userData = action.payload.user;
-        state.isRegisteredSuccess = true;
+        state.user = action.payload.newUser;
+        state.isLoggedIn = true;
       })
       .addCase(signinUser.fulfilled, (state, action) => {
         state.isLoading = false;
@@ -44,6 +50,19 @@ const authSlice = createSlice({
         state.token = null;
         state.user = initialState.user;
         state.isLoggedIn = false;
+        state.isLoading = false;
+      })
+      // .addCase(updateUserInfoThunk.fulfilled, (state, action) => {
+      //   state.user = action.payload.user;
+      //   state.isLoading = false;
+      // })
+      .addCase(updateUserAvatars.fulfilled, (state, action) => {
+        state.user.avatarURL = action.payload.avatarURL;
+        state.isLoading = false;
+      })
+      .addCase(updateUserInfo.fulfilled, (state, action) => {
+        state.user = action.payload.user;
+        state.isLoading = false;
       })
 
       .addMatcher(
@@ -51,7 +70,10 @@ const authSlice = createSlice({
           signupUser.pending,
           signinUser.pending,
           refreshUser.pending,
-          signoutUser.pending
+          signoutUser.pending,
+          updateUserAvatars.pending,
+          updateUserInfo.pending
+          // updateUserInfoThunk.pending
         ),
         state => {
           state.isLoading = true;
@@ -64,11 +86,14 @@ const authSlice = createSlice({
           signupUser.rejected,
           signinUser.rejected,
           refreshUser.rejected,
-          signoutUser.rejected
+          signoutUser.rejected,
+          updateUserAvatars.rejected,
+          updateUserInfo.rejected
+          // updateUserInfoThunk.rejected
         ),
-        (state, action) => {
+        (state, { payload }) => {
           state.isLoading = false;
-          state.error = action.payload;
+          state.error = payload;
           state.isRefreshing = false;
         }
       ),

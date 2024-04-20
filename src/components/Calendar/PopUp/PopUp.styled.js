@@ -9,9 +9,6 @@ export const PopUpWrap = styled.div`
   display: flex;
   flex-direction: column;
   gap: 16px;
-  position: absolute;
-  top: -207px;
-  left: -7px;
   z-index: 10;
   @media screen and (min-width: 768px) {
     width: 292px;

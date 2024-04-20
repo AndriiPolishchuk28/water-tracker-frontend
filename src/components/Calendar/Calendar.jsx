@@ -9,11 +9,17 @@ import {
   Ul,
   ProcentageWater,
 } from './Calendar.styled';
-import PopUp from './PopUp/PopUp';
+import PopUpCard from './PopUp/PopUp';
+import Popup from 'reactjs-popup';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { icons } from '../../assets';
-import { getMonthPercentageThunk } from '../../redux/water/operations';
+import {
+  getMonthPercentageThunk,
+  // getWaterPerDayThunk,
+  // updateWaterThunk,
+  // deleteWaterThunk,
+} from '../../redux/water/operations';
 import { selectMonthPercentage } from '../../redux/water/selectors';
 
 const Calendar = () => {
@@ -25,8 +31,6 @@ const Calendar = () => {
   const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
   const monthName = currentDate.toLocaleString('en-US', { month: 'long' });
   const month = currentDate.getMonth() + 1;
-  const [openIndex, setOpenIndex] = useState(null);
-  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     dispatch(getMonthPercentageThunk(`${currentYear}-${month}`));
@@ -60,18 +64,22 @@ const Calendar = () => {
     }
   };
 
-  const popUpHandle = elemIndex => {
-    setIsOpen(true);
-    setOpenIndex(elemIndex);
-  };
+  // const obj = {
+  //   value: 112,
+  //   time: '10:34',
+  //   _id: '6622401fc148ff004955f473',
+  // };
 
-  const handleCloseClick = () => {
-    setIsOpen(false);
+  const testClick = () => {
+    // dispatch(updateWaterThunk(obj));
+    // dispatch(getWaterPerDayThunk());
+    // dispatch(deleteWaterThunk('662244d8fa85da4512fc873c'));
   };
 
   return (
     <>
       <TitleWrapper>
+        <button onClick={testClick}>UPDATE</button>
         <MonthText>Month</MonthText>
         <div>
           <SvgIcon onClick={goToPreviousMonth} width={6} height={10}>
@@ -88,23 +96,35 @@ const Calendar = () => {
       <Ul>
         {percentagePerMonth.length > 0 &&
           percentagePerMonth.map(
-            ({ dailyNorm, date, percentOfDailyNorm, recordsCount }, index) => {
+            ({ waterRate, date, percentOfWaterRate, recordsCount }) => {
               return (
-                <LiItem onClick={() => popUpHandle(index)} key={date}>
-                  <LiCircle>{parseInt(date)}</LiCircle>
-                  <ProcentageWater>
-                    {percentOfDailyNorm ? percentOfDailyNorm : 0}%
-                  </ProcentageWater>
-                  {openIndex === index && isOpen && (
-                    <PopUp
-                      date={date}
-                      dailyNorm={dailyNorm}
-                      percentOfDailyNorm={percentOfDailyNorm}
-                      recordsCount={recordsCount}
-                      handleCloseClick={handleCloseClick}
-                    />
-                  )}
-                </LiItem>
+                <Popup
+                  key={date}
+                  trigger={
+                    <LiItem>
+                      <LiCircle percentage={percentOfWaterRate}>
+                        {parseInt(date)}
+                      </LiCircle>
+                      <ProcentageWater>
+                        {percentOfWaterRate ? percentOfWaterRate : 0}%
+                      </ProcentageWater>
+                    </LiItem>
+                  }
+                  position={['top left', 'top right', 'center center']}
+                  on="click"
+                  closeOnDocumentClick
+                  keepTooltipInside={true}
+                  arrow={false}
+                  offsetX={8}
+                  offsetY={8}
+                >
+                  <PopUpCard
+                    date={date}
+                    waterRate={waterRate}
+                    percentOfWaterRate={percentOfWaterRate}
+                    recordsCount={recordsCount}
+                  />
+                </Popup>
               );
             }
           )}

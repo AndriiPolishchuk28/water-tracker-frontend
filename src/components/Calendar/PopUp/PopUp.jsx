@@ -1,36 +1,17 @@
-import { useEffect, useRef } from 'react';
 import { PopUpWrap, DateText, WaterInfo, AccentColor } from './PopUp.styled';
 
-const PopUp = ({
-  dailyNorm,
-  date,
-  percentOfDailyNorm,
-  recordsCount,
-  handleCloseClick,
-}) => {
-  const popRef = useRef(null);
-
-  useEffect(() => {
-    const handleClose = event => {
-      if (popRef.current && !popRef.current.contains(event.target)) {
-        handleCloseClick();
-      }
-    };
-    window.addEventListener('mousedown', handleClose);
-    return () => {
-      window.removeEventListener('mousedown', handleClose);
-    };
-  }, [handleCloseClick]);
-
+const PopUpCard = ({ waterRate, date, percentOfWaterRate, recordsCount }) => {
   return (
-    <PopUpWrap ref={popRef}>
+    <PopUpWrap>
       <DateText>{date}</DateText>
       <WaterInfo>
-        Daily norma: <AccentColor>{dailyNorm}</AccentColor>
+        Daily norma: <AccentColor>{waterRate ? waterRate : 0} L</AccentColor>
       </WaterInfo>
       <WaterInfo>
-        Fulfillment of the daily norm:
-        <AccentColor> {percentOfDailyNorm}%</AccentColor>
+        Fulfillment of the daily norm:{' '}
+        <AccentColor>
+          {percentOfWaterRate ? percentOfWaterRate : 0}%
+        </AccentColor>
       </WaterInfo>
       <WaterInfo>
         How many servings of water: <AccentColor>{recordsCount}</AccentColor>
@@ -39,4 +20,4 @@ const PopUp = ({
   );
 };
 
-export default PopUp;
+export default PopUpCard;
