@@ -1,4 +1,5 @@
 import Container from 'components/Container/Container';
+import { WaterTracker } from 'components/WaterTracker/WaterTracker';
 import {
   HomePageWrapper,
   DailyNormaWrapper,
@@ -14,7 +15,9 @@ const HomePage = () => {
       <HomePageWrapper>
         <DailyNormaWrapper>
           <MyDailyNorma> </MyDailyNorma>
-          <MyDailyTracker> </MyDailyTracker>
+          <MyDailyTracker>
+            <WaterTracker></WaterTracker>
+          </MyDailyTracker>
         </DailyNormaWrapper>
         <TodayMonthWrapper>
           <Calendar />
