@@ -64,12 +64,13 @@ const authSlice = createSlice({
         state.user = action.payload.user;
         state.isLoading = false;
       })
-
+      .addCase(refreshUser.pending, (state, action) => {
+        state.isRefreshing = true;
+      })
       .addMatcher(
         isAnyOf(
           signupUser.pending,
           signinUser.pending,
-          refreshUser.pending,
           signoutUser.pending,
           updateUserAvatars.pending,
           updateUserInfo.pending
@@ -78,7 +79,6 @@ const authSlice = createSlice({
         state => {
           state.isLoading = true;
           state.error = null;
-          state.isRefreshing = true;
         }
       )
       .addMatcher(

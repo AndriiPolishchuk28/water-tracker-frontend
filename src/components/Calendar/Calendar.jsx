@@ -99,6 +99,7 @@ const Calendar = () => {
             ({ waterRate, date, percentOfWaterRate, recordsCount }) => {
               return (
                 <Popup
+                  style={{ width: '280px' }}
                   key={date}
                   trigger={
                     <LiItem>
@@ -110,7 +111,12 @@ const Calendar = () => {
                       </ProcentageWater>
                     </LiItem>
                   }
-                  position={['top left', 'top right', 'center center']}
+                  position={[
+                    'top left',
+                    'top right',
+                    'center center',
+                    'right center',
+                  ]}
                   on="click"
                   closeOnDocumentClick
                   keepTooltipInside={true}
