@@ -4,7 +4,8 @@ import {
   signinUser,
   signoutUser,
   refreshUser,
-  updateUserInfoThunk,
+  updateUserAvatars,
+  updateUserInfo,
 } from './operations';
 
 const initialState = {
@@ -52,7 +53,15 @@ const authSlice = createSlice({
         state.isLoggedIn = false;
         state.isLoading = false;
       })
-      .addCase(updateUserInfoThunk.fulfilled, (state, action) => {
+      // .addCase(updateUserInfoThunk.fulfilled, (state, action) => {
+      //   state.user = action.payload.user;
+      //   state.isLoading = false;
+      // })
+      .addCase(updateUserAvatars.fulfilled, (state, action) => {
+        state.user.avatarURL = action.payload.avatarURL;
+        state.isLoading = false;
+      })
+      .addCase(updateUserInfo.fulfilled, (state, action) => {
         state.user = action.payload.user;
         state.isLoading = false;
       })
@@ -63,7 +72,9 @@ const authSlice = createSlice({
           signinUser.pending,
           refreshUser.pending,
           signoutUser.pending,
-          updateUserInfoThunk.pending
+          updateUserAvatars.pending,
+          updateUserInfo.pending
+          // updateUserInfoThunk.pending
         ),
         state => {
           state.isLoading = true;
@@ -77,7 +88,9 @@ const authSlice = createSlice({
           signinUser.rejected,
           refreshUser.rejected,
           signoutUser.rejected,
-          updateUserInfoThunk.rejected
+          updateUserAvatars.rejected,
+          updateUserInfo.rejected
+          // updateUserInfoThunk.rejected
         ),
         (state, action) => {
           state.isLoading = false;
