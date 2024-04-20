@@ -9,6 +9,7 @@ import {
 } from './HomePageStyled';
 import Calendar from 'components/Calendar/Calendar';
 import Background from 'components/Background/Background';
+import TodayList from 'components/TodayList/TodayList';
 
 const HomePage = () => {
   return (
@@ -23,6 +24,7 @@ const HomePage = () => {
             </MyDailyTracker>
           </DailyNormaWrapper>
           <TodayMonthWrapper>
+          <TodayList />
             <Calendar />
           </TodayMonthWrapper>
         </HomePageWrapper>
