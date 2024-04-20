@@ -9,25 +9,30 @@ import {
   ProgressPercents,
   TodayTitle,
 } from './WaterTracker.styled';
-// import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import {
   selectWaterRate,
   selectListWaterOfDay,
 } from '../../redux/water/selectors';
+import { useEffect, useState } from 'react';
+import { getWaterPerDayThunk } from '../../redux/water/operations';
 
 export const WaterTracker = () => {
-  //   const dispatch = useDispatch();
+  const dispatch = useDispatch();
+  const [percentages, setPercentages] = useState(null);
 
-  const todayNorma = useSelector(selectWaterRate);
+  const todayNorma = useSelector(selectWaterRate); // 2
   const todayData = useSelector(selectListWaterOfDay);
 
-  const todayValue = todayData.waterNotes?.reduce(
-    (prev, { amountWater }) => prev + amountWater,
-    0
-  );
+  useEffect(() => {
+    dispatch(getWaterPerDayThunk());
+  }, [dispatch]);
 
-  const percentages = (todayValue / todayNorma) * 100;
+  useEffect(() => {
+    const todayValue = todayData.reduce((acc, water) => acc + water.value, 0);
+    setPercentages((todayValue / (todayNorma * 1000)) * 100);
+  }, [todayData, todayNorma]);
 
   return (
     <ProgressPanelContainer>
