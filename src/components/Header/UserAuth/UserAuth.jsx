@@ -8,7 +8,7 @@ import {
 const UserAuth = () => {
   return (
     <HeaderSignInLink to="/signin">
-      <TextHeaderSingIn>Sing in</TextHeaderSingIn>
+      <TextHeaderSingIn>Sign in</TextHeaderSingIn>
       <IconUser>
         <use href={`${sprite}#icon-user`} />
       </IconUser>
