@@ -66,3 +66,25 @@ export const refreshUser = createAsyncThunk(
     }
   }
 );
+
+export const updateUserInfoThunk = createAsyncThunk(
+  'user/update',
+  async ({ file, userData }, thunkApi) => {
+    try {
+      const formData = new FormData();
+      formData.append('avatar', file);
+      Object.entries(userData).forEach(([key, value]) => {
+        formData.append(key, value);
+      });
+
+      const { data } = await axios.patch('users/update', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+      return data;
+    } catch (error) {
+      return thunkApi.rejectWithValue(error.message);
+    }
+  }
+);

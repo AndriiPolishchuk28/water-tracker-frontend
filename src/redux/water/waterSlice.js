@@ -4,6 +4,8 @@ import {
   updateWaterRateThunk,
   addWaterRateThunk,
   getWaterPerDayThunk,
+  updateWaterThunk,
+  deleteWaterThunk,
 } from './operations';
 
 const initialState = {
@@ -43,12 +45,28 @@ const waterSlice = createSlice({
         state.listWaterOfDay = payload.arreyWaterRecords;
         state.percentOfDailyNorm = payload.percentOfDailyNorm;
       })
+      .addCase(updateWaterThunk.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+        const { _id } = payload.updatedWaterRecord;
+        state.listWaterOfDay = state.listWaterOfDay.map(water =>
+          water._id === _id ? payload.updatedWaterRecord : water
+        );
+      })
+      .addCase(deleteWaterThunk.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+        const { _id } = payload.deletedWaterRecord;
+        state.listWaterOfDay = state.listWaterOfDay.map(
+          water => water._id !== _id
+        );
+      })
       .addMatcher(
         isAnyOf(
           getMonthPercentageThunk.pending,
           updateWaterRateThunk.pending,
           addWaterRateThunk.pending,
           getWaterPerDayThunk.pending,
+          updateWaterThunk.pending,
+          deleteWaterThunk.pending,
           handlePending
         )
       )
@@ -58,6 +76,8 @@ const waterSlice = createSlice({
           updateWaterRateThunk.rejected,
           addWaterRateThunk.rejected,
           getWaterPerDayThunk.rejected,
+          updateWaterThunk.rejected,
+          deleteWaterThunk.rejected,
           handleRejected
         )
       ),
