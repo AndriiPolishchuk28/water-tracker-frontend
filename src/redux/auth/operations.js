@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { errorToast } from 'services/services';
 
 axios.defaults.baseURL =
   'https://watertracker-backand-codekartel.onrender.com/';
@@ -32,6 +33,8 @@ export const signinUser = createAsyncThunk(
       setToken(data.user.token);
       return data;
     } catch (error) {
+      console.log(error);
+      errorToast(error.response.data.message);
       return thunkApi.rejectWithValue(error.message);
     }
   }
