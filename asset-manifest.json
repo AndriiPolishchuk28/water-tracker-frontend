@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/water-tracker-frontend/static/css/main.96826375.css",
-    "main.js": "/water-tracker-frontend/static/js/main.fc329d22.js",
+    "main.js": "/water-tracker-frontend/static/js/main.362ad2d6.js",
     "static/media/Roboto-Medium.ttf": "/water-tracker-frontend/static/media/Roboto-Medium.7c8d04cd831df3033c8a.ttf",
     "static/media/Roboto-Regular.ttf": "/water-tracker-frontend/static/media/Roboto-Regular.fc2b5060f7accec5cf74.ttf",
     "static/media/Roboto-Bold.ttf": "/water-tracker-frontend/static/media/Roboto-Bold.f80816a5455d171f948d.ttf",
@@ -25,10 +25,10 @@
     "static/media/personal-rate-setting.svg": "/water-tracker-frontend/static/media/personal-rate-setting.08985f6a16d27a203593b7903d173927.svg",
     "static/media/view-statistics.svg": "/water-tracker-frontend/static/media/view-statistics.1d15fba1c5e024b51c017bad4ac84aa0.svg",
     "main.96826375.css.map": "/water-tracker-frontend/static/css/main.96826375.css.map",
-    "main.fc329d22.js.map": "/water-tracker-frontend/static/js/main.fc329d22.js.map"
+    "main.362ad2d6.js.map": "/water-tracker-frontend/static/js/main.362ad2d6.js.map"
   },
   "entrypoints": [
     "static/css/main.96826375.css",
-    "static/js/main.fc329d22.js"
+    "static/js/main.362ad2d6.js"
   ]
 }
