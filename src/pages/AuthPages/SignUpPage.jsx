@@ -16,7 +16,7 @@ const SignUpPage = () => {
       .unwrap()
       .then(() => {
         successToast('Registration Successful');
-        navigate('/signin');
+        // navigate('/signin');
       })
       .catch(error => {
         errorToast(error);
