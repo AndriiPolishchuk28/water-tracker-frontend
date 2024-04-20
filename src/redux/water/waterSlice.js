@@ -38,8 +38,9 @@ const waterSlice = createSlice({
         // state.waterRate = payload.updatedUser.waterRate;
         state.waterRate = payload.waterRate;
       })
-      .addCase(addWaterRateThunk.fulfilled, state => {
+      .addCase(addWaterRateThunk.fulfilled, (state, { payload }) => {
         state.isLoading = false;
+        state.listWaterOfDay.push(payload.addedWaterRecord);
       })
       .addCase(getWaterPerDayThunk.fulfilled, (state, { payload }) => {
         state.listWaterOfDay = payload.arreyWaterRecords;
