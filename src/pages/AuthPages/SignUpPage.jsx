@@ -1,5 +1,4 @@
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import { AuthForm } from 'components/AuthForm/AuthForm';
 import { signupUser } from '../../redux/auth/operations';
 import Container from 'components/Container/Container';
@@ -9,14 +8,12 @@ import { successToast, errorToast } from '../../services/services';
 
 const SignUpPage = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const handleSubmit = formData => {
     dispatch(signupUser(formData))
       .unwrap()
       .then(() => {
         successToast('Registration Successful');
-        // navigate('/signin');
       })
       .catch(error => {
         errorToast(error);
