@@ -92,9 +92,9 @@ const authSlice = createSlice({
           updateUserInfo.rejected
           // updateUserInfoThunk.rejected
         ),
-        (state, action) => {
+        (state, { payload }) => {
           state.isLoading = false;
-          state.error = action.payload;
+          state.error = payload;
           state.isRefreshing = false;
         }
       ),

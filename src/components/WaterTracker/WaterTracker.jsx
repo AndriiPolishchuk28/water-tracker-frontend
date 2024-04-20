@@ -1,5 +1,5 @@
 // import { openAddWater } from 'redux/modals/modalsSlice';
-import sprite from '../../assets/icons/sprite.svg';
+import { icons } from '../../assets/';
 import {
   AddWaterBtn,
   ProgressContainer,
@@ -60,7 +60,7 @@ export const WaterTracker = () => {
       </ProgressContainer>
       <AddWaterBtn>
         <svg>
-          <use href={sprite + '#icon-plus'}></use>
+          <use href={`${icons}#icon-plus-circle`}></use>
         </svg>
         <span>Add water</span>
       </AddWaterBtn>
