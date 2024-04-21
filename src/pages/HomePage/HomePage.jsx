@@ -8,6 +8,7 @@ import {
   TodayMonthWrapper,
 } from './HomePageStyled';
 import Calendar from 'components/Calendar/Calendar';
+import {DailyNorma } from 'components/DailyNorma/DailyNorma'
 import Background from 'components/Background/Background';
 
 const HomePage = () => {
@@ -28,6 +29,7 @@ const HomePage = () => {
         </HomePageWrapper>
       </Container>
     </>
+
   );
 };
 
