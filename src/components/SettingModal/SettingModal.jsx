@@ -12,6 +12,8 @@ import {
   SvgCloseBtn,
   HeaderAvatar,
   UserInitial,
+  AvatarLabel,
+  SvgUploadBtn,
 } from './SettingModal.styled';
 import InfoForm from './InfoForm/InfoForm';
 import { selectAuthUserData } from '../../redux/auth/selectors';
@@ -27,10 +29,10 @@ const SettingModal = ({ isModalOpen, onClose }) => {
     dispatch(updateUserInfo(userData));
   };
 
-   const displayName = data.name || (data.email && data.email.split('@')[0]);
-   const displayAvatar = data.avatarURL || (data.email && data.email.charAt(0).toUpperCase());
+  const displayName = data.name || (data.email && data.email.split('@')[0]);
+  const displayAvatar =
+    data.avatarURL || (data.email && data.email.charAt(0).toUpperCase());
 
-  
   return (
     <Dialog
       open={isModalOpen}
@@ -58,7 +60,13 @@ const SettingModal = ({ isModalOpen, onClose }) => {
               {displayName && displayName.charAt(0).toUpperCase()}
             </UserInitial>
           )}
-          <AvatarInput>Upload your photo</AvatarInput>
+          <AvatarLabel>
+            <SvgUploadBtn>
+              <use href={`${sprite}#icon-arrow-up-tray`}></use>
+            </SvgUploadBtn>
+            <AvatarInput type="file" />
+            Upload a photo
+          </AvatarLabel>
         </PhotoDiv>
 
         <InfoForm onSubmit={handleSubmit} />
@@ -68,7 +76,3 @@ const SettingModal = ({ isModalOpen, onClose }) => {
 };
 
 export default SettingModal;
-
-
-
- 

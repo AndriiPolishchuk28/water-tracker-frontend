@@ -61,10 +61,45 @@ const passwordRepeatVisibile = () => {
           'Passwords must match'
         ),
       })}
+    
       onSubmit={values => {
-        const { name, gender, email, oldPassword, newPassword } = values;
-        onSubmit({ name, gender, email, oldPassword, newPassword });
-        console.log(values);
+      
+        const formData = {};
+
+     
+        if (values.name) {
+          if (values.name !== data.name) {
+            formData.name = values.name;
+          }
+          
+        }
+
+        if (values.email) {
+          if (values.email !== data.email) {
+            formData.email = values.email;
+          }
+          ;
+        }
+
+        if (values.gender) {
+      
+          if (values.gender !== data.gender) {
+            formData.gender = values.gender;
+          }
+        }
+        if (values.oldPassword) {
+          formData.oldPassword = values.oldPassword;
+        }
+
+     
+        if (values.newPassword) {
+          formData.newPassword = values.newPassword;
+        }
+
+  
+
+        onSubmit(formData);
+        console.log(formData);
       }}
     >
       {({ errors, touched }) => {

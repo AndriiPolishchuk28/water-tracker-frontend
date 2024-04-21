@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components';
 import { Form, Field, ErrorMessage } from 'formik';
 
 export const SettingDiv = styled.div`
+  font-family: 'Roboto', sans-serif;
   padding: 32px 12px;
   display: flex;
   flex-direction: column;
@@ -68,9 +69,27 @@ export const UserAvatar = styled.img`
   }
 `;
 
-export const AvatarLabel = styled.label``;
+export const AvatarLabel = styled.label`
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  gap: 10px;
+  color: var(--primary-color-blue);
+  font-size: 14px;
+  line-height: 1.1;
+  font-weight: 500;
+`;
 
-export const AvatarInput = styled.button``;
+export const SvgUploadBtn = styled.svg`
+  width: 12px;
+  height: 12px;
+  fill: transparent;
+  stroke: var(--primary-color-blue);
+`;
+
+export const AvatarInput = styled.input`
+  display: none;
+`;
 
 export const StyledForm = styled(Form)`
   @media screen and (min-width: 768px) {
@@ -105,9 +124,9 @@ export const GenderDiv = styled.div`
 `;
 
 export const GenderLabel = styled.label`
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.1;
-  font-weight: 500;
+  font-weight: 400;
   color: var(--primary-color-black);
   margin-right: 18px;
   @media screen and (min-width: 768px) {
@@ -288,7 +307,6 @@ export const SvgIcon = styled.svg`
   width: 16px;
   height: 16px;
   position: absolute;
-  // top: 60%;
   right: 14px;
   cursor: pointer;
   display: flex;
@@ -296,10 +314,10 @@ export const SvgIcon = styled.svg`
   align-items: center;
   top: 14px;
   @media screen and (min-width: 768px) {
-    left: 310px;
+    right: 280px;
   }
   @media screen and (min-width: 1440px) {
-    left: 355px;
+    right: 12px;
   }
 `;
 
@@ -320,7 +338,7 @@ export const UserInitial = styled.div`
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  margin-right: 4px;
+  margin-right: 8px;
   background-color: var(--secondary-color-blue-2);
   display: flex;
   justify-content: center;
