@@ -49,7 +49,7 @@ export const App = () => {
             }
           />
            <Route
-            path="recover"
+            path="forgot-password"
             element={
               <PublicRoute>
                 <RecoverPage />

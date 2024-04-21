@@ -19,7 +19,7 @@ const SignInPage = () => {
           <AuthForm onSubmit={handleSubmit} />
           <StyledLink to="/signup">Sign up</StyledLink>
           <br/>
-          <StyledLink to="/recover">Recover password</StyledLink>
+          <StyledLink to="/forgot-password">Recover password</StyledLink>
         </PageWrapper>
         <Background />
       </WrapperContainer>
