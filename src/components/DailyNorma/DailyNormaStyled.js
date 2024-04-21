@@ -40,13 +40,16 @@ border: none;
 cursor: pointer;
 &:hover,
   &:focus {
+   
     color: var(--secondary-color-orange);
+    box-shadow: 0px 4px 8px 0px rgba(64, 123, 255, 0.34);
   }
 }
 `;
 export const DailyNormaDialog = styled(Dialog)`
   width: 100%;
   height: 100%;
+  overflow: auto;
 `;
 
 export const ModalWrapper = styled.div`
@@ -152,10 +155,9 @@ export const ModalCalc = styled.p`
 
 export const GenderWrapper = styled.div`
   display: flex;
-  flex-direction: row-reverse;
-  justify-content: flex-end;
+  flex-direction: row;
+  justify-content: flex-start;
   margin-bottom: 16px;
-  align-items: flex-end;
 `;
 
 export const ModalLabel = styled.label`
@@ -166,7 +168,29 @@ export const ModalLabel = styled.label`
   color: var(--primary-color-black);
 `;
 
-export const ModalRadioInput = styled.input.attrs({ type: 'radio' })`
+export const ModalRadioInputForWoman = styled.input.attrs({ type: 'radio', id:`woman` })`
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border: 1px solid var(--primary-color-blue);
+  border-radius: 50%;
+  outline: none;
+  box-shadow: 0 0 5px var(--primary-color-blue);
+
+  &:before {
+    content: '';
+    display: block;
+    width: 8px;
+    height: 8px;
+    margin: 2px;
+    border-radius: 50%;
+  }
+
+  &:checked:before {
+    background: var(--primary-color-blue);
+  }
+`;
+export const ModalRadioInputForMan = styled.input.attrs({ type: 'radio', id:`man` })`
   appearance: none;
   width: 14px;
   height: 14px;
@@ -192,6 +216,7 @@ export const RadioLabel = styled.p`
   margin-right: 24px;
   font-size: 16px;
   line-height: 125%;
+  align-items: center;
   color: var(--primary-color-black);
 `;
 
@@ -220,6 +245,10 @@ export const ModalInput = styled.input`
   color: var(--primary-color-black);
   &::placeholder {
     color: var(--primary-color-blue);
+  }
+  &:focus {
+    outline: none;
+    border-color: var(--primary-color-blue);
   }
   @media screen and (min-width: 768px) {
     width: 656px;
@@ -253,6 +282,7 @@ export const Amount = styled.p`
 
 export const ModalButton = styled.button`
   border-radius: 10px;
+  cursor: pointer;
   padding: 8px 30px;
   width: 256px;
   height: 36px;
@@ -265,6 +295,13 @@ export const ModalButton = styled.button`
   position: absolute;
   bottom: 24px;
   color: var(--primary-color-white);
+  &:focus{
+    font-size: 18px;
+  }
+  &:hover {
+    font-size: 18px;
+  
+  }
   @media screen and (min-width: 768px) {
     bottom: 32px;
     right: 24px;

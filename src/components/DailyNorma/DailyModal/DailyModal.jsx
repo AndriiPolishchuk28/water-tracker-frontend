@@ -19,7 +19,8 @@ import {
   ModalForm,
   ModalCalc,
   ModalLabel,
-  ModalRadioInput,
+  ModalRadioInputForWoman,
+  ModalRadioInputForMan,
   RadioLabel,
   ModalInput,
   Amount,
@@ -27,10 +28,11 @@ import {
   WaterIntakeSpan,
 } from '../DailyNormaStyled';
 import { icons } from '../../../assets';
+import { successToast, errorToast } from '../../../services/services';
 
 const DailyModal = ({ onClose }) => {
   const dispatch = useDispatch();
-  const [gender, setGender] = useState('notSelected');
+  const [gender, setGender] = useState('woman');
   const [weight, setWeight] = useState('');
   const [activityTime, setActivityTime] = useState('');
   const [requiredWater, setRequiredWater] = useState(0);
@@ -60,9 +62,6 @@ const DailyModal = ({ onClose }) => {
 
   const calculateWaterRate = (gender, weight, activityTime) => {
     let waterCalculated = 0;
-    if (gender === 'notSelected') {
-      waterCalculated = weight * 0.03 + activityTime * 0.4;
-    }
     if (gender === 'woman') {
       waterCalculated = weight * 0.03 + activityTime * 0.4;
     } else if (gender === 'man') {
@@ -85,8 +84,9 @@ const DailyModal = ({ onClose }) => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    if (!waterToDrink) return;
+    if (!waterToDrink) return errorToast('Please enter water intake');
     dispatch(updateWaterRateThunk({ amountOfWater: waterToDrink }));
+      successToast('Water intake updated successfully');
     onClose();
   };
 
@@ -115,23 +115,23 @@ const DailyModal = ({ onClose }) => {
         <ModalCalc>Calculate your rate:</ModalCalc>
         <ModalLabel>
           <GenderWrapper>
-            <RadioLabel htmlFor="man">For man</RadioLabel>
-            <ModalRadioInput
+          <ModalRadioInputForWoman
+              id="woman"
+              type="radio"
+              value="girl"
+              checked={gender === 'woman'}
+              onChange={() => setGender('woman')}
+            /> 
+            <RadioLabel htmlFor="woman">For woman</RadioLabel>
+            <ModalRadioInputForMan
               id="man"
               type="radio"
               value="man"
               checked={gender === 'man'}
               onChange={() => setGender('man')}
             />
-
-            <RadioLabel htmlFor="woman">For woman</RadioLabel>
-            <ModalRadioInput
-              id="woman"
-              type="radio"
-              value="girl"
-              checked={gender === 'woman'}
-              onChange={() => setGender('woman')}
-            />
+<RadioLabel htmlFor="man">For man</RadioLabel>
+           
           </GenderWrapper>
         </ModalLabel>
         <InputWrapper>
@@ -164,6 +164,7 @@ const DailyModal = ({ onClose }) => {
           </ModalLabelWater>
           <ModalInput
             required
+            error="Please write down how much water you will drink"
             type="text"
             value={waterToDrink}
             onChange={handleInputChange}
