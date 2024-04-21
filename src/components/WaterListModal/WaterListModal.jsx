@@ -22,9 +22,10 @@ import {
   SaveResultTxt,
   SaveBtn,
   IconBtn,
+  MenuItemCustom,
 } from './WaterListModal.styled';
 import sprite from '../../assets/icons/sprite.svg';
-import { MenuItem } from '@mui/material';
+// import { MenuItem } from '@mui/material';
 import { getCurrentTime, generateHours } from 'utils/timeUtils';
 
 const WaterListModal = ({ onSave, onClose, title, isVisible }) => {
@@ -112,9 +113,9 @@ const WaterListModal = ({ onSave, onClose, title, isVisible }) => {
         onChange={handleTimeChange}
       >
         {[getCurrentTime(), ...generateHours()].map((hour, index) => (
-          <MenuItem key={index} value={hour}>
+          <MenuItemCustom key={index} value={hour}>
             {hour}
-          </MenuItem>
+          </MenuItemCustom>
         ))}
       </InputTime>
       <LabelMl>Enter the value of the water used:</LabelMl>

@@ -5,7 +5,9 @@ export const getCurrentTime = () => {
     const ampm = hour >= 12 ? 'pm' : 'am';
     hour = hour % 12 || 12; 
     const formattedHour = hour.toString().padStart(2, '0');
-    const formattedMinute = Math.ceil(minutes / 5) * 5 .toString().padStart(2, '0');
+    // const formattedMinute = Math.ceil(minutes / 5) * 5 .toString().padStart(2, '0');
+    const roundedMinutes = Math.ceil(minutes / 5) * 5;
+    const formattedMinute = roundedMinutes < 10 ? '0' + roundedMinutes : roundedMinutes;
     return `${formattedHour}:${formattedMinute} ${ampm}`;
 }
 

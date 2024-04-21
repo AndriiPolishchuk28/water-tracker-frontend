@@ -1,5 +1,5 @@
-import styled, {css} from 'styled-components';
-import TextField from '@mui/material/TextField';
+import styled from 'styled-components';
+import {TextField, MenuItem} from '@mui/material';
 // import { OutlinedInput } from '@mui/material';
 // import { styled } from '@mui/system';
 
@@ -180,6 +180,24 @@ export const InputTime = styled(TextField)`
         width: 100%;  
     }
 `;
+
+export const MenuItemCustom = styled(MenuItem)`
+width: 100%;
+height: 44px;
+padding: 12px 10px;
+border-radius: 6px;
+border: 1px solid #D7E3FF;
+color: #407BFF;
+outline: none;
+
+@media only screen and (min-width: 768px) {
+    width: 544px;
+}
+@media only screen and (min-width: 1440px) {
+    width: 100%;  
+}
+`
+
 export const InputMl = styled.input`
 width: 100%;
 height: 44px;
