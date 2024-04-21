@@ -13,6 +13,7 @@ import { refreshUser } from '../redux/auth/operations';
 
 export const App = () => {
   const dispatch = useDispatch();
+  console.log('hi');
   // const isFetchingCurrentUser = useSelector(selectAuthIsRefreshing);
   useEffect(() => {
     dispatch(refreshUser());
