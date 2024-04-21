@@ -22,7 +22,7 @@ export const FirstBgImageWrapper = styled.div`
    top: 0px;
    left: 0px;
    display: block;
-   overflow: hidden;
+   // overflow: hidden;
    z-index: -1;
    background-image: url(${signupBg});
    background-repeat: no-repeat;

@@ -1,15 +1,17 @@
 import { PopUpWrap, DateText, WaterInfo, AccentColor } from './PopUp.styled';
 
-const PopUpCard = ({ dailyNorm, date, percentOfWaterRate, recordsCount }) => {
+const PopUpCard = ({ waterRate, date, percentOfWaterRate, recordsCount }) => {
   return (
     <PopUpWrap>
       <DateText>{date}</DateText>
       <WaterInfo>
-        Daily norma: <AccentColor>{dailyNorm}</AccentColor>
+        Daily norma: <AccentColor>{waterRate ? waterRate : 0} L</AccentColor>
       </WaterInfo>
       <WaterInfo>
-        Fulfillment of the daily norm:
-        <AccentColor> {percentOfWaterRate}%</AccentColor>
+        Fulfillment of the daily norm:{' '}
+        <AccentColor>
+          {percentOfWaterRate ? percentOfWaterRate : 0}%
+        </AccentColor>
       </WaterInfo>
       <WaterInfo>
         How many servings of water: <AccentColor>{recordsCount}</AccentColor>

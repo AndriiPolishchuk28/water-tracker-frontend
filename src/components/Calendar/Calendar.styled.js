@@ -55,8 +55,12 @@ export const LiItem = styled.li`
     position: relative;
   }
 `;
-
 export const LiCircle = styled.div`
+  border: 1px solid
+    ${props =>
+      props.percentage < 100
+        ? `${'var(--secondary-color-orange)'}`
+        : 'transperent'};
   width: 32px;
   height: 32px;
   border-radius: 20px;
