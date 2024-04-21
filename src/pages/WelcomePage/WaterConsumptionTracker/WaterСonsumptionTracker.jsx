@@ -6,11 +6,12 @@ import {
   Benefits,
   List,
   Item,
-  HabitDriveIcon,
-  ViewStatisticsIcon,
-  PersonalSettingsIcon,
+  // HabitDriveIcon,
+  // ViewStatisticsIcon,
+  // PersonalSettingsIcon,
   Button,
 } from './WaterConsumptionTracker.styled';
+import { icons } from '../../../assets';
 
 const WaterConsumptionTracker = () => {
   const navigate = useNavigate();
@@ -25,17 +26,22 @@ const WaterConsumptionTracker = () => {
       <Benefits>Tracker Benefits</Benefits>
       <List>
         <Item>
-          <HabitDriveIcon />
+          <svg>
+            <use href={`${icons}#icon-habit-drive`}></use>
+          </svg>
           <p>Habit drive</p>
         </Item>
         <Item>
-          <ViewStatisticsIcon />
+          <svg>
+            <use href={`${icons}#icon-view-statistics`}></use>
+          </svg>
 
           <p>View statistics</p>
         </Item>
         <Item>
-          <PersonalSettingsIcon />
-
+          <svg>
+            <use href={`${icons}#icon-personal-rate-setting`}></use>
+          </svg>
           <p>Personal rate setting</p>
         </Item>
       </List>

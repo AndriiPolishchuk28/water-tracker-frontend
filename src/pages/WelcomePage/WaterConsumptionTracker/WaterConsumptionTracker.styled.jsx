@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { ReactComponent as CalendarDaysIcon } from '../../../assets/icons/habit-drive.svg';
-import { ReactComponent as StatisticsIcon } from '../../../assets/icons/view-statistics.svg';
-import { ReactComponent as SettingsIcon } from '../../../assets/icons/personal-rate-setting.svg';
+// import { ReactComponent as CalendarDaysIcon } from '../../../assets/icons/habit-drive.svg';
+// import { ReactComponent as StatisticsIcon } from '../../../assets/icons/view-statistics.svg';
+// import { ReactComponent as SettingsIcon } from '../../../assets/icons/personal-rate-setting.svg';
 
 export const WaterConsumption = styled.div`
   display: block;
@@ -71,8 +71,19 @@ export const Item = styled.li`
   gap: 8px;
   margin-bottom: 16px;
 
+  & svg {
+    height: 32px;
+    width: 32px;
+    fill: var(--primary-color-blue);
+
+    @media screen and (min-width: 1440px) {
+      height: 40px;
+      width: 40px;
+    }
+  }
+
   & p {
-    font-size: 18px;
+    font-size: 16px;
     line-height: calc(20 / 16);
   }
 
@@ -88,11 +99,11 @@ export const Item = styled.li`
   }
 `;
 
-export const HabitDriveIcon = styled(CalendarDaysIcon)``;
+// export const HabitDriveIcon = styled(CalendarDaysIcon)``;
 
-export const ViewStatisticsIcon = styled(StatisticsIcon)``;
+// export const ViewStatisticsIcon = styled(StatisticsIcon)``;
 
-export const PersonalSettingsIcon = styled(SettingsIcon)``;
+// export const PersonalSettingsIcon = styled(SettingsIcon)``;
 
 export const Button = styled.button`
   display: flex;
