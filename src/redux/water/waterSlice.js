@@ -1,7 +1,6 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
 import {
   getMonthPercentageThunk,
-  updateWaterRateThunk,
   addWaterRateThunk,
   getWaterPerDayThunk,
   updateWaterThunk,
@@ -9,7 +8,6 @@ import {
 } from './operations';
 
 const initialState = {
-  waterRate: null,
   isLoading: false,
   error: null,
   percentOfDailyNorm: null,
@@ -34,9 +32,7 @@ const waterSlice = createSlice({
       .addCase(getMonthPercentageThunk.fulfilled, (state, { payload }) => {
         state.itemsPerMonth = payload;
       })
-      .addCase(updateWaterRateThunk.fulfilled, (state, { payload }) => {
-        state.waterRate = payload.waterRate;
-      })
+
       .addCase(addWaterRateThunk.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.listWaterOfDay.push(payload.addedWaterRecord);
@@ -62,7 +58,6 @@ const waterSlice = createSlice({
       .addMatcher(
         isAnyOf(
           getMonthPercentageThunk.pending,
-          updateWaterRateThunk.pending,
           addWaterRateThunk.pending,
           getWaterPerDayThunk.pending,
           updateWaterThunk.pending,
@@ -73,7 +68,6 @@ const waterSlice = createSlice({
       .addMatcher(
         isAnyOf(
           getMonthPercentageThunk.rejected,
-          updateWaterRateThunk.rejected,
           addWaterRateThunk.rejected,
           getWaterPerDayThunk.rejected,
           updateWaterThunk.rejected,

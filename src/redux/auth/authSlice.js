@@ -6,6 +6,7 @@ import {
   refreshUser,
   updateUserAvatars,
   updateUserInfo,
+  updateWaterRateThunk,
 } from './operations';
 
 const initialState = {
@@ -65,6 +66,9 @@ const authSlice = createSlice({
         state.user = action.payload.user;
         state.isLoading = false;
       })
+      .addCase(updateWaterRateThunk.fulfilled, (state, { payload }) => {
+        state.user.waterRate = payload.waterRate;
+      })
 
       .addMatcher(
         isAnyOf(
@@ -73,7 +77,8 @@ const authSlice = createSlice({
           refreshUser.pending,
           signoutUser.pending,
           updateUserAvatars.pending,
-          updateUserInfo.pending
+          updateUserInfo.pending,
+          updateWaterRateThunk.pending
           // updateUserInfoThunk.pending
         ),
         state => {
@@ -89,7 +94,8 @@ const authSlice = createSlice({
           refreshUser.rejected,
           signoutUser.rejected,
           updateUserAvatars.rejected,
-          updateUserInfo.rejected
+          updateUserInfo.rejected,
+          updateWaterRateThunk.rejected
           // updateUserInfoThunk.rejected
         ),
         (state, action) => {
