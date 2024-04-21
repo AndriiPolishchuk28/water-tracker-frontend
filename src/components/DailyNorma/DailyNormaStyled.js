@@ -41,12 +41,16 @@ cursor: pointer;
 &:hover,
   &:focus {
     color: var(--secondary-color-orange);
+    font-size: 18px;
+    box-shadow: 0 4px 8px 0 rgba(64, 123, 255, 0.34);
+    padding: 2px;
   }
 }
 `;
 export const DailyNormaDialog = styled(Dialog)`
   width: 100%;
   height: 100%;
+  overflow: auto;
 `;
 
 export const ModalWrapper = styled.div`
@@ -152,10 +156,10 @@ export const ModalCalc = styled.p`
 
 export const GenderWrapper = styled.div`
   display: flex;
-  flex-direction: row-reverse;
-  justify-content: flex-end;
+  flex-direction: row;
+  justify-content: flex-start;
   margin-bottom: 16px;
-  align-items: flex-end;
+  
 `;
 
 export const ModalLabel = styled.label`
@@ -166,7 +170,30 @@ export const ModalLabel = styled.label`
   color: var(--primary-color-black);
 `;
 
-export const ModalRadioInput = styled.input.attrs({ type: 'radio' })`
+export const ModalRadioInputWoman = styled.input.attrs({ type: 'radio', id:"woman" })`
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border: 1px solid var(--primary-color-blue);
+  border-radius: 50%;
+  outline: none;
+  box-shadow: 0 0 5px var(--primary-color-blue);
+
+  &:before {
+    content: '';
+    display: block;
+    width: 8px;
+    height: 8px;
+    margin: 2px;
+    border-radius: 50%;
+  }
+
+  &:checked:before {
+    background: var(--primary-color-blue);
+  }
+`;
+
+export const ModalRadioInputMen = styled.input.attrs({ type: 'radio', id:"man" })`
   appearance: none;
   width: 14px;
   height: 14px;
@@ -217,7 +244,12 @@ export const ModalInput = styled.input`
   padding: 12px 10px;
   width: 256px;
   height: 44px;
-  color: var(--primary-color-black);
+  outline: none;
+  color: var(--primary-color-blue);
+&:: hover,
+&:focus {
+  border: 3px solid #d7e3ff;
+}
   &::placeholder {
     color: var(--primary-color-blue);
   }
@@ -265,12 +297,27 @@ export const ModalButton = styled.button`
   position: absolute;
   bottom: 24px;
   color: var(--primary-color-white);
+  cursor: pointer;
+  &:hover,
+  &:focus {
+    outline: none;
+    width: 258px;
+  height: 36px;
+    font-size: 18px;
+    box-shadow: 0 4px 8px 0 rgba(64, 123, 255, 0.34);
+   
+  }
   @media screen and (min-width: 768px) {
     bottom: 32px;
     right: 24px;
     padding: 10px 30px;
     width: 160px;
     height: 44px;
+     &:hover,
+  &:focus {
+     width: 164px;
+    height: 48px;
+  }
   }
 `;
 
@@ -306,10 +353,18 @@ export const ModalLabelWater = styled.label`
   margin-bottom: 8px;
   line-height: 1.11;
   color: var(--primary-color-black);
-  &::placeholder {
-    color: var(--primary-color-blue);
   }
   @media screen and (min-width: 768px) {
     margin-bottom: 16px;
+  }
+`;
+export const ErrorSpan = styled.span`
+  color: red;
+  display: none;
+  font-size: 12px;
+  line-height: 1.33;
+  margin-top: 4px;
+  @media screen and (min-width: 768px) {
+    margin-top: 8px;
   }
 `;

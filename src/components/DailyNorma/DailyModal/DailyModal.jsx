@@ -19,12 +19,14 @@ import {
   ModalForm,
   ModalCalc,
   ModalLabel,
-  // ModalRadioInput,
-  // RadioLabel,
+  ModalRadioInputWoman,
+  ModalRadioInputMen,
+  RadioLabel,
   ModalInput,
   Amount,
   ModalButton,
   WaterIntakeSpan,
+  ErrorSpan
 } from '../DailyNormaStyled';
 import { icons } from '../../../assets';
 
@@ -112,23 +114,22 @@ const DailyModal = ({ onClose }) => {
         <ModalCalc>Calculate your rate:</ModalCalc>
         <ModalLabel>
           <GenderWrapper>
-            <label htmlFor="man">For man</label>
-            <input
-              id="man"
-              type="radio"
-              value="man"
-              checked={gender === 'man'}
-              onChange={() => setGender('man')}
-            />
-
-            <label htmlFor="woman">For woman</label>
-            <input
+            <ModalRadioInputWoman
               id="woman"
               type="radio"
               value="girl"
               checked={gender === 'woman'}
               onChange={() => setGender('woman')}
             />
+            <RadioLabel htmlFor="woman">For woman</RadioLabel>
+             <ModalRadioInputMen
+              id="man"
+              type="radio"
+              value="man"
+              checked={gender === 'man'}
+              onChange={() => setGender('man')}
+            />
+<RadioLabel htmlFor="man">For man</RadioLabel>
           </GenderWrapper>
         </ModalLabel>
         <InputWrapper>
@@ -166,7 +167,8 @@ const DailyModal = ({ onClose }) => {
             onChange={handleInputChange}
             min={1}
             max={15000}
-          />
+        
+          /><ErrorSpan>This field is required</ErrorSpan>
         </InputWrapperWater>
         <ModalButton type="submit">Save</ModalButton>
       </ModalForm>
