@@ -28,7 +28,7 @@ import {
   WaterIntakeSpan,
 } from '../DailyNormaStyled';
 import { icons } from '../../../assets';
-import { successToast, errorToast } from '../../../services/services';
+
 
 const DailyModal = ({ onClose }) => {
   const dispatch = useDispatch();
@@ -82,11 +82,11 @@ const DailyModal = ({ onClose }) => {
     }
   };
 
+
   const handleSubmit = e => {
     e.preventDefault();
-    if (!waterToDrink) return errorToast('Please enter water intake');
+    if (!waterToDrink) return ;
     dispatch(updateWaterRateThunk({ amountOfWater: waterToDrink }));
-      successToast('Water intake updated successfully');
     onClose();
   };
 
@@ -164,7 +164,7 @@ const DailyModal = ({ onClose }) => {
           </ModalLabelWater>
           <ModalInput
             required
-            error="Please write down how much water you will drink"
+            
             type="text"
             value={waterToDrink}
             onChange={handleInputChange}
