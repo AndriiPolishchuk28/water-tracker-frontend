@@ -1,5 +1,6 @@
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import ModalAddEdit from 'components/ModalWL/ModalAddEdit';
-import React, { useState } from 'react';
 import WaterListModal from 'components/WaterListModal/WaterListModal';
 import {
   Title,
@@ -17,6 +18,8 @@ import {
 } from './TodayList.styled';
 import sprite from '../../assets/icons/sprite.svg';
 import Dialog from '@mui/material/Dialog';
+import { getWaterPerDayThunk, addWaterRateThunk } from '../../redux/water/operations';
+import {selectListWaterOfDay} from '../../redux/water/selectors'
 
 
 
@@ -26,10 +29,17 @@ const TodayList = () => {
     const [selectedItemIndex, setSelectedItemIndex] = useState(null);
     const [isEditing, setIsEditing] = useState(false);
     const [isVisible, setIsVisible] = useState(true);
+    const dispatch = useDispatch();
+    const listWaterOfDay = useSelector(selectListWaterOfDay);
+  
+    useEffect(() => {
+      dispatch(getWaterPerDayThunk());
+    }, [dispatch]);
   
     const handleSaveWaterData = (result, time) => {
       const newData = [...waterData, { result, time }];
       setWaterData(newData);
+      dispatch(addWaterRateThunk({ value: result, time }));
     };
   
     const handleEditWaterData = (index, result, time) => {
@@ -50,7 +60,7 @@ const TodayList = () => {
     };
   
     const handleSaveData = (result, time) => {
-      const newData = [...waterData];
+      const newData = [...listWaterOfDay];
       newData[selectedItemIndex] = { result, time };
       setWaterData(newData);
       handleCloseModal();

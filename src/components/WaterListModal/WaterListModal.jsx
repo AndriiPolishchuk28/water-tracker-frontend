@@ -47,11 +47,11 @@ const WaterListModal = ({ onSave, onClose, title, isVisible }) => {
   };
 
   const increment = () => {
-    const value = result + 10;
+    const value = result + 50;
     setResult(value);
   };
   const decrement = () => {
-    const value = result - 10;
+    const value = result - 50;
     if (value >= 0) {
       setResult(value);
     } else {

@@ -12,6 +12,8 @@ export const List = styled.ul`
     margin-bottom: 16px;
     max-height: 150px;
     overflow-y: auto;
+    display: flex;
+    flex-direction: column-reverse;
 `
 export const ListElem = styled.li`
     display: flex;

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Dialog from '@mui/material/Dialog';
-import { OpenButton} from './ModalWL.styled';
+import { OpenButton, ModalReverse} from './ModalWL.styled';
 import WaterListModal from 'components/WaterListModal/WaterListModal';
 
 const ModalAddEdit = ({ onSave }) => {
@@ -24,7 +24,7 @@ const ModalAddEdit = ({ onSave }) => {
   };
 
   return (
-    <div>
+    <ModalReverse>
       <Dialog open={isModalOpen} onClose={handleCloseModal} maxWidth="800px">
         <WaterListModal
           onSave={(result, time) => {
@@ -38,7 +38,7 @@ const ModalAddEdit = ({ onSave }) => {
         />
       </Dialog>
       <OpenButton onClick={() => handleOpenModal(false)}>Add water</OpenButton>
-    </div>
+    </ModalReverse>
   );
 };
 
