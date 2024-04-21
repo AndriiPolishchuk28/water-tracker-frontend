@@ -1,4 +1,4 @@
-// import { openAddWater } from 'redux/modals/modalsSlice';
+// import { ModalAddEdit } from '../Modal/Modal';
 import { icons } from '../../assets/';
 import {
   AddWaterBtn,
@@ -67,4 +67,5 @@ export const WaterTracker = () => {
     </ProgressPanelContainer>
   );
 };
-// onClick={() => dispatch(openAddWater())}
+
+// onClick={() => dispatch(ModalAddEdit())}
