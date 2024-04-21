@@ -1,4 +1,57 @@
-import styled from "styled-components";
+import styled from 'styled-components';
+import Dialog from '@mui/material/Dialog';
+
+
+export const DailyNormaWrapper = styled.div`
+display:flex;
+flex-direction: column;
+justify-content: center;
+gap: 12px;
+`
+export const DailyNormaHeader = styled.h4`
+font-weight: 500;
+font-size: 18px;
+line-height: 1.33;
+color: $primary-color-black;
+text-align: center;
+white-space: nowrap;
+`
+
+
+
+export const WaterRateWrapper = styled.div`
+display:flex;
+gap: 12px;
+`
+export const WaterRateParagraph = styled.p`
+font-weight: 700;
+font-size: 22px;
+line-height: 1;
+color: var(--primary-color-blue);
+@media screen and (min-width: 768px) {
+    font-size: 24px;
+}
+@media screen and (min-width: 1440px) {
+  
+}
+`
+export const DailyNormaButton = styled.button`
+font-size: 16px;
+line-height: 1.25;
+color: #8baeff;
+background-color: transparent;
+border: none;
+cursor: pointer;
+&:hover,
+  &:focus {
+    color: var(--secondary-color-orange);
+  }
+}
+`
+export const DailyNormaDialog = styled(Dialog)`
+width: 100%;
+height: 100%;`
+
 
 export const ModalWrapper = styled.div`
 border-radius: 10px;
@@ -8,17 +61,19 @@ height: 816px;
 margin: 40px auto 0px auto;
 position: absolute;
 top: 0px;
+z-index: 9999;
 background-color: var(--primary-color-white);
 @media screen and (min-width: 768px) {
 padding: 32px 24px;
+margin: 40px 32px auto 32px;
 width: 704px;
 height: 696px;
 }
 @media screen and (min-width: 1440px) {
     width: 592px;
     height: 712px;
-    transform: translate(5%, 15%);
-    margin: 0px auto;
+    
+    margin: 44px auto;
 }
 `
 export const Modalsvg = styled.svg`
@@ -97,15 +152,18 @@ color: var(--primary-color-black);`
 
 export const GenderWrapper = styled.div`
     display: flex;
+flex-direction: row-reverse;
+justify-content: flex-end;
  margin-bottom: 16px;
-align-items: center; `
+align-items: flex-end; `
 
     export const ModalLabel = styled.label`
     font-family: 'Roboto';
 font-size: 16px;
 line-height: 1.25;
 margin-bottom: 8px;
-color: var(--primary-color-black);`
+color: var(--primary-color-black);
+`
 
     export const ModalRadioInput= styled.input.attrs({ type: 'radio' })`
     appearance: none;
@@ -129,7 +187,7 @@ color: var(--primary-color-black);`
       background: var(--primary-color-blue);
     }
     `
-export const RadioParagraph = styled.p`
+export const RadioLabel = styled.p`
 margin-right: 24px;
 font-size: 16px;
 line-height: 125%;
@@ -157,6 +215,7 @@ border-radius: 6px;
 padding: 12px 10px;
 width: 256px;
 height: 44px;
+color: var(--primary-color-blue);
 &::placeholder {
   color: var(--primary-color-blue);
 }
@@ -200,16 +259,14 @@ font-size: 16px;
 line-height: 1.25;
 text-align: center;
 position: absolute;
-bottom: 32px;
+bottom: 24px;
 color: var(--primary-color-white);
 @media screen and (min-width: 768px) {
-   transform: translateX(310%);
+  bottom: 32px;
+  right: 24px;
 padding: 10px 30px;
 width: 160px;
 height: 44px;
-}
-@media screen and (min-width: 1440px) {
-    transform: translateX(240%);
 }
 `
 
