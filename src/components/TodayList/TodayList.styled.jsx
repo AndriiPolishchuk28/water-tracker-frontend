@@ -10,24 +10,40 @@ text-align: left;
 export const List = styled.ul`
     width: 100%;
     margin-bottom: 16px;
+    max-height: 150px;
+    overflow-y: auto;
 `
 export const ListElem = styled.li`
     display: flex;
     justify-content: space-between;
     border-bottom: 1px solid #D7E3FF;
     padding: 5px;
+    height: 50px;
 `
 export const ListElemInfoContainer = styled.div`
-width: 50%;
+width: 70%;
 display: flex;
 justify-content: start;
+align-items: center;
 gap: 12px;
+
+        @media only screen and (min-width: 768px) {
+            width: 50%;
+        }
+   
 `
 export const ListElemButtonsContainer = styled.div`
-width: 50%;
+width: 30%;
 display: flex;
 justify-content: end;
+align-items: center;
 gap: 18px;
+
+        @media only screen and (min-width: 768px) {
+            width: 50%;
+            
+        }
+
 `
 export const Icon = styled.svg`
 width:24px;

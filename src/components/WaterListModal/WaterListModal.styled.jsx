@@ -1,5 +1,8 @@
-import styled from "styled-components";
-// import sprite from "../../assets/icons/sprite.svg"
+import styled, {css} from 'styled-components';
+import TextField from '@mui/material/TextField';
+// import { OutlinedInput } from '@mui/material';
+// import { styled } from '@mui/system';
+
 export const OpenButton = styled.button`
     width: 280px;
     height: 36px;
@@ -10,6 +13,7 @@ export const OpenButton = styled.button`
 `
 
 export const Container = styled.div`
+position: relative;
     width: 100%;
     max-height: 100%;
     // margin: 10px auto;
@@ -40,7 +44,7 @@ export const Title = styled.h2`
     font-weight: 500;
     line-height: 32px;
 `
-export const CloseBtn = styled.button`
+export const CloseButton = styled.button`
     width: 24px;
     height: 24px;
     border: 1px solid #407BFF;
@@ -113,6 +117,9 @@ align-items: center;
 gap: 6px;
 `
 export const DataBtn = styled.button`
+display: flex;
+justify-content: center;
+align-items: center;
 width: 44px;
 height: 44px;
 border-radius: 50%;
@@ -121,12 +128,6 @@ border: 1px solid #9EBBFF;
 cursor: pointer;
 background-color: transparent;
 padding: 0;
-    &::before {
-        // content: 'x'; 
-        // position: relative;
-        // z-index: 999;
-        // fill: #000;
-    }
     &:hover{
         box-shadow: 0px 2px 4px 0px #407BFF33;
     }
@@ -163,14 +164,14 @@ font-weight: 500;
 line-height: 20px;
 color: #2F2F2F;
 `
-export const InputTime = styled.input`
-width: 100%;
-height: 44px;
-padding: 12px 10px;
-border-radius: 6px;
-border: 1px solid #D7E3FF;
-color: #407BFF;
-outline: none;
+export const InputTime = styled(TextField)`
+    width: 100%;
+    height: 44px;
+    padding: 12px 10px;
+    border-radius: 6px;
+    border: 1px solid #D7E3FF;
+    color: #407BFF;
+    outline: none;
 
     @media only screen and (min-width: 768px) {
         width: 544px;
@@ -178,7 +179,7 @@ outline: none;
     @media only screen and (min-width: 1440px) {
         width: 100%;  
     }
-`
+`;
 export const InputMl = styled.input`
 width: 100%;
 height: 44px;
@@ -239,4 +240,10 @@ cursor: pointer;
     @media only screen and (min-width: 768px) {
         width: 166px;
     }
+`
+export const IconBtn = styled.svg`
+    width: 24px;
+    height: 24px;
+    fill: var(--primary-color-blue);
+    z-index: 999;
 `
