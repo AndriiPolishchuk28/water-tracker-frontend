@@ -29,7 +29,7 @@ export const DailyNorma = () => {
             .then(() => {
                 successToast('Your water rate has been updated!');
                
-                setLocalWaterRate(newWaterRate.toString());
+                setLocalWaterRate(newWaterRate);
                 setIsModalOpen(false);
             })
             .catch(error => {
@@ -54,11 +54,9 @@ export const DailyNorma = () => {
           
       <StyledEngineProvider injectFirst>  
             <DailyNormaDialog open={isModalOpen}
-    onClose={(newWaterRate) => {
-        handleCloseModal();
-        handleWaterRateUpdate(newWaterRate);
-    }}
-    PaperComponent={() => <DailyNormaModal />}
+   
+    PaperComponent={() => <DailyNormaModal   onClose={() => {
+      handleCloseModal();}}/>} onSubmit={ handleWaterRateUpdate(localWaterRate)}
     >
             </DailyNormaDialog></StyledEngineProvider>
 
@@ -125,7 +123,7 @@ try {
 
   }
 
-  const handleSubmit = (event) => {
+  const handleSubmit = () => {
     const newWaterRate =  parseFloat(waterIntakeInput) || '2';
     onClose(newWaterRate);
     console.log(newWaterRate);
@@ -143,7 +141,7 @@ try {
       <FormulaWrapper><ModalParagraphForGirl>For girl:<ModalSpan>V=(M*0,03) + (T*0,4)</ModalSpan></ModalParagraphForGirl>
       <ModalParagraphForMan>For man:<ModalSpan>V=(M*0,04) + (T*0,6)</ModalSpan></ModalParagraphForMan></FormulaWrapper>
       <ModalInfo>* V is the volume of the water norm in liters per day, M is your body weight, T is the time of active sports, or another type of activity commensurate in terms of loads (in the absence of these, you must set 0)</ModalInfo>
-      <ModalForm onSubmit={handleSubmit}>
+      <ModalForm >
         <ModalCalc>Calculate your rate:</ModalCalc>
         <ModalLabel>
         <GenderWrapper>
@@ -172,7 +170,7 @@ try {
         Write down how much water you will drink:</ModalLabelWater>
         <ModalInput type="text" value={waterIntakeInput}  onChange={handleInputChange} min={1} max={15000} />
         </InputWrapperWater>
-        <ModalButton type="submit" >Save</ModalButton>
+        <ModalButton type="submit" onSubmit={handleSubmit}>Save</ModalButton>
       </ModalForm>
     </ModalWrapper>
   );

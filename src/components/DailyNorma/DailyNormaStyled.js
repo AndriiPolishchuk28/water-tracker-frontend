@@ -213,7 +213,7 @@ border-radius: 6px;
 padding: 12px 10px;
 width: 256px;
 height: 44px;
-color: var(--primary-color-blue);
+color: var(--primary-color-black);
 &::placeholder {
   color: var(--primary-color-blue);
 }
@@ -298,7 +298,7 @@ font-weight: 500;
 font-size: 18px;
 margin-bottom: 8px;
 line-height: 1.11;
-color: var(--primary-color-blue);
+color: var(--primary-color-black);
 &::placeholder {
     color: var(--primary-color-blue);
   }
