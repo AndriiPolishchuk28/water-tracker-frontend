@@ -18,16 +18,30 @@ import {
 import InfoForm from './InfoForm/InfoForm';
 import { selectAuthUserData } from '../../redux/auth/selectors';
 import { useSelector } from 'react-redux';
-import { updateUserInfo } from '../../redux/auth/operations';
+import { updateUserInfo, updateUserAvatars } from '../../redux/auth/operations';
 
 const SettingModal = ({ isModalOpen, onClose }) => {
   const data = useSelector(selectAuthUserData);
   const dispatch = useDispatch();
+  const inputRef = useRef(null)
 
   const handleSubmit = userData => {
     console.log(userData);
     dispatch(updateUserInfo(userData));
   };
+
+  const handleFileChange =  event => {
+    const file = event.target.files[0];
+    if (file) {
+      console.log(file);
+      try {
+         dispatch(updateUserAvatars(file));
+      } catch (error) {
+        console.error('Помилка при відправленні файлу на бекенд:', error);
+      }
+    }
+  };
+
 
   const displayName = data.name || (data.email && data.email.split('@')[0]);
   const displayAvatar =
@@ -64,7 +78,11 @@ const SettingModal = ({ isModalOpen, onClose }) => {
             <SvgUploadBtn>
               <use href={`${sprite}#icon-arrow-up-tray`}></use>
             </SvgUploadBtn>
-            <AvatarInput type="file" />
+            <AvatarInput
+              type="file"
+              ref={inputRef}
+              onChange={handleFileChange}
+            />
             Upload a photo
           </AvatarLabel>
         </PhotoDiv>

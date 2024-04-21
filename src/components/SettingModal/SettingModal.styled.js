@@ -326,10 +326,10 @@ export const InputSvgWrapper = styled.div`
 `;
 
 export const HeaderAvatar = styled.img`
-  width: 28px;
-  height: 28px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
-  margin-right: 4px;
+  margin-right: 8px;
   background-color: transparent;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 `;

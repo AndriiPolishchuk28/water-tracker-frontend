@@ -23,18 +23,16 @@ import {
 
 const InfoForm = ({ onSubmit }) => {
   const data = useSelector(selectAuthUserData);
-const [lookPassword, setLookPassword] = useState(false);
-const [lookRepeatPassword, seLookRepeatPassword] = useState(false);
+  const [lookPassword, setLookPassword] = useState(false);
+  const [lookRepeatPassword, seLookRepeatPassword] = useState(false);
 
-const passwordVisibile = () => {
-  setLookPassword(prevLookPassword => !prevLookPassword);
-};
-const passwordRepeatVisibile = () => {
-  seLookRepeatPassword(prevLookPassword => !prevLookPassword);
-};
-  
- 
-  
+  const passwordVisibile = () => {
+    setLookPassword(prevLookPassword => !prevLookPassword);
+  };
+  const passwordRepeatVisibile = () => {
+    seLookRepeatPassword(prevLookPassword => !prevLookPassword);
+  };
+
   return (
     <Formik
       initialValues={{
@@ -61,28 +59,22 @@ const passwordRepeatVisibile = () => {
           'Passwords must match'
         ),
       })}
-    
       onSubmit={values => {
-      
         const formData = {};
 
-     
         if (values.name) {
           if (values.name !== data.name) {
             formData.name = values.name;
           }
-          
         }
 
         if (values.email) {
           if (values.email !== data.email) {
             formData.email = values.email;
           }
-          ;
         }
 
         if (values.gender) {
-      
           if (values.gender !== data.gender) {
             formData.gender = values.gender;
           }
@@ -91,15 +83,17 @@ const passwordRepeatVisibile = () => {
           formData.oldPassword = values.oldPassword;
         }
 
-     
         if (values.newPassword) {
           formData.newPassword = values.newPassword;
         }
 
-  
+        if (Object.keys(formData).length > 0) {
+          onSubmit(formData);
+        } else {
+          return;
+        }
 
-        onSubmit(formData);
-        console.log(formData);
+        // onSubmit(formData);
       }}
     >
       {({ errors, touched }) => {
