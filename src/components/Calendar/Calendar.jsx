@@ -103,7 +103,7 @@ const Calendar = () => {
                   key={date}
                   trigger={
                     <LiItem>
-                      <LiCircle percentage={percentOfWaterRate}>
+                      <LiCircle $percentage={percentOfWaterRate}>
                         {parseInt(date)}
                       </LiCircle>
                       <ProcentageWater>
