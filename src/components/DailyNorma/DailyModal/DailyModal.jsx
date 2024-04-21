@@ -19,8 +19,8 @@ import {
   ModalForm,
   ModalCalc,
   ModalLabel,
-  // ModalRadioInput,
-  // RadioLabel,
+  ModalRadioInput,
+  RadioLabel,
   ModalInput,
   Amount,
   ModalButton,
@@ -30,7 +30,7 @@ import { icons } from '../../../assets';
 
 const DailyModal = ({ onClose }) => {
   const dispatch = useDispatch();
-  const [gender, setGender] = useState('woman');
+  const [gender, setGender] = useState('notSelected');
   const [weight, setWeight] = useState('');
   const [activityTime, setActivityTime] = useState('');
   const [requiredWater, setRequiredWater] = useState(0);
@@ -60,6 +60,9 @@ const DailyModal = ({ onClose }) => {
 
   const calculateWaterRate = (gender, weight, activityTime) => {
     let waterCalculated = 0;
+    if (gender === 'notSelected') {
+      waterCalculated = weight * 0.03 + activityTime * 0.4;
+    }
     if (gender === 'woman') {
       waterCalculated = weight * 0.03 + activityTime * 0.4;
     } else if (gender === 'man') {
@@ -112,8 +115,8 @@ const DailyModal = ({ onClose }) => {
         <ModalCalc>Calculate your rate:</ModalCalc>
         <ModalLabel>
           <GenderWrapper>
-            <label htmlFor="man">For man</label>
-            <input
+            <RadioLabel htmlFor="man">For man</RadioLabel>
+            <ModalRadioInput
               id="man"
               type="radio"
               value="man"
@@ -121,8 +124,8 @@ const DailyModal = ({ onClose }) => {
               onChange={() => setGender('man')}
             />
 
-            <label htmlFor="woman">For woman</label>
-            <input
+            <RadioLabel htmlFor="woman">For woman</RadioLabel>
+            <ModalRadioInput
               id="woman"
               type="radio"
               value="girl"

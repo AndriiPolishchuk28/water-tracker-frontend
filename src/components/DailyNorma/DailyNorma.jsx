@@ -16,6 +16,7 @@ import {
 export const DailyNorma = () => {
   const waterRate = useSelector(selectWaterRate);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  
 
   const handleEditClick = () => {
     setIsModalOpen(true);
@@ -35,7 +36,7 @@ export const DailyNorma = () => {
 
       <StyledEngineProvider injectFirst>
         <DailyNormaDialog
-          open={isModalOpen}
+          open={isModalOpen} onClose={handleCloseModal}
           PaperComponent={() => <DailyModal onClose={handleCloseModal} />}
         ></DailyNormaDialog>
       </StyledEngineProvider>
