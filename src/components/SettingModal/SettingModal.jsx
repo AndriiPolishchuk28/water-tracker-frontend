@@ -8,7 +8,6 @@ import {
   SecondTitle,
   SettingDiv,
   SettingTitle,
-  UserAvatar,
   SvgCloseBtn,
   HeaderAvatar,
   UserInitial,
