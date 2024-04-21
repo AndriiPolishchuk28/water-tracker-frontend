@@ -147,6 +147,18 @@ export const StyledInput = styled(Field)`
   color: var(--primary-color-blue);
   padding: 12px 36px 12px 10px;
   border-radius: 6px;
+  &:focus {
+    border-color: var(--secondary-color-blue-1);
+    outline: none;
+  }
+
+  &:valid {
+    color: var(--primary-color-blue);
+  }
+  &:invalid {
+    color: var(--secondary-color-red);
+    border-color: var(--secondary-color-red);
+  }
   @media screen and (min-width: 768px) {
     width: 392px;
   }
@@ -190,6 +202,22 @@ export const PassInput = styled(Field)`
   padding: 12px 36px 12px 10px;
   border-radius: 6px;
   margin-bottom: 12px;
+  &::placeholder {
+    line-height: 1.25;
+    color: var(--secondary-color-blue-2);
+  }
+  &:focus {
+    border-color: var(--secondary-color-blue-1);
+    outline: none;
+  }
+
+  &:valid {
+    color: var(--primary-color-blue);
+  }
+  &:invalid {
+    color: var(--secondary-color-red);
+    border-color: var(--secondary-color-red);
+  }
   @media screen and (min-width: 768px) {
     width: 392px;
   }
@@ -203,6 +231,23 @@ export const SaveBtn = styled.button`
   width: 100%;
   height: 36px;
   margin-top: 12px;
+  cursor: pointer;
+  border-radius: 10px;
+  position: relative;
+  z-index: 5;
+  padding: 8px 30px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--primary-color-white);
+  background: var(--primary-color-blue);
+  &:hover {
+    box-shadow: 0 4px 8px 0 rgba(64, 123, 255, 0.34);
+  }
   @media screen and (min-width: 768px) {
     width: 160px;
     height: 44px;
@@ -216,15 +261,14 @@ export const SaveBtn = styled.button`
   }
 `;
 
-export const CloseBtn = styled.button`
+export const SvgCloseBtn = styled.svg`
+  width: 24px;
+  height: 24px;
+  fill: transparent;
   position: absolute;
   top: 42px;
   right: 30px;
-  @media screen and (min-width: 768px) {
-  }
-
-  @media screen and (min-width: 1440px) {
-  }
+  stroke: var(--primary-color-blue);
 `;
 
 export const StyledErrorMessage = styled(ErrorMessage)`
@@ -236,4 +280,50 @@ export const StyledErrorMessage = styled(ErrorMessage)`
 
   @media screen and (min-width: 1440px) {
   }
+`;
+
+export const SvgIcon = styled.svg`
+  fill: transparent;
+  stroke: var(--primary-color-blue);
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  // top: 60%;
+  right: 14px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 14px;
+  @media screen and (min-width: 768px) {
+    left: 310px;
+  }
+  @media screen and (min-width: 1440px) {
+    left: 355px;
+  }
+`;
+
+export const InputSvgWrapper = styled.div`
+  position: relative;
+`;
+
+export const HeaderAvatar = styled.img`
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  margin-right: 4px;
+  background-color: transparent;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+`;
+
+export const UserInitial = styled.div`
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-right: 4px;
+  background-color: var(--secondary-color-blue-2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--secondary-color-blue-1);
 `;

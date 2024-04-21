@@ -1,27 +1,36 @@
 import React, { useRef } from 'react';
 import Dialog from '@mui/material/Dialog';
 import { useDispatch } from 'react-redux';
+import sprite from '../../assets/icons/sprite.svg';
 import {
   AvatarInput,
-  AvatarLabel,
-  CloseBtn,
   PhotoDiv,
   SecondTitle,
   SettingDiv,
   SettingTitle,
   UserAvatar,
+  SvgCloseBtn,
+  HeaderAvatar,
+  UserInitial,
 } from './SettingModal.styled';
 import InfoForm from './InfoForm/InfoForm';
+import { selectAuthUserData } from '../../redux/auth/selectors';
+import { useSelector } from 'react-redux';
 import { updateUserInfo } from '../../redux/auth/operations';
 
 const SettingModal = ({ isModalOpen, onClose }) => {
+  const data = useSelector(selectAuthUserData);
   const dispatch = useDispatch();
 
   const handleSubmit = userData => {
     console.log(userData);
-    // dispatch(updateUserInfo(userData));
+    dispatch(updateUserInfo(userData));
   };
 
+   const displayName = data.name || (data.email && data.email.split('@')[0]);
+   const displayAvatar = data.avatarURL || (data.email && data.email.charAt(0).toUpperCase());
+
+  
   return (
     <Dialog
       open={isModalOpen}
@@ -30,18 +39,26 @@ const SettingModal = ({ isModalOpen, onClose }) => {
         style: {
           margin: '40px 20px',
           maxHeight: '860px',
-          maxWidth: "1050px",
-          borderRadius: "10px",
+          maxWidth: '1050px',
+          borderRadius: '10px',
         },
       }}
     >
       <SettingDiv>
         <SettingTitle>Setting</SettingTitle>
-        <CloseBtn onClick={onClose}>Close</CloseBtn>
+        <SvgCloseBtn onClick={onClose}>
+          <use href={`${sprite}#icon-x-mark`}></use>
+        </SvgCloseBtn>
         <SecondTitle>Your photo</SecondTitle>
         <PhotoDiv>
-          <UserAvatar />
-        <AvatarInput>Upload your photo</AvatarInput>
+          {data.avatarURL ? (
+            <HeaderAvatar src={displayAvatar} alt={displayName} />
+          ) : (
+            <UserInitial>
+              {displayName && displayName.charAt(0).toUpperCase()}
+            </UserInitial>
+          )}
+          <AvatarInput>Upload your photo</AvatarInput>
         </PhotoDiv>
 
         <InfoForm onSubmit={handleSubmit} />
