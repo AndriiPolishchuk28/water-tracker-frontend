@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { refreshUser } from '../redux/auth/operations';
 import { selectAuthIsRefreshing } from '../redux/auth/selectors';
+import RecoverPage from 'pages/AuthPages/RecoverPage';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -44,6 +45,14 @@ export const App = () => {
             element={
               <PublicRoute>
                 <SignUpPage />
+              </PublicRoute>
+            }
+          />
+           <Route
+            path="recover"
+            element={
+              <PublicRoute>
+                <RecoverPage />
               </PublicRoute>
             }
           />

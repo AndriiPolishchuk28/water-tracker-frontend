@@ -41,6 +41,21 @@ export const signinUser = createAsyncThunk(
   }
 );
 
+export const recoverPassword = createAsyncThunk(
+  'auth/recoverPassword',
+  async (formData, thunkApi) => {
+    try {
+      const { data } = await axios.post('/users/recover', formData);
+      setToken(data.user.token);
+      return data;
+    } catch (error) {
+      console.log(error);
+      errorToast(error.response.data.message);
+      return thunkApi.rejectWithValue(error.message);
+    }
+  }
+);
+
 export const signoutUser = createAsyncThunk(
   'auth/signoutUser',
   async (_, thunkApi) => {

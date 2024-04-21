@@ -14,7 +14,7 @@ import {
 import { useState } from 'react';
 import { icons } from '../../assets';
 
-export const AuthForm = ({ onSubmit, isSignUp }) => {
+export const AuthForm = ({ onSubmit, isSignUp, isRecover }) => {
   const [lookPassword, setLookPassword] = useState(false);
   const [lookRepeatPassword, seLookRepeatPassword] = useState(false);
 
@@ -35,18 +35,25 @@ export const AuthForm = ({ onSubmit, isSignUp }) => {
         email: Yup.string()
           .email('Invalid email address')
           .required('Email is required'),
-        password: Yup.string()
-          .min(8, 'Password must be at least 8 characters')
-          .required('Password is required'),
+        password: !isRecover
+          ? Yup.string()
+            .min(8, 'Password must be at least 8 characters')
+            .required('Password is required')
+          : Yup.string(),
         repeatPassword: isSignUp
           ? Yup.string()
-              .oneOf([Yup.ref('password'), null], 'Passwords must match')
-              .required('Please repeat your password')
+            .oneOf([Yup.ref('password'), null], 'Passwords must match')
+            .required('Please repeat your password')
           : Yup.string(),
       })}
       onSubmit={(values, { setSubmitting }) => {
         const { email, password } = values;
-        onSubmit({ email, password });
+        if (isRecover) {
+          onSubmit({ email });
+        } else {
+          onSubmit({ email, password });
+        }
+
         setSubmitting(false);
       }}
     >
@@ -66,26 +73,27 @@ export const AuthForm = ({ onSubmit, isSignUp }) => {
               <StyledErrorMessage name="email" component="div" />
             </InputWrapper>
 
-            <InputWrapper>
-              <StaledLabel htmlFor="password">Password</StaledLabel>
-              <InputSvgWrapper>
-                <StyledField
-                  type={lookPassword ? 'text' : 'password'}
-                  name="password"
-                  placeholder="Password"
-                  pattern=".{8,}"
-                  errors={errors ? errors.password : undefined}
-                  touched={touched.password ? 'true' : 'false'}
-                />
-                <SvgIcon type="button" onClick={passwordVisibile}>
-                  {lookPassword
-                    ? 'Hide' && <use href={`${icons}#icon-eye`}></use>
-                    : 'Show' && <use href={`${icons}#icon-eye-slash`}></use>}
-                </SvgIcon>
-              </InputSvgWrapper>
-
-              <StyledErrorMessage name="password" component="div" />
-            </InputWrapper>
+            {!isRecover && (
+              <InputWrapper>
+                <StaledLabel htmlFor="password">Password</StaledLabel>
+                <InputSvgWrapper>
+                  <StyledField
+                    type={lookPassword ? 'text' : 'password'}
+                    name="password"
+                    placeholder="Password"
+                    pattern=".{8,}"
+                    errors={errors ? errors.password : undefined}
+                    touched={touched.password ? 'true' : 'false'}
+                  />
+                  <SvgIcon type="button" onClick={passwordVisibile}>
+                    {lookPassword
+                      ? 'Hide' && <use href={`${icons}#icon-eye`}></use>
+                      : 'Show' && <use href={`${icons}#icon-eye-slash`}></use>}
+                  </SvgIcon>
+                </InputSvgWrapper>
+                <StyledErrorMessage name="password" component="div" />
+              </InputWrapper>
+            )}
 
             {isSignUp && (
               <InputWrapper>
@@ -112,7 +120,7 @@ export const AuthForm = ({ onSubmit, isSignUp }) => {
               </InputWrapper>
             )}
 
-            <Button type="submit">{isSignUp ? 'Sign up' : 'Sign in'}</Button>
+            <Button type="submit">{isSignUp ? 'Sign up' : isRecover ? 'Recover password' : 'Sign in'}</Button>
           </StyledForm>
         );
       }}
