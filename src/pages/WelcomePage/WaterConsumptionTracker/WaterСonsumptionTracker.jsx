@@ -6,9 +6,6 @@ import {
   Benefits,
   List,
   Item,
-  // HabitDriveIcon,
-  // ViewStatisticsIcon,
-  // PersonalSettingsIcon,
   Button,
 } from './WaterConsumptionTracker.styled';
 import { icons } from '../../../assets';

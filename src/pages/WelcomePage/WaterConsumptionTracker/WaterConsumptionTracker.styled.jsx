@@ -1,7 +1,4 @@
 import styled from 'styled-components';
-// import { ReactComponent as CalendarDaysIcon } from '../../../assets/icons/habit-drive.svg';
-// import { ReactComponent as StatisticsIcon } from '../../../assets/icons/view-statistics.svg';
-// import { ReactComponent as SettingsIcon } from '../../../assets/icons/personal-rate-setting.svg';
 
 export const WaterConsumption = styled.div`
   display: block;
@@ -74,7 +71,8 @@ export const Item = styled.li`
   & svg {
     height: 32px;
     width: 32px;
-    fill: var(--primary-color-blue);
+    stroke: var(--primary-color-blue);
+    fill: var(--primary-color-white);
 
     @media screen and (min-width: 1440px) {
       height: 40px;
@@ -98,12 +96,6 @@ export const Item = styled.li`
     }
   }
 `;
-
-// export const HabitDriveIcon = styled(CalendarDaysIcon)``;
-
-// export const ViewStatisticsIcon = styled(StatisticsIcon)``;
-
-// export const PersonalSettingsIcon = styled(SettingsIcon)``;
 
 export const Button = styled.button`
   display: flex;

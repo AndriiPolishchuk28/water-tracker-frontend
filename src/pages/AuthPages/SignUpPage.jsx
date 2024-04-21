@@ -5,8 +5,12 @@ import Container from 'components/Container/Container';
 import { PageWrapper, AuthHeder, StyledLink } from './AuthPagesStyled.js';
 import Background from 'components/Background/Background';
 import { successToast, errorToast } from '../../services/services';
+import { useSelector } from 'react-redux';
+import { selectIsLoading } from '../../redux/water/selectors';
+import Loader from '../../components/Loader/Loader';
 
 const SignUpPage = () => {
+  const isLoading = useSelector(selectIsLoading);
   const dispatch = useDispatch();
 
   const handleSubmit = formData => {
@@ -28,6 +32,7 @@ const SignUpPage = () => {
           <AuthHeder>Sign Up</AuthHeder>
           <AuthForm onSubmit={handleSubmit} isSignUp={true} />
           <StyledLink to="/signin">Sign in</StyledLink>
+          {isLoading && <Loader />}
         </PageWrapper>
       </Container>
     </div>
