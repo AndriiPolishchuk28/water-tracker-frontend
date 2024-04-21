@@ -96,19 +96,27 @@ const Calendar = () => {
       <Ul>
         {percentagePerMonth.length > 0 &&
           percentagePerMonth.map(
-            ({ dailyNorm, date, percentOfWaterRate, recordsCount }) => {
+            ({ waterRate, date, percentOfWaterRate, recordsCount }) => {
               return (
                 <Popup
+                  style={{ width: '280px' }}
                   key={date}
                   trigger={
                     <LiItem>
-                      <LiCircle>{parseInt(date)}</LiCircle>
+                      <LiCircle percentage={percentOfWaterRate}>
+                        {parseInt(date)}
+                      </LiCircle>
                       <ProcentageWater>
                         {percentOfWaterRate ? percentOfWaterRate : 0}%
                       </ProcentageWater>
                     </LiItem>
                   }
-                  position={['top left', 'top right', 'center center']}
+                  position={[
+                    'top left',
+                    'top right',
+                    'center center',
+                    'right center',
+                  ]}
                   on="click"
                   closeOnDocumentClick
                   keepTooltipInside={true}
@@ -118,7 +126,7 @@ const Calendar = () => {
                 >
                   <PopUpCard
                     date={date}
-                    dailyNorm={dailyNorm}
+                    waterRate={waterRate}
                     percentOfWaterRate={percentOfWaterRate}
                     recordsCount={recordsCount}
                   />

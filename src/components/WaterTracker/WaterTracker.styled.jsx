@@ -171,9 +171,8 @@ export const AddWaterBtn = styled.button`
   & svg {
     width: 24px;
     height: 24px;
-    & use {
-      fill: var(--primary-color-white);
-    }
+    stroke: var(--primary-color-white);
+    fill: var(--primary-color-blue);
   }
 
   @media screen and (min-width: 768px) {
@@ -186,4 +185,8 @@ export const AddWaterBtn = styled.button`
   @media only screen and (min-width: 1440px) {
     width: 178px;
   }
+`;
+
+export const SvgPlus = styled.svg`
+  stroke: var(--primary-color-white);
 `;

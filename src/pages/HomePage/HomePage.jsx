@@ -8,22 +8,29 @@ import {
   TodayMonthWrapper,
 } from './HomePageStyled';
 import Calendar from 'components/Calendar/Calendar';
+import { DailyNorma } from 'components/DailyNorma/DailyNorma';
+import Background from 'components/Background/Background';
 
 const HomePage = () => {
   return (
-    <Container>
-      <HomePageWrapper>
-        <DailyNormaWrapper>
-          <MyDailyNorma> </MyDailyNorma>
-          <MyDailyTracker>
-            <WaterTracker></WaterTracker>
-          </MyDailyTracker>
-        </DailyNormaWrapper>
-        <TodayMonthWrapper>
-          <Calendar />
-        </TodayMonthWrapper>
-      </HomePageWrapper>
-    </Container>
+    <>
+      <Background />
+      <Container>
+        <HomePageWrapper>
+          <DailyNormaWrapper>
+            <MyDailyNorma>
+              <DailyNorma />
+            </MyDailyNorma>
+            <MyDailyTracker>
+              <WaterTracker></WaterTracker>
+            </MyDailyTracker>
+          </DailyNormaWrapper>
+          <TodayMonthWrapper>
+            <Calendar />
+          </TodayMonthWrapper>
+        </HomePageWrapper>
+      </Container>
+    </>
   );
 };
 

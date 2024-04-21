@@ -18,6 +18,7 @@ export const signupUser = createAsyncThunk(
   async (formData, thunkApi) => {
     try {
       const { data } = await axios.post('/users/register', formData);
+      setToken(data.newUser.token);
       return data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
@@ -99,6 +100,19 @@ export const updateUserInfo = createAsyncThunk(
       return thunkApi.rejectWithValue(error.message);
     }
   }
+);
+
+export const updateWaterRateThunk = createAsyncThunk(
+  'water/calc',
+  async (waterRate, thunkApi) => {
+    try {
+      const { data } = await axios.patch('water/calc', waterRate);
+      return data;
+    } catch (error) {
+      return thunkApi.rejectWithValue(error.message);
+    }
+  }
+  // example  "amountOfWater": 5
 );
 
 // export const updateUserInfoThunk = createAsyncThunk(
