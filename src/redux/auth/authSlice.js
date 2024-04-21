@@ -21,7 +21,6 @@ const initialState = {
   isLoading: false,
   isLoggedIn: false,
   error: null,
-  isRegisteredSuccess: false,
 };
 
 const authSlice = createSlice({
@@ -30,10 +29,10 @@ const authSlice = createSlice({
   extraReducers: builder =>
     builder
       .addCase(signupUser.fulfilled, (state, action) => {
+        state.token = action.payload.newUser.token;
         state.isLoading = false;
-        // state.isLoggedIn = true;
-        // state.userData = action.payload.user;
-        state.isRegisteredSuccess = true;
+        state.user = action.payload.newUser;
+        state.isLoggedIn = true;
       })
       .addCase(signinUser.fulfilled, (state, action) => {
         state.isLoading = false;
@@ -65,12 +64,13 @@ const authSlice = createSlice({
         state.user = action.payload.user;
         state.isLoading = false;
       })
-
+      .addCase(refreshUser.pending, (state, action) => {
+        state.isRefreshing = true;
+      })
       .addMatcher(
         isAnyOf(
           signupUser.pending,
           signinUser.pending,
-          refreshUser.pending,
           signoutUser.pending,
           updateUserAvatars.pending,
           updateUserInfo.pending
@@ -79,7 +79,6 @@ const authSlice = createSlice({
         state => {
           state.isLoading = true;
           state.error = null;
-          state.isRefreshing = true;
         }
       )
       .addMatcher(
@@ -92,9 +91,9 @@ const authSlice = createSlice({
           updateUserInfo.rejected
           // updateUserInfoThunk.rejected
         ),
-        (state, action) => {
+        (state, { payload }) => {
           state.isLoading = false;
-          state.error = action.payload;
+          state.error = payload;
           state.isRefreshing = false;
         }
       ),
