@@ -1,4 +1,47 @@
+import Popup from 'reactjs-popup';
 import styled from 'styled-components';
+
+export const StyledModal = styled(Popup)`
+  &-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    inset: 0px;
+    cursor: pointer;
+  }
+`;
+
+export const DivModalCont = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 260px;
+  width: 280px;
+  padding: 32px 24px;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border-radius: 10px;
+  background: white;
+  text-align: center;
+
+  @media screen and (min-width: 768px) {
+    width: 592px;
+    height: 208px;
+  }
+  @media only screen and (min-width: 1440px) {
+    width: 592px;
+  }
+`;
 
 export const BtnBoxDelete = styled.div`
   margin-bottom: 24px;
@@ -45,6 +88,16 @@ export const DivLogoutBtn = styled.div`
   font-weight: 500;
   font-size: 16px;
   line-height: 1.25;
+
+  @media screen and (min-width: 768px) {
+    gap: 24px;
+    flex-direction: row-reverse;
+
+    @media only screen and (min-width: 1440px) {
+      flex-direction: row-reverse;
+      justify-content: flex-end;
+    }
+  }
 `;
 export const BtnLogoutDelete = styled.button`
   display: flex;
@@ -59,6 +112,11 @@ export const BtnLogoutDelete = styled.button`
   &:first-child {
     background-color: var(--secondary-color-red);
     color: var(--primary-color-white);
+  }
+
+  @media screen and (min-width: 768px) {
+    height: 44px;
+    width: 160px;
   }
 `;
 
