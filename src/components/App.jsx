@@ -14,6 +14,7 @@ import { selectAuthIsRefreshing } from '../redux/auth/selectors';
 export const App = () => {
   const dispatch = useDispatch();
   const isFetchingCurrentUser = useSelector(selectAuthIsRefreshing);
+
   useEffect(() => {
     dispatch(refreshUser());
   }, [dispatch]);

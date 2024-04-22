@@ -1,5 +1,23 @@
+import Popup from 'reactjs-popup';
 import styled from 'styled-components';
 
+
+export const StyledPopup = styled(Popup)`
+  &-overlay {
+    position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  z-index: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  inset: 0px;
+  cursor: pointer;
+  }
+`;
 export const HeaderAvatar = styled.img`
   width: 28px;
   height: 28px;
@@ -76,4 +94,6 @@ export const IconBtnStyle = styled.button`
   background-color: transparent;
   border: none;
   cursor: pointer;
+
 `;
+

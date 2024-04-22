@@ -8,10 +8,12 @@ import {
   TodayMonthWrapper,
 } from './HomePageStyled';
 import Calendar from 'components/Calendar/Calendar';
+import { DailyNorma } from 'components/DailyNorma/DailyNorma';
 import Background from 'components/Background/Background';
 import { useSelector } from 'react-redux';
 import { selectIsLoading } from '../../redux/water/selectors';
 import Loader from '../../components/Loader/Loader';
+import TodayList from 'components/TodayList/TodayList';
 
 const HomePage = () => {
   const isLoading = useSelector(selectIsLoading);
@@ -21,12 +23,15 @@ const HomePage = () => {
       <Container>
         <HomePageWrapper>
           <DailyNormaWrapper>
-            <MyDailyNorma> </MyDailyNorma>
+            <MyDailyNorma>
+              <DailyNorma />
+            </MyDailyNorma>
             <MyDailyTracker>
               <WaterTracker></WaterTracker>
             </MyDailyTracker>
           </DailyNormaWrapper>
           <TodayMonthWrapper>
+            <TodayList />
             <Calendar />
           </TodayMonthWrapper>
         </HomePageWrapper>
