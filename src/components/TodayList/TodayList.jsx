@@ -70,6 +70,9 @@ const TodayList = () => {
       <>
         <ModalAddEdit onSave={handleSaveWaterData} />
   
+        {waterData.length === 0 ? (
+        <p>No notes yet</p>
+      ) : (
         <List>
           <Title />
           {waterData.map((item, index) => (
@@ -82,14 +85,12 @@ const TodayList = () => {
                 <ResultTime>{item.time}</ResultTime>
               </ListElemInfoContainer>
               <ListElemButtonsContainer>
-                <ChangeWaterBtn
-                  onClick={() => handleEditWaterData(index, item.result, item.time)}
-                >
+                <ChangeWaterBtn onClick={() => handleEditWaterData(index, item.result, item.time)}>
                   <ChangeBtnIcon>
                     <use href={`${sprite}#icon-edit-pensil`} />
                   </ChangeBtnIcon>
                 </ChangeWaterBtn>
-  
+
                 <DeleteWaterBtn onClick={() => handleDeleteWaterData(index)}>
                   <DeleteBtnIcon>
                     <use href={`${sprite}#icon-trash-bin`} />
@@ -99,6 +100,7 @@ const TodayList = () => {
             </ListElem>
           ))}
         </List>
+      )}
   
         <Dialog open={isModalOpen} onClose={handleCloseModal} maxWidth="800px">
           <WaterListModal

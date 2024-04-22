@@ -95,6 +95,13 @@ fill: #EF5050;
 export const ChangeBtnIcon = styled.svg`
 width: 16px;
 height: 16px;
-fill: #9EBBFF
-;
+fill: #9EBBFF;
+`
+
+export const NoNote = styled.p`
+font-family: Roboto;
+font-size: 18px;
+font-weight: 500;
+line-height: 20px;
+color: var(--primary-color-black);
 `
