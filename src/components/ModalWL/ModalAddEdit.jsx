@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Dialog from '@mui/material/Dialog';
-import { OpenButton, ModalReverse} from './ModalWL.styled';
+import { OpenButton, ModalReverse } from './ModalWL.styled';
 import WaterListModal from 'components/WaterListModal/WaterListModal';
 
 const ModalAddEdit = ({ onSave }) => {
@@ -17,10 +17,10 @@ const ModalAddEdit = ({ onSave }) => {
     setIsModalOpen(false);
   };
 
-  const handleOpenModal = (isEditing) => {
+  const handleOpenModal = isEditing => {
     setIsModalOpen(true);
     setIsEditing(isEditing);
-    setIsVisible(!isEditing); 
+    setIsVisible(!isEditing);
   };
 
   return (
@@ -33,7 +33,7 @@ const ModalAddEdit = ({ onSave }) => {
             handleCloseModal();
           }}
           onClose={handleCloseModal}
-          title={isEditing ? "Edit the entered amount of water" : "Add water"}
+          title={isEditing ? 'Edit the entered amount of water' : 'Add water'}
           isVisible={!isVisible}
         />
       </Dialog>

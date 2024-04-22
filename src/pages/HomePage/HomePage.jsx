@@ -34,9 +34,9 @@ const HomePage = () => {
             <TodayList />
             <Calendar />
           </TodayMonthWrapper>
+          {isLoading && <Loader />}
         </HomePageWrapper>
       </Container>
-      {isLoading && <Loader />}
     </>
   );
 };

@@ -1,4 +1,4 @@
-// import { ModalAddEdit } from '../Modal/Modal';
+import ModalAddEdit from '../ModalWL/ModalAddEdit';
 import { icons } from '../../assets/';
 import {
   AddWaterBtn,
@@ -22,7 +22,7 @@ export const WaterTracker = () => {
   const dispatch = useDispatch();
   const [percentages, setPercentages] = useState(null);
 
-  const todayNorma = useSelector(selectWaterRate); // 2
+  const todayNorma = useSelector(selectWaterRate);
   const todayData = useSelector(selectListWaterOfDay);
 
   useEffect(() => {
@@ -58,7 +58,7 @@ export const WaterTracker = () => {
           <span>100%</span>
         </ProgressPercents>
       </ProgressContainer>
-      <AddWaterBtn>
+      <AddWaterBtn onClick={() => dispatch(ModalAddEdit())}>
         <svg>
           <use href={`${icons}#icon-plus-circle`}></use>
         </svg>
@@ -67,5 +67,3 @@ export const WaterTracker = () => {
     </ProgressPanelContainer>
   );
 };
-
-// onClick={() => dispatch(ModalAddEdit())}
