@@ -58,7 +58,7 @@ export const LiItem = styled.li`
 export const LiCircle = styled.div`
   border: 1px solid
     ${props =>
-      props.percentage < 100
+      props.$percentage < 100
         ? `${'var(--secondary-color-orange)'}`
         : 'transperent'};
   width: 32px;

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { ModalContent, ModalWrap } from './Modal.styled';
+import { ModalContent, ModalWrap } from './ModalWL.styled';
 
 const Modal = ({ modalActive, setModalActive, children }) => {
 
