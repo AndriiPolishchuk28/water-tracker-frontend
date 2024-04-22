@@ -14,17 +14,16 @@ import Popup from 'reactjs-popup';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { icons } from '../../assets';
+import { getMonthPercentageThunk } from '../../redux/water/operations';
 import {
-  getMonthPercentageThunk,
-  // getWaterPerDayThunk,
-  // updateWaterThunk,
-  // deleteWaterThunk,
-} from '../../redux/water/operations';
-import { selectMonthPercentage } from '../../redux/water/selectors';
+  selectListWaterOfDay,
+  selectMonthPercentage,
+} from '../../redux/water/selectors';
 
 const Calendar = () => {
   const dispatch = useDispatch();
   const percentagePerMonth = useSelector(selectMonthPercentage);
+  const waterPerDay = useSelector(selectListWaterOfDay);
 
   const [todayDate] = useState(new Date());
   const [currentDate, setCurrentDate] = useState(new Date());
@@ -34,7 +33,7 @@ const Calendar = () => {
 
   useEffect(() => {
     dispatch(getMonthPercentageThunk(`${currentYear}-${month}`));
-  }, [month, currentYear, dispatch]);
+  }, [month, currentYear, dispatch, waterPerDay]);
 
   const goToPreviousMonth = () => {
     const previousMonth = new Date(
@@ -64,22 +63,9 @@ const Calendar = () => {
     }
   };
 
-  // const obj = {
-  //   value: 112,
-  //   time: '10:34',
-  //   _id: '6622401fc148ff004955f473',
-  // };
-
-  const testClick = () => {
-    // dispatch(updateWaterThunk(obj));
-    // dispatch(getWaterPerDayThunk());
-    // dispatch(deleteWaterThunk('662244d8fa85da4512fc873c'));
-  };
-
   return (
     <>
       <TitleWrapper>
-        <button onClick={testClick}>UPDATE</button>
         <MonthText>Month</MonthText>
         <div>
           <SvgIcon onClick={goToPreviousMonth} width={6} height={10}>
