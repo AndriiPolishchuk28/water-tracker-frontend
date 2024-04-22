@@ -15,6 +15,7 @@ import {
   DeleteWaterBtn,
   DeleteBtnIcon,
   ChangeBtnIcon,
+  NoNote
 } from './TodayList.styled';
 import sprite from '../../assets/icons/sprite.svg';
 import Dialog from '@mui/material/Dialog';
@@ -71,7 +72,7 @@ const TodayList = () => {
         <ModalAddEdit onSave={handleSaveWaterData} />
   
         {waterData.length === 0 ? (
-        <p>No notes yet</p>
+        <NoNote>No notes yet</NoNote>
       ) : (
         <List>
           <Title />
