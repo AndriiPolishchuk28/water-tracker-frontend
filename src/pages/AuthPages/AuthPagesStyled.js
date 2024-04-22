@@ -27,3 +27,15 @@ export const StyledLink = styled(Link)`
   line-height: 1.25;
   color: var(--primary-color-blue);
 `;
+
+export const LinkWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 280px;
+  @media screen and (min-width: 768px) {
+    width: 336px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 384px;
+  }
+`;

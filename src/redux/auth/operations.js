@@ -115,6 +115,36 @@ export const updateWaterRateThunk = createAsyncThunk(
   // example  "amountOfWater": 5
 );
 
+export const forgotPassword = createAsyncThunk(
+  'auth/forgotPassword',
+  async (formData, thunkApi) => {
+    try {
+      const { data } = await axios.post('/users/forgot-password', formData);
+      setToken(data.user.token);
+      return data;
+    } catch (error) {
+      console.log(error);
+      errorToast(error.response.data.message);
+      return thunkApi.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const recoverPassword = createAsyncThunk(
+  'auth/recoverPassword',
+  async (formData, thunkApi) => {
+    try {
+      const { data } = await axios.post('/users/recover-password', formData);
+      setToken(data.user.token);
+      return data;
+    } catch (error) {
+      console.log(error);
+      errorToast(error.response.data.message);
+      return thunkApi.rejectWithValue(error.message);
+    }
+  }
+);
+
 // export const updateUserInfoThunk = createAsyncThunk(
 //   'user/update',
 //   async ({ file, userData }, thunkApi) => {
