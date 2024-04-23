@@ -38,9 +38,11 @@ export const StyledField = styled(Field)`
         ? css`var(--secondary-color-red)`
         : css`var(--secondary-color-blue-3)`};
   border-radius: 6px;
+  font-family: "Roboto"; 
   padding: 12px 10px;
   width: 280px;
   height: 44px;
+  font-family: "Roboto";
   color: var(--primary-color-blue);
   background: var(--primary-color-white);
   &::placeholder {
@@ -94,11 +96,13 @@ export const SvgIcon = styled.svg`
 
 export const StyledErrorMessage = styled(ErrorMessage)`
   font-size: 12px;
+  font-family: "Roboto"; 
   line-height: 1.25;
   color: var(--secondary-color-red);
 `;
 export const Button = styled.button`
-  cursor: pointer;
+ 
+  font-family: "Roboto"; 
   border-radius: 10px;
   position: relative;
   z-index: 5;
@@ -113,9 +117,13 @@ export const Button = styled.button`
   justify-content: center;
   align-items: center;
   color: var(--primary-color-white);
-  box-shadow: 0 4px 8px 0 rgba(64, 123, 255, 0.34);
   background: var(--primary-color-blue);
   margin-bottom: 16px;
+  &:hover,
+  &:focus {
+    cursor: pointer;
+        box-shadow: 0px 4px 14px 0px rgba(64, 123, 255, 0.54);
+   transition: box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1); }
   @media screen and (min-width: 768px) {
     padding: 10px 30px;
     width: 336px;
