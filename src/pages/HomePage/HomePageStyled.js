@@ -5,10 +5,11 @@ export const HomePageWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 40px;
-  background-color: var(--primary-color-white);
   margin: 0 auto;
+  padding-top: 24px;
 
   @media screen and (min-width: 768px) {
+    padding-top: 40px;
   }
 
   @media screen and (min-width: 1440px) {
