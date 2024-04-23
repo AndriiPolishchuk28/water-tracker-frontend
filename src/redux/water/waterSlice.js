@@ -43,6 +43,7 @@ const waterSlice = createSlice({
       })
       .addCase(updateWaterThunk.fulfilled, (state, { payload }) => {
         state.isLoading = false;
+        console.log(payload);
         const { _id } = payload.updatedWaterRecord;
         state.listWaterOfDay = state.listWaterOfDay.map(water =>
           water._id === _id ? payload.updatedWaterRecord : water
@@ -51,7 +52,9 @@ const waterSlice = createSlice({
       .addCase(deleteWaterThunk.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         const { _id } = payload.deletedWaterRecord;
-        state.listWaterOfDay = state.listWaterOfDay.map(
+        // state.listWaterOfDay = state.listWaterOfDay.map(
+        //   water => water._id !== _id
+        state.listWaterOfDay = state.listWaterOfDay.filter(
           water => water._id !== _id
         );
       })

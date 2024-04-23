@@ -31,6 +31,7 @@ import { getCurrentTime, generateHours } from 'utils/timeUtils';
 const WaterListModal = ({ onSave, onClose, title, isVisible }) => {
   const [result, setResult] = useState(50);
   const [time, setTime] = useState(getCurrentTime());
+  
 
   const handleChange = event => {
     const inputValue = event.target.value;
