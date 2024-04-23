@@ -19,7 +19,7 @@ export const FirstBgImageWrapper = styled.div`
    position: fixed;
    min-width:100%;
    min-height: 100%;
-   top: ${props => props.topPosition || '118px'};
+   top: ${props => props.$topPosition || '118px'};
    right: 10px;
    display: block;
    // overflow: hidden;

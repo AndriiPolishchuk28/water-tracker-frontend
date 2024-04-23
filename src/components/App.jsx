@@ -1,17 +1,23 @@
 import { Route, Routes } from 'react-router-dom';
-import SharedLayout from './SharedLayout/SharedLayout';
-import WelcomePage from 'pages/WelcomePage/WelcomePage';
-import HomePage from 'pages/HomePage/HomePage';
-import SignInPage from 'pages/AuthPages/SignInPage';
-import SignUpPage from 'pages/AuthPages/SignUpPage';
-import PrivateRoute from './PrivateRoute/PrivateRoute';
-import PublicRoute from './PublicRoute/PublicRoute';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { refreshUser } from '../redux/auth/operations';
 import { selectAuthIsRefreshing } from '../redux/auth/selectors';
-import ForgotPasswordPage from 'pages/AuthPages/ForgotPasswordPage';
-import RecoverPasswordPage from 'pages/AuthPages/RecoverPasswordPage';
+import { lazy } from 'react';
+import PrivateRoute from './PrivateRoute/PrivateRoute';
+import PublicRoute from './PublicRoute/PublicRoute';
+import SharedLayout from './SharedLayout/SharedLayout';
+
+const WelcomePage = lazy(() => import('pages/WelcomePage/WelcomePage'));
+const HomePage = lazy(() => import('pages/HomePage/HomePage'));
+const SignInPage = lazy(() => import('pages/AuthPages/SignInPage'));
+const SignUpPage = lazy(() => import('pages/AuthPages/SignUpPage'));
+const ForgotPasswordPage = lazy(() =>
+  import('pages/AuthPages/ForgotPasswordPage')
+);
+const RecoverPasswordPage = lazy(() =>
+  import('pages/AuthPages/RecoverPasswordPage')
+);
 
 export const App = () => {
   const dispatch = useDispatch();
