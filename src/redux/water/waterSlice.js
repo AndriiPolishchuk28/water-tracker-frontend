@@ -27,6 +27,11 @@ const handleRejected = state => {
 const waterSlice = createSlice({
   name: 'water',
   initialState,
+  reducers: {
+    clearWaterData: () => {
+      return { ...initialState };
+    },
+  },
   extraReducers: builder =>
     builder
       .addCase(getMonthPercentageThunk.fulfilled, (state, { payload }) => {
@@ -76,5 +81,7 @@ const waterSlice = createSlice({
         )
       ),
 });
+
+export const { clearWaterData } = waterSlice.actions;
 
 export const waterReducer = waterSlice.reducer;

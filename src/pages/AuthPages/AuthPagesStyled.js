@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 export const AuthHeder = styled.h2`
   font-weight: 500;
+  font-family: "Roboto"; 
   font-size: 26px;
   line-height: 1, 23;
   color: var(--primary-color-black);
@@ -22,8 +23,27 @@ export const PageWrapper = styled.div`
 
 export const StyledLink = styled(Link)`
   z-index: 5;
+  font-family: "Roboto"; 
   position: relative;
   font-size: 16px;
   line-height: 1.25;
   color: var(--primary-color-blue);
+  &:hover,
+  &:focus {
+    cursor: pointer;
+    color: var(--secondary-color-orange);
+   transition: box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1); 
+  }
+`;
+
+export const LinkWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 280px;
+  @media screen and (min-width: 768px) {
+    width: 336px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 384px;
+  }
 `;

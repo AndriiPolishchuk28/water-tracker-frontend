@@ -35,7 +35,7 @@ export const DailyNorma = () => {
 
       <StyledEngineProvider injectFirst>
         <DailyNormaDialog
-          open={isModalOpen}
+          open={isModalOpen} onClose={handleCloseModal}
           PaperComponent={() => <DailyModal onClose={handleCloseModal} />}
         ></DailyNormaDialog>
       </StyledEngineProvider>

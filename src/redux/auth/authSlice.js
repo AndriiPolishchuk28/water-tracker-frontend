@@ -49,7 +49,7 @@ const authSlice = createSlice({
       })
       .addCase(signoutUser.fulfilled, state => {
         state.token = null;
-        state.user = initialState.user;
+        state.user = initialState;
         state.isLoggedIn = false;
         state.isLoading = false;
       })
@@ -69,7 +69,6 @@ const authSlice = createSlice({
       .addCase(updateWaterRateThunk.fulfilled, (state, { payload }) => {
         state.user.waterRate = payload.waterRate;
       })
-
 
       .addCase(refreshUser.pending, (state, action) => {
         state.isRefreshing = true;

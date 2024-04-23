@@ -19,8 +19,8 @@ export const FirstBgImageWrapper = styled.div`
    position: fixed;
    min-width:100%;
    min-height: 100%;
-   top: 0px;
-   left: 0px;
+   top: ${props => props.$topPosition || '118px'};
+   right: 10px;
    display: block;
    // overflow: hidden;
    z-index: -1;
@@ -46,7 +46,7 @@ background-position: left 17px top 16px;
  @media screen and (min-width: 1440px) {
    &:before {
    background-image: url(${deskSignupBg});
-   background-position:  top 50px right 20px;
+   background-position:  top 50px right 30px;
    
 
    @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi) {

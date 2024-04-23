@@ -7,6 +7,7 @@ import {
   AmountWrapper,
   ModalLabelWater,
   InputWrapperWater,
+  ModalCloseBtn,
   ButtonWrapper,
   InputWrapper,
   ModalHeader,
@@ -19,8 +20,9 @@ import {
   ModalForm,
   ModalCalc,
   ModalLabel,
-  // ModalRadioInput,
-  // RadioLabel,
+  ModalRadioInputWoman,
+  ModalRadioInputMan,
+  RadioLabel,
   ModalInput,
   Amount,
   ModalButton,
@@ -91,9 +93,9 @@ const DailyModal = ({ onClose }) => {
     <ModalWrapper>
       <ButtonWrapper>
         <ModalHeader>My daily norma</ModalHeader>
-        <Modalsvg onClick={onClose}>
+        <ModalCloseBtn><Modalsvg onClick={onClose}>
           <use href={`${icons}#icon-x-mark`}></use>
-        </Modalsvg>
+        </Modalsvg></ModalCloseBtn>
       </ButtonWrapper>
       <FormulaWrapper>
         <ModalParagraphForGirl>
@@ -110,33 +112,33 @@ const DailyModal = ({ onClose }) => {
       </ModalInfo>
       <ModalForm onSubmit={handleSubmit}>
         <ModalCalc>Calculate your rate:</ModalCalc>
-        <ModalLabel>
+       
           <GenderWrapper>
-            <label htmlFor="man">For man</label>
-            <input
-              id="man"
-              type="radio"
-              value="man"
-              checked={gender === 'man'}
-              onChange={() => setGender('man')}
-            />
-
-            <label htmlFor="woman">For woman</label>
-            <input
-              id="woman"
+            <ModalRadioInputWoman
+              id='woman'
               type="radio"
               value="girl"
               checked={gender === 'woman'}
               onChange={() => setGender('woman')}
             />
+            <RadioLabel htmlFor="woman">For woman</RadioLabel>
+             <ModalRadioInputMan
+              id='man'
+              type="radio"
+              value="man"
+              checked={gender === 'man'}
+              onChange={() => setGender('man')}
+            />
+<RadioLabel htmlFor="man">For man</RadioLabel>
           </GenderWrapper>
-        </ModalLabel>
+        
         <InputWrapper>
           <ModalLabel>Your weight in kilograms:</ModalLabel>
           <ModalInput
             type="text"
             value={weight}
             onChange={handleWeightChange}
+             placeholder='0'
           />
         </InputWrapper>
 
@@ -149,6 +151,7 @@ const DailyModal = ({ onClose }) => {
             type="text"
             value={activityTime}
             onChange={handleActivityTimeChange}
+             placeholder='0'
           />
         </InputWrapper>
         <AmountWrapper>
@@ -166,6 +169,7 @@ const DailyModal = ({ onClose }) => {
             onChange={handleInputChange}
             min={1}
             max={15000}
+         placeholder='0'
           />
         </InputWrapperWater>
         <ModalButton type="submit">Save</ModalButton>

@@ -10,7 +10,7 @@ const Background = () => {
   const { pathname } = location;
 
   return (
-    <FirstBgImageWrapper>
+    <FirstBgImageWrapper $topPosition={pathname === '/signup' ? '0' : '118px'}>
       {pathname !== '/home' && <SecondBgImageWrapper />}
     </FirstBgImageWrapper>
   );
