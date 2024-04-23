@@ -20,13 +20,12 @@ import {
   ModalCalc,
   ModalLabel,
   ModalRadioInputWoman,
-  ModalRadioInputMen,
+  ModalRadioInputMan,
   RadioLabel,
   ModalInput,
   Amount,
   ModalButton,
   WaterIntakeSpan,
-  ErrorSpan
 } from '../DailyNormaStyled';
 import { icons } from '../../../assets';
 
@@ -112,18 +111,18 @@ const DailyModal = ({ onClose }) => {
       </ModalInfo>
       <ModalForm onSubmit={handleSubmit}>
         <ModalCalc>Calculate your rate:</ModalCalc>
-        <ModalLabel>
+       
           <GenderWrapper>
             <ModalRadioInputWoman
-              id="woman"
+              id='woman'
               type="radio"
               value="girl"
               checked={gender === 'woman'}
               onChange={() => setGender('woman')}
             />
             <RadioLabel htmlFor="woman">For woman</RadioLabel>
-             <ModalRadioInputMen
-              id="man"
+             <ModalRadioInputMan
+              id='man'
               type="radio"
               value="man"
               checked={gender === 'man'}
@@ -131,13 +130,14 @@ const DailyModal = ({ onClose }) => {
             />
 <RadioLabel htmlFor="man">For man</RadioLabel>
           </GenderWrapper>
-        </ModalLabel>
+        
         <InputWrapper>
           <ModalLabel>Your weight in kilograms:</ModalLabel>
           <ModalInput
             type="text"
             value={weight}
             onChange={handleWeightChange}
+             placeholder='0'
           />
         </InputWrapper>
 
@@ -150,6 +150,7 @@ const DailyModal = ({ onClose }) => {
             type="text"
             value={activityTime}
             onChange={handleActivityTimeChange}
+             placeholder='0'
           />
         </InputWrapper>
         <AmountWrapper>
@@ -167,8 +168,8 @@ const DailyModal = ({ onClose }) => {
             onChange={handleInputChange}
             min={1}
             max={15000}
-        
-          /><ErrorSpan>This field is required</ErrorSpan>
+         placeholder='0'
+          />
         </InputWrapperWater>
         <ModalButton type="submit">Save</ModalButton>
       </ModalForm>
