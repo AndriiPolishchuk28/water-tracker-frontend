@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import ModalAddEdit from 'components/ModalWL/ModalAddEdit';
 import WaterListModal from 'components/WaterListModal/WaterListModal';
 import {
+  ListTitle,
   Title,
   List,
   ListElem,
@@ -51,7 +52,7 @@ const TodayList = () => {
   const handleEditWaterData = (index, result, time) => {
     setSelectedItemIndex(index);
     setIsModalOpen(true);
-    setIsEditing(true);
+    setIsEditing(isEditing);
     setIsVisible(true);
   };
 
@@ -72,14 +73,13 @@ const TodayList = () => {
       value,
       time
     }
-    console.log(updatedWaterData)
     dispatch(updateWaterThunk(updatedWaterData));
     handleCloseModal();
   }};
 
   return (
     <>
-      <ModalAddEdit onSave={handleSaveWaterData} />
+      <ListTitle>Today</ListTitle>
       <List>
         <Title />
         {listWaterOfDay.map((item, index) => (
@@ -113,6 +113,7 @@ const TodayList = () => {
         ))}
       </List>
 
+      <ModalAddEdit onSave={handleSaveWaterData} />
 
       <Dialog open={isModalOpen} onClose={handleCloseModal} maxWidth="800px">
         <WaterListModal

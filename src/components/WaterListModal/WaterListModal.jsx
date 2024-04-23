@@ -76,7 +76,8 @@ const WaterListModal = ({ onSave, onClose, title, isVisible }) => {
         <Title>{title}</Title>
         <CloseButton onClick={onClose}>
           <IconBtn>
-            <use href={`${sprite}#icon-close-x`} />
+            {/* <use href={`${sprite}#icon-close-x`} /> */}
+            <use href={`${sprite}#icon-close-x-wae`} />
           </IconBtn>
         </CloseButton>
       </ListHeader>

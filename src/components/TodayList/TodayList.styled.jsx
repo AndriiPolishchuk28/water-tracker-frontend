@@ -1,26 +1,37 @@
 import styled from "styled-components";
 
+export const ListTitle = styled.h3`
+font-family: Roboto;
+font-size: 26px;
+font-weight: 500;
+line-height: 32px;
+text-align: left;
+color: var(--primary-color-black);
+`
+
 export const Title = styled.h3`
 font-family: Roboto;
 font-size: 24px;
 font-weight: 500;
 line-height: 30px;
-text-align: left;
+
 `
 export const List = styled.ul`
     width: 100%;
-    margin-bottom: 16px;
-    max-height: 150px;
+    // margin-bottom: 16px;
+    height: 200px;
     overflow-y: auto;
-    display: flex;
-    flex-direction: column-reverse;
+    // display: flex;
+    // flex-direction: column-reverse;
+    // background-color: #000;
+    // margin-bottom: 24px;
 `
 export const ListElem = styled.li`
     display: flex;
     justify-content: space-between;
     border-bottom: 1px solid #D7E3FF;
     padding: 5px;
-    height: 50px;
+    // height: 50px;
 `
 export const ListElemInfoContainer = styled.div`
 width: 70%;
