@@ -78,6 +78,10 @@ export const ModalWrapper = styled.div`
     margin: 44px auto;
   }
 `;
+
+export const ModalCloseBtn = styled.button`
+
+`
 export const Modalsvg = styled.svg`
   width: 24px;
   height: 24px;

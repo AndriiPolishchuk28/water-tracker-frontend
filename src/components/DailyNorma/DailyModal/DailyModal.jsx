@@ -7,6 +7,7 @@ import {
   AmountWrapper,
   ModalLabelWater,
   InputWrapperWater,
+  ModalCloseBtn,
   ButtonWrapper,
   InputWrapper,
   ModalHeader,
@@ -92,9 +93,9 @@ const DailyModal = ({ onClose }) => {
     <ModalWrapper>
       <ButtonWrapper>
         <ModalHeader>My daily norma</ModalHeader>
-        <Modalsvg onClick={onClose}>
+        <ModalCloseBtn><Modalsvg onClick={onClose}>
           <use href={`${icons}#icon-x-mark`}></use>
-        </Modalsvg>
+        </Modalsvg></ModalCloseBtn>
       </ButtonWrapper>
       <FormulaWrapper>
         <ModalParagraphForGirl>
