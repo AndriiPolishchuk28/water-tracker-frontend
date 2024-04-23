@@ -3,8 +3,9 @@ import axios from 'axios';
 import { errorToast } from 'services/services';
 import { clearWaterData } from '../water/waterSlice';
 
-axios.defaults.baseURL =
-  'https://watertracker-backand-codekartel.onrender.com/';
+export const BASE_URL = 'https://watertracker-backand-codekartel.onrender.com/';
+// export const BASE_URL = 'http://localhost:3001/';
+axios.defaults.baseURL = BASE_URL;
 
 const setToken = token => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -142,6 +143,21 @@ export const recoverPassword = createAsyncThunk(
     } catch (error) {
       console.log(error);
       errorToast(error.response.data.message);
+      return thunkApi.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const setTokenFromGoogleAuth = createAsyncThunk(
+  'auth/setTokenFromGoogleAuth',
+  async (token, thunkApi) => {
+    if (!token) return thunkApi.rejectWithValue("You don't have a token!");
+    try {
+      setToken(token);
+      const { data } = await axios.get('/users/info');
+      console.log(token, data);
+      return data;
+    } catch (error) {
       return thunkApi.rejectWithValue(error.message);
     }
   }
