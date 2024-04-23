@@ -45,7 +45,7 @@ border: none;
   &:focus {
     cursor: pointer;
     color: var(--secondary-color-orange);
-    box-shadow: 0px 4px 14px 0px rgba(64, 123, 255, 0.54);
+    
    transition: box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1); 
   }
 }
@@ -85,8 +85,8 @@ export const Modalsvg = styled.svg`
   stroke: var(--primary-color-blue);
   &:hover,
   &:focus {
-    box-shadow: 0px 4px 14px 0px rgba(64, 123, 255, 0.54);
     cursor: pointer;
+    stroke: var(--secondary-color-orange);
    transition: box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1); 
 `;
 
