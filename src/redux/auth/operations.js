@@ -1,6 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { errorToast } from 'services/services';
+import { clearWaterData } from '../water/waterSlice';
 
 axios.defaults.baseURL =
   'https://watertracker-backand-codekartel.onrender.com/';
@@ -43,13 +44,14 @@ export const signinUser = createAsyncThunk(
 
 export const signoutUser = createAsyncThunk(
   'auth/signoutUser',
-  async (_, thunkApi) => {
+  async (_, { rejectWithValue, dispatch }) => {
     try {
       await axios.post('/users/logout');
       clearToken();
+      dispatch(clearWaterData());
       return;
     } catch (error) {
-      return thunkApi.rejectWithValue(error.message);
+      return rejectWithValue(error.message);
     }
   }
 );
