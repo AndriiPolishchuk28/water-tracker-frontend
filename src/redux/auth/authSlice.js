@@ -7,6 +7,7 @@ import {
   updateUserAvatars,
   updateUserInfo,
   updateWaterRateThunk,
+  setTokenFromGoogleAuth,
 } from './operations';
 
 const initialState = {
@@ -49,14 +50,10 @@ const authSlice = createSlice({
       })
       .addCase(signoutUser.fulfilled, state => {
         state.token = null;
-        state.user = initialState.user;
+        state.user = initialState;
         state.isLoggedIn = false;
         state.isLoading = false;
       })
-      // .addCase(updateUserInfoThunk.fulfilled, (state, action) => {
-      //   state.user = action.payload.user;
-      //   state.isLoading = false;
-      // })
       .addCase(updateUserAvatars.fulfilled, (state, action) => {
         state.user.avatarURL = action.payload.avatarURL;
         state.isLoading = false;
@@ -70,9 +67,14 @@ const authSlice = createSlice({
         state.user.waterRate = payload.waterRate;
       })
 
-
       .addCase(refreshUser.pending, (state, action) => {
         state.isRefreshing = true;
+      })
+      .addCase(setTokenFromGoogleAuth.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isLoggedIn = true;
+        state.user = action.payload.user;
+        state.token = action.payload.user.token;
       })
 
       .addMatcher(

@@ -24,7 +24,7 @@ import {
   IconBtn,
   MenuItemCustom,
 } from './WaterListModal.styled';
-import sprite from '../../assets/icons/sprite.svg';
+import { icons } from '../../assets';
 // import { MenuItem } from '@mui/material';
 import { getCurrentTime, generateHours } from 'utils/timeUtils';
 
@@ -75,32 +75,32 @@ const WaterListModal = ({ onSave, onClose, title, isVisible }) => {
         <Title>{title}</Title>
         <CloseButton onClick={onClose}>
           <IconBtn>
-            <use href={`${sprite}#icon-close-x`} />
+            <use href={`${icons}#icon-close-x`} />
           </IconBtn>
         </CloseButton>
       </ListHeader>
-      {isVisible &&(
+      {isVisible && (
         <ResultContainer>
           <WaterGlass>
-            <use href={`${sprite}#icon-glass`} />
+            <use href={`${icons}#icon-glass`} />
           </WaterGlass>
           <ResultMl>{`${result}ml`}</ResultMl>
           <ResultTime>{time}</ResultTime>
         </ResultContainer>
-      ) }
+      )}
       <DataContainer>
         <DataTitle>Correct entered data:</DataTitle>
         <DataText>Amount of water:</DataText>
         <DataBtnsContainer>
           <DataBtn onClick={decrement}>
             <IconBtn>
-              <use href={`${sprite}#icon-minus-small`} />
+              <use href={`${icons}#icon-minus-small`} />
             </IconBtn>
           </DataBtn>
           <DataResult>{`${result}ml`}</DataResult>
           <DataBtn onClick={increment}>
             <IconBtn>
-              <use href={`${sprite}#icon-plus-small`} />
+              <use href={`${icons}#icon-plus-small`} />
             </IconBtn>
           </DataBtn>
         </DataBtnsContainer>

@@ -5,10 +5,11 @@ export const HomePageWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 40px;
-  background-color: var(--primary-color-white);
   margin: 0 auto;
+  padding-top: 24px;
 
   @media screen and (min-width: 768px) {
+    padding-top: 40px;
   }
 
   @media screen and (min-width: 1440px) {
@@ -56,7 +57,6 @@ export const MyDailyNorma = styled.div`
   height: 74px;
   padding: 8px 20px;
   border-radius: 10px;
-
   @media screen and (min-width: 768px) {
     width: 164px;
     height: 76px;
@@ -85,7 +85,9 @@ export const TodayMonthWrapper = styled.div`
   padding: 24px 8px;
   background-color: var(--secondary-color-blue-1);
   height: 836px;
-
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
   @media screen and (min-width: 768px) {
     max-width: 704px;
     max-height: 688px;

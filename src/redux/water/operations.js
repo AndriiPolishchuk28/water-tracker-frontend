@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { errorToast } from 'services/services';
 
 export const getMonthPercentageThunk = createAsyncThunk(
   'month/water',
@@ -8,6 +9,7 @@ export const getMonthPercentageThunk = createAsyncThunk(
       const { data } = await axios.get(`water/month/?date=${date}`);
       return data;
     } catch (error) {
+      errorToast(error.response.data.message);
       return thunkApi.rejectWithValue(error.message);
     }
   }
@@ -20,13 +22,10 @@ export const addWaterRateThunk = createAsyncThunk(
       const { data } = await axios.post('water/add', water);
       return data;
     } catch (error) {
+      errorToast(error.response.data.message);
       return thunkApi.rejectWithValue(error.message);
     }
   }
-  //    example {
-  //   "value": 250,
-  //   "time": "10:30"
-  //              }
 );
 
 export const getWaterPerDayThunk = createAsyncThunk(
@@ -36,6 +35,7 @@ export const getWaterPerDayThunk = createAsyncThunk(
       const { data } = await axios.get('water/today');
       return data;
     } catch (error) {
+      // errorToast(error.response.data.message);
       return thunkApi.rejectWithValue(error.message);
     }
   }
@@ -48,6 +48,7 @@ export const updateWaterThunk = createAsyncThunk(
       const { data } = await axios.patch(`water/${_id}`, water);
       return data;
     } catch (error) {
+      errorToast(error.response.data.message);
       return thunkApi.rejectWithValue(error.message);
     }
   }
@@ -60,6 +61,7 @@ export const deleteWaterThunk = createAsyncThunk(
       const { data } = await axios.delete(`water/${id}`);
       return data;
     } catch (error) {
+      errorToast(error.response.data.message);
       return thunkApi.rejectWithValue(error.message);
     }
   }

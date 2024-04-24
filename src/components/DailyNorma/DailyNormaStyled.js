@@ -185,6 +185,7 @@ export const ModalRadioInputWoman = styled.input.attrs({
   type: 'radio',
   id: 'woman',
 })`
+
   appearance: none;
   width: 14px;
   height: 14px;
@@ -207,31 +208,6 @@ export const ModalRadioInputWoman = styled.input.attrs({
   }
 `;
 
-export const ModalRadioInputMan = styled.input.attrs({
-  type: 'radio',
-  id: 'man',
-})`
-  appearance: none;
-  width: 14px;
-  height: 14px;
-  border: 1px solid var(--primary-color-blue);
-  border-radius: 50%;
-  outline: none;
-  box-shadow: 0 0 5px var(--primary-color-blue);
-
-  &:before {
-    content: '';
-    display: block;
-    width: 8px;
-    height: 8px;
-    margin: 2px;
-    border-radius: 50%;
-  }
-
-  &:checked:before {
-    background: var(--primary-color-blue);
-  }
-`;
 export const RadioLabel = styled.label`
   margin-right: 24px;
   font-size: 16px;
@@ -388,3 +364,5 @@ export const ErrorSpan = styled.span`
     margin-top: 8px;
   }
 `;
+
+
