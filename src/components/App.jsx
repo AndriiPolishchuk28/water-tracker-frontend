@@ -7,6 +7,7 @@ import { lazy } from 'react';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
 import PublicRoute from './PublicRoute/PublicRoute';
 import SharedLayout from './SharedLayout/SharedLayout';
+import GoogleTokenPage from 'pages/AuthPages/GoogleTokenPage';
 
 const WelcomePage = lazy(() => import('pages/WelcomePage/WelcomePage'));
 const HomePage = lazy(() => import('pages/HomePage/HomePage'));
@@ -69,6 +70,14 @@ export const App = () => {
             element={
               <PublicRoute>
                 <RecoverPasswordPage />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="google/:token"
+            element={
+              <PublicRoute>
+                <GoogleTokenPage />
               </PublicRoute>
             }
           />

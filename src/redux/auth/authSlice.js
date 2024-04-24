@@ -7,6 +7,7 @@ import {
   updateUserAvatars,
   updateUserInfo,
   updateWaterRateThunk,
+  setTokenFromGoogleAuth,
 } from './operations';
 
 const initialState = {
@@ -72,6 +73,12 @@ const authSlice = createSlice({
 
       .addCase(refreshUser.pending, (state, action) => {
         state.isRefreshing = true;
+      })
+      .addCase(setTokenFromGoogleAuth.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isLoggedIn = true;
+        state.user = action.payload.user;
+        state.token = action.payload.user.token;
       })
 
       .addMatcher(
