@@ -158,20 +158,40 @@ export const LabelMl = styled.label`
   line-height: 20px;
   color: #2f2f2f;
 `;
-export const InputTime = styled(TextField)`
-  width: 100%;
-  height: 44px;
-  padding: 12px 10px;
-  border-radius: 6px;
-  border: 1px solid #d7e3ff;
-  color: #407bff;
-  outline: none;
+// export const InputTime = styled(TextField)`
+// '.MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input: {
+//   border: '1px solid red',
+// },
+//   width: 100%;
+//   height: 44px;
+//   padding: 12px 10px;
+//   border-radius: 6px;
+//   border: 1px solid #d7e3ff;
+//   color: #407bff;
+//   outline: none;
 
-  @media only screen and (min-width: 768px) {
-    width: 544px;
+//   @media only screen and (min-width: 768px) {
+//     width: 544px;
+//   }
+//   @media only screen and (min-width: 1440px) {
+//     width: 100%;
+//   }
+// `;
+export const InputTime = styled(TextField)`
+  & .MuiOutlinedInput-root fieldset {
+    outline: none;
+    border: none;
   }
-  @media only screen and (min-width: 1440px) {
+  & .MuiOutlinedInput-root {
     width: 100%;
+    height: 44px;
+    padding: 12px 10px;
+    border-radius: 6px;
+    border: 1px solid var(--secondary-color-blue-3);
+    color: #407bff;
+    &:hover fieldset {
+      border: none;
+    }
   }
 `;
 
