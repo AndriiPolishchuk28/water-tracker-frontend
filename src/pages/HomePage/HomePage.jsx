@@ -10,7 +10,7 @@ import {
 import Calendar from 'components/Calendar/Calendar';
 import { DailyNorma } from 'components/DailyNorma/DailyNorma';
 import Background from 'components/Background/Background';
-import TodayList from 'components/TodayList/TodayList';
+import TodayList from 'components/TodayListComponents/TodayList/TodayList';
 
 const HomePage = () => {
   return (

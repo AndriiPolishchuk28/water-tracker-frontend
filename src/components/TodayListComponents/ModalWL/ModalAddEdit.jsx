@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Dialog from '@mui/material/Dialog';
 import { OpenButton, ModalReverse} from './ModalWL.styled';
-import WaterListModal from 'components/WaterListModal/WaterListModal';
+import WaterListModal from '../WaterListModal/WaterListModal';
 
 const ModalAddEdit = ({ onSave }) => {
   const [waterData, setWaterData] = useState([]);

@@ -1,5 +1,14 @@
 import styled from 'styled-components';
 
+export const Container = styled.div`
+display: flex;
+flex-direction: column;
+// justify-content: space-between;
+width: 100%;
+height: 256px;
+// gap: 24px;
+`
+
 export const ListTitle = styled.h3`
   font-family: Roboto;
   font-size: 26px;
@@ -7,6 +16,7 @@ export const ListTitle = styled.h3`
   line-height: 32px;
   text-align: left;
   color: var(--primary-color-black);
+  // margin-bottom: 14px;
 `;
 
 export const Title = styled.h3`
@@ -15,22 +25,19 @@ export const Title = styled.h3`
   font-weight: 500;
   line-height: 30px;
 `;
+
+
 export const List = styled.ul`
   width: 100%;
-  // margin-bottom: 16px;
   height: 200px;
   overflow-y: auto;
-  // display: flex;
-  // flex-direction: column-reverse;
-  // background-color: #000;
-  // margin-bottom: 24px;
 `;
 export const ListElem = styled.li`
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid #d7e3ff;
-  padding: 5px;
-  // height: 50px;
+  border-bottom: 1px solid var(--secondary-color-blue-3);
+  padding: 12px;
+  height: 46px;
 `;
 export const ListElemInfoContainer = styled.div`
   width: 70%;
@@ -57,21 +64,21 @@ export const ListElemButtonsContainer = styled.div`
 export const Icon = styled.svg`
   width: 24px;
   height: 24px;
-  fill: #407bff;
+  fill: var(--primary-color-blue);
 `;
 export const ResultMl = styled.span`
   font-family: Roboto;
   font-size: 18px;
   font-weight: 400;
   line-height: 24px;
-  color: #407bff;
+  color: var(--primary-color-blue);
 `;
 export const ResultTime = styled.span`
   font-family: Roboto;
   font-size: 12px;
   font-weight: 400;
   line-height: 24px;
-  color: #2f2f2f;
+  color: var(--primary-color-black);
 `;
 export const ChangeWaterBtn = styled.button`
   display: flex;
@@ -79,9 +86,9 @@ export const ChangeWaterBtn = styled.button`
   align-items: center;
   width: 24px;
   height: 24px;
-  // background-color: #000;
   background-color: transparent;
   cursor: pointer;
+  
 `;
 export const DeleteWaterBtn = styled.button`
   display: flex;
@@ -89,7 +96,6 @@ export const DeleteWaterBtn = styled.button`
   align-items: center;
   width: 24px;
   height: 24px;
-  // background-color: #000;
   background-color: transparent;
   cursor: pointer;
 `;
@@ -99,10 +105,21 @@ export const DeleteBtnIcon = styled.svg`
   height: 16px;
   stroke: var(--secondary-color-red);
   fill: transparent;
+  transition: margin-bottom 0.2s ease; 
+  margin-bottom: 0; 
+  &:hover {
+    margin-bottom: 2px; 
+    border-bottom: 1px solid var(--secondary-color-red); 
+  }
 `;
 export const ChangeBtnIcon = styled.svg`
   width: 16px;
   height: 16px;
   stroke: var(--secondary-color-blue-2);
+  transition: margin-bottom 0.2s ease; 
   fill: transparent;
+  &:hover {
+    margin-bottom: 2px; 
+    border-bottom: 1px solid var(--secondary-color-blue-2); 
+  }
 `;

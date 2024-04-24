@@ -23,7 +23,6 @@ export const OpenButton = styled.button`
     line-height: 24px;
     text-align: left;
     color: #407BFF;
-  // border: 1px solid #407BFF;
   &:before{
     content: '+';
     margin: 0 8px 0 0;

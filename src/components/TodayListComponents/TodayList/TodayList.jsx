@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import ModalAddEdit from 'components/ModalWL/ModalAddEdit';
-import WaterListModal from 'components/WaterListModal/WaterListModal';
+import ModalAddEdit from '../ModalWL/ModalAddEdit';
+import WaterListModal from '../WaterListModal/WaterListModal';
 import {
   ListTitle,
   Title,
@@ -16,19 +16,20 @@ import {
   DeleteWaterBtn,
   DeleteBtnIcon,
   ChangeBtnIcon,
+  Container,
 } from './TodayList.styled';
-import sprite from '../../assets/icons/sprite.svg';
+import sprite from '../../../assets/icons/sprite.svg'
 import Dialog from '@mui/material/Dialog';
 import {
   getWaterPerDayThunk,
   addWaterRateThunk,
   deleteWaterThunk,
   updateWaterThunk
-} from '../../redux/water/operations';
-import { selectListWaterOfDay } from '../../redux/water/selectors';
+} from '../../../redux/water/operations';
+import { selectListWaterOfDay } from '../../../redux/water/selectors';
 
 const TodayList = () => {
-  // const [waterData, setWaterData] = useState([]);
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedItemIndex, setSelectedItemIndex] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
@@ -43,13 +44,11 @@ const TodayList = () => {
   useEffect(() => {});
 
   const handleSaveWaterData = (result, time) => {
-    // const newData = [...waterData, { result, time }];
-    // console.log(newData);
-    // setWaterData(newData);
+
     dispatch(addWaterRateThunk({ value: result, time }));
   };
 
-  const handleEditWaterData = (index, result, time) => {
+  const handleEditWaterData = (index, value, time) => {
     setSelectedItemIndex(index);
     setIsModalOpen(true);
     setIsEditing(isEditing);
@@ -79,7 +78,12 @@ const TodayList = () => {
 
   return (
     <>
+    <Container>
       <ListTitle>Today</ListTitle>
+      {listWaterOfDay.length === 0 ? (
+        <p>No notes yet</p>
+        
+      ) : (
       <List>
         <Title />
         {listWaterOfDay.map((item, index) => (
@@ -112,7 +116,8 @@ const TodayList = () => {
           
         ))}
       </List>
-
+      )}
+      </Container>
       <ModalAddEdit onSave={handleSaveWaterData} />
 
       <Dialog open={isModalOpen} onClose={handleCloseModal} maxWidth="800px">

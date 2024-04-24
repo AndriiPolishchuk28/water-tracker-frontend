@@ -9,7 +9,7 @@ export const OpenButton = styled.button`
   padding: 6px 76px 6px 76px;
   border-radius: 10px 0px 0px 0px;
   opacity: 0px;
-  background-color: #407bff;
+  background-color: var(--primary-color-blue);
 `;
 
 export const Container = styled.div`
@@ -54,7 +54,7 @@ export const ResultContainer = styled.div`
   gap: 16px;
   width: 100%;
   height: 52px;
-  background-color: #ecf2ff;
+  background-color: var(--secondary-color-blue-1);
   border-radius: 10px;
   padding: 8px 24px;
 
@@ -83,7 +83,7 @@ export const ResultTime = styled.span`
   font-size: 12px;
   font-weight: 400;
   line-height: 24px;
-  color: #2f2f2f;
+  color: var(--primary-color-black);
 `;
 export const DataContainer = styled.div`
   width: 194px;
@@ -96,14 +96,14 @@ export const DataTitle = styled.h3`
   font-size: 18px;
   font-weight: 500;
   line-height: 20px;
-  color: #2f2f2f;
+  color:var(--primary-color-black);
 `;
 export const DataText = styled.p`
   font-family: Roboto;
   font-size: 16px;
   font-weight: 400;
   line-height: 20px;
-  color: #2f2f2f;
+  color: var(--primary-color-black);
 `;
 export const DataBtnsContainer = styled.div`
   width: 100%;
@@ -119,7 +119,7 @@ export const DataBtn = styled.button`
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  border: 1px solid #9ebbff;
+  border: 1px solid var(--secondary-color-blue-2);
   // opacity: 0px;
   cursor: pointer;
   background-color: transparent;
@@ -134,8 +134,8 @@ export const DataResult = styled.p`
   height: 36px;
   padding: 6px 10px 6px 10px;
   border-radius: 40px;
-  background-color: #d7e3ff;
-  color: #407bff;
+  background-color: var(--secondary-color-blue-3);
+  color: var(--primary-color-blue);
   font-family: Roboto;
   font-size: 18px;
   font-weight: 700;
@@ -149,34 +149,16 @@ export const LabelTime = styled.label`
   font-size: 16px;
   font-weight: 400;
   line-height: 20px;
-  color: #2f2f2f;
+  color: var(--primary-color-black);
 `;
 export const LabelMl = styled.label`
   font-family: Roboto;
   font-size: 18px;
   font-weight: 500;
   line-height: 20px;
-  color: #2f2f2f;
+  color: var(--primary-color-black);
 `;
-// export const InputTime = styled(TextField)`
-// '.MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input: {
-//   border: '1px solid red',
-// },
-//   width: 100%;
-//   height: 44px;
-//   padding: 12px 10px;
-//   border-radius: 6px;
-//   border: 1px solid #d7e3ff;
-//   color: #407bff;
-//   outline: none;
 
-//   @media only screen and (min-width: 768px) {
-//     width: 544px;
-//   }
-//   @media only screen and (min-width: 1440px) {
-//     width: 100%;
-//   }
-// `;
 export const InputTime = styled(TextField)`
   & .MuiOutlinedInput-root fieldset {
     outline: none;
@@ -193,6 +175,12 @@ export const InputTime = styled(TextField)`
       border: none;
     }
   }
+    @media only screen and (min-width: 768px) {
+      & .MuiOutlinedInput-root {width: 544px;}
+    }
+    @media only screen and (min-width: 1440px) {
+      & .MuiOutlinedInput-root {width: 100%;}
+    }
 `;
 
 export const MenuItemCustom = styled(MenuItem)`
@@ -200,8 +188,8 @@ export const MenuItemCustom = styled(MenuItem)`
   height: 44px;
   padding: 12px 10px;
   border-radius: 6px;
-  border: 1px solid #d7e3ff;
-  color: #407bff;
+  border: 1px solid var(--secondary-color-blue-3);
+  color: var(--primary-color-blue);
   outline: none;
 
   @media only screen and (min-width: 768px) {
@@ -213,12 +201,16 @@ export const MenuItemCustom = styled(MenuItem)`
 `;
 
 export const InputMl = styled.input`
+font-family: Roboto;
+font-size: 16px;
+font-weight: 400;
+line-height: 20px;
   width: 100%;
   height: 44px;
   padding: 12px 10px;
   border-radius: 6px;
-  border: 1px solid #d7e3ff;
-  color: #407bff;
+  border: 1px solid var(--secondary-color-blue-3);
+  color: var(--primary-color-blue);
   outline: none;
 
   @media only screen and (min-width: 768px) {
@@ -259,7 +251,7 @@ export const SaveBtn = styled.button`
   padding: 8px 30px;
   border-radius: 10px;
   background-color: var(--primary-color-blue);
-  color: #fff;
+  color: var(--primary-color-white);
   font-family: Roboto;
   font-size: 16px;
   font-weight: 500;
@@ -276,4 +268,9 @@ export const IconBtn = styled.svg`
   width: 24px;
   height: 24px;
   stroke: var(--primary-color-blue);
+`;
+export const IconBtnPM = styled.svg`
+  width: 24px;
+  height: 24px;
+  fill: var(--primary-color-blue);
 `;

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Dialog from '@mui/material/Dialog';
 import { AddWaterBtn } from './WaterTracker.styled';
-import WaterListModal from 'components/WaterListModal/WaterListModal';
+import WaterListModal from '../TodayListComponents/WaterListModal/WaterListModal';
 import { icons } from '../../assets/';
 
 const ModalAdd = ({ onSave }) => {

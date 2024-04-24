@@ -1,3 +1,28 @@
+// export const getCurrentTime = () => {
+//     const currentDate = new Date();
+//     let hour = currentDate.getHours();
+//     const minutes = currentDate.getMinutes();
+//     // const amOrPm = hour >= 12 ? 'PM' : 'AM';
+//     hour = hour % 12 || 12; 
+//     const formattedHour = hour.toString()
+//     const roundedMinutes = Math.ceil(minutes / 5) * 5;
+//     const formattedMinute = roundedMinutes < 10 ? '0' + roundedMinutes : roundedMinutes;
+//     return `${formattedHour}:${formattedMinute}`;
+// }
+
+// export const generateHours = () => {
+//     const hours = [];
+//     for (let i = 0; i < 24; i++) {
+//         for (let j = 0; j < 60; j += 5) {
+//             let hour = i % 12 || 12;
+//             // const amOrPm = i >= 12 ? 'PM' : 'AM';
+//             const formattedHour = `${hour}:${j.toString().padStart(2, '0')}`;
+//             hours.push(formattedHour);
+//         }
+//     }
+//     return hours;
+// };
+
 export const getCurrentTime = () => {
     const currentDate = new Date()
     let hour = currentDate.getHours().toString().padStart(2, '0')

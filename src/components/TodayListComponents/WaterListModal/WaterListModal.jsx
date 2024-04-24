@@ -23,9 +23,9 @@ import {
   SaveBtn,
   IconBtn,
   MenuItemCustom,
+  IconBtnPM
 } from './WaterListModal.styled';
-import { icons } from '../../assets';
-// import { MenuItem } from '@mui/material';
+import {icons} from '../../../assets'
 import { getCurrentTime, generateHours } from 'utils/timeUtils';
 
 const WaterListModal = ({ onSave, onClose, title, isVisible }) => {
@@ -65,8 +65,7 @@ const WaterListModal = ({ onSave, onClose, title, isVisible }) => {
   };
   const handleSave = () => {
     onSave(result, time);
-    localStorage.setItem('savedResult', result);
-    localStorage.setItem('savedTime', time);
+ 
   };
 
   return (
@@ -93,15 +92,15 @@ const WaterListModal = ({ onSave, onClose, title, isVisible }) => {
         <DataText>Amount of water:</DataText>
         <DataBtnsContainer>
           <DataBtn onClick={decrement}>
-            <IconBtn>
+            <IconBtnPM>
               <use href={`${icons}#icon-minus-small`} />
-            </IconBtn>
+            </IconBtnPM>
           </DataBtn>
           <DataResult>{`${result}ml`}</DataResult>
           <DataBtn onClick={increment}>
-            <IconBtn>
+            <IconBtnPM>
               <use href={`${icons}#icon-plus-small`} />
-            </IconBtn>
+            </IconBtnPM>
           </DataBtn>
         </DataBtnsContainer>
       </DataContainer>
