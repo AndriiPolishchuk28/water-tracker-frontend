@@ -8,7 +8,6 @@ export const SettingDiv = styled.div`
   flex-direction: column;
   width: 280px;
   height: 852px;
-  overflow: hidden;
   @media screen and (min-width: 768px) {
     width: 704px;
     height: 860px;
@@ -85,12 +84,10 @@ export const SvgUploadBtn = styled.svg`
   height: 12px;
   fill: transparent;
   stroke: var(--primary-color-blue);
-  
 `;
 
 export const AvatarInput = styled.input`
   display: none;
-  
 `;
 
 export const StyledForm = styled(Form)`
@@ -339,7 +336,7 @@ export const SvgIcon = styled.svg`
   justify-content: center;
   align-items: center;
   top: 14px;
-  
+
   @media screen and (min-width: 768px) {
     right: 280px;
   }

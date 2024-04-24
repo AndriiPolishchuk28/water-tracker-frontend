@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import Dialog from '@mui/material/Dialog';
+import Box from '@mui/material/Box';
 import { useDispatch } from 'react-redux';
 import sprite from '../../assets/icons/sprite.svg';
 import {
@@ -23,36 +24,32 @@ import { errorToast, successToast } from 'services/services';
 const SettingModal = ({ isModalOpen, onClose }) => {
   const data = useSelector(selectAuthUserData);
   const dispatch = useDispatch();
-  const inputRef = useRef(null)
+  const inputRef = useRef(null);
 
   const handleSubmit = userData => {
-    
     dispatch(updateUserInfo(userData))
-      .unwrap().then(() => {
-      successToast('User information updated Successful')
-      }).then(() => {
-        onClose()
+      .unwrap()
+      .then(() => {
+        successToast('User information updated Successful');
+      })
+      .then(() => {
+        onClose();
       })
       .catch(error => {
-      errorToast(error)
-      })
-    
+        errorToast(error);
+      });
   };
 
-
-
-  const handleFileChange =  event => {
+  const handleFileChange = event => {
     const file = event.target.files[0];
     if (file) {
-      
       try {
-         dispatch(updateUserAvatars(file));
+        dispatch(updateUserAvatars(file));
       } catch (error) {
-        errorToast(error)
+        errorToast(error);
       }
     }
   };
-
 
   const displayName = data.name || (data.email && data.email.split('@')[0]);
   const displayAvatar =
@@ -63,13 +60,22 @@ const SettingModal = ({ isModalOpen, onClose }) => {
       open={isModalOpen}
       onClose={onClose}
       PaperProps={{
-        style: {
-          margin: '40px 20px',
+        component: Box,
+        sx: {
+          
+          position: 'absolute',
+          margin: '20px',
           maxHeight: '860px',
           maxWidth: '1050px',
           borderRadius: '10px',
+          top: '40px',
+          '@media (min-width: 600px)': {},
+          '@media (min-width: 1440px)': {
+            top: '104px',
+          },
         },
       }}
+      style={{ overflowY: 'scroll' }}
     >
       <SettingDiv>
         <SettingTitle>Setting</SettingTitle>
