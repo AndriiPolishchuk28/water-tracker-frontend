@@ -1,9 +1,9 @@
 {
   "files": {
     "main.css": "/water-tracker-frontend/static/css/main.96826375.css",
-    "main.js": "/water-tracker-frontend/static/js/main.c79b8937.js",
+    "main.js": "/water-tracker-frontend/static/js/main.1e0237eb.js",
     "static/js/660.7153159b.chunk.js": "/water-tracker-frontend/static/js/660.7153159b.chunk.js",
-    "static/js/902.03c6aa15.chunk.js": "/water-tracker-frontend/static/js/902.03c6aa15.chunk.js",
+    "static/js/348.8bed8c1e.chunk.js": "/water-tracker-frontend/static/js/348.8bed8c1e.chunk.js",
     "static/js/188.20f3f856.chunk.js": "/water-tracker-frontend/static/js/188.20f3f856.chunk.js",
     "static/js/750.217d4009.chunk.js": "/water-tracker-frontend/static/js/750.217d4009.chunk.js",
     "static/js/528.71fabad8.chunk.js": "/water-tracker-frontend/static/js/528.71fabad8.chunk.js",
@@ -33,9 +33,9 @@
     "static/media/personal-rate-setting.svg": "/water-tracker-frontend/static/media/personal-rate-setting.08985f6a16d27a203593b7903d173927.svg",
     "static/media/view-statistics.svg": "/water-tracker-frontend/static/media/view-statistics.1d15fba1c5e024b51c017bad4ac84aa0.svg",
     "main.96826375.css.map": "/water-tracker-frontend/static/css/main.96826375.css.map",
-    "main.c79b8937.js.map": "/water-tracker-frontend/static/js/main.c79b8937.js.map",
+    "main.1e0237eb.js.map": "/water-tracker-frontend/static/js/main.1e0237eb.js.map",
     "660.7153159b.chunk.js.map": "/water-tracker-frontend/static/js/660.7153159b.chunk.js.map",
-    "902.03c6aa15.chunk.js.map": "/water-tracker-frontend/static/js/902.03c6aa15.chunk.js.map",
+    "348.8bed8c1e.chunk.js.map": "/water-tracker-frontend/static/js/348.8bed8c1e.chunk.js.map",
     "188.20f3f856.chunk.js.map": "/water-tracker-frontend/static/js/188.20f3f856.chunk.js.map",
     "750.217d4009.chunk.js.map": "/water-tracker-frontend/static/js/750.217d4009.chunk.js.map",
     "528.71fabad8.chunk.js.map": "/water-tracker-frontend/static/js/528.71fabad8.chunk.js.map",
@@ -45,6 +45,6 @@
   },
   "entrypoints": [
     "static/css/main.96826375.css",
-    "static/js/main.c79b8937.js"
+    "static/js/main.1e0237eb.js"
   ]
 }
