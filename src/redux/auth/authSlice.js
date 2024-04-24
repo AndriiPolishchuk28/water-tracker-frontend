@@ -54,10 +54,6 @@ const authSlice = createSlice({
         state.isLoggedIn = false;
         state.isLoading = false;
       })
-      // .addCase(updateUserInfoThunk.fulfilled, (state, action) => {
-      //   state.user = action.payload.user;
-      //   state.isLoading = false;
-      // })
       .addCase(updateUserAvatars.fulfilled, (state, action) => {
         state.user.avatarURL = action.payload.avatarURL;
         state.isLoading = false;
