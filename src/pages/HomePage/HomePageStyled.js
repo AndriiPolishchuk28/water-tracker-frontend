@@ -7,6 +7,7 @@ export const HomePageWrapper = styled.div`
   gap: 40px;
   margin: 0 auto;
   padding-top: 24px;
+  padding-bottom: 40px;
 
   @media screen and (min-width: 768px) {
     padding-top: 40px;

@@ -27,7 +27,7 @@ const HomePage = () => {
             </MyDailyTracker>
           </DailyNormaWrapper>
           <TodayMonthWrapper>
-          <TodayList />
+            <TodayList />
             <Calendar />
           </TodayMonthWrapper>
         </HomePageWrapper>

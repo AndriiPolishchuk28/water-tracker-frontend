@@ -8,6 +8,7 @@ import {
   LiCircle,
   Ul,
   ProcentageWater,
+  CalendarWrapper,
 } from './Calendar.styled';
 import PopUpCard from './PopUp/PopUp';
 import Popup from 'reactjs-popup';
@@ -66,7 +67,7 @@ const Calendar = () => {
   };
 
   return (
-    <>
+    <CalendarWrapper>
       <TitleWrapper>
         <MonthText>Month</MonthText>
         <div>
@@ -123,7 +124,7 @@ const Calendar = () => {
             }
           )}
       </Ul>
-    </>
+    </CalendarWrapper>
   );
 };
 

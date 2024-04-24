@@ -23,6 +23,7 @@ export const SvgIcon = styled.svg`
 `;
 
 export const MonthYearText = styled.span`
+  font-family: 'Roboto', sans-serif;
   padding: 0 16px;
   font-size: 16px;
   line-height: 1.25;
@@ -86,4 +87,14 @@ export const ProcentageWater = styled.p`
   color: var(--secondary-color-blue-2);
   text-align: center;
   margin-top: 4px;
+`;
+
+export const CalendarWrapper = styled.div`
+  min-height: 506px;
+  @media screen and (min-width: 768px) {
+    min-height: 340px;
+  }
+  @media screen and (min-width: 1140px) {
+    min-height: 332px;
+  }
 `;
