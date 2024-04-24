@@ -130,7 +130,6 @@ export const forgotPassword = createAsyncThunk(
       setToken(data.user.token);
       return data;
     } catch (error) {
-      console.log(error);
       errorToast(error.response.data.message);
       return thunkApi.rejectWithValue(error.message);
     }

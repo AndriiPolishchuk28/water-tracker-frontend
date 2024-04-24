@@ -122,6 +122,7 @@ const TodayList = () => {
           time={listWaterOfDay[selectedItemIndex]?.time}
           title={isEditing ? 'Add water' : 'Edit the entered amount of water'}
           isVisible={isVisible}
+          initialWater={listWaterOfDay?.[selectedItemIndex]?.value}
         />
       </Dialog>
     </>
