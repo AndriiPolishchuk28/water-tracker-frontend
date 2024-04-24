@@ -79,13 +79,16 @@ const InfoForm = ({ onSubmit }) => {
             formData.gender = values.gender;
           }
         }
-        if (values.oldPassword) {
-          formData.oldPassword = values.oldPassword;
-        }
-
-        if (values.newPassword) {
-          formData.newPassword = values.newPassword;
-        }
+         if (
+           values.newPassword &&
+           values.repeatNewPassword &&
+           values.newPassword === values.repeatNewPassword
+         ) {
+           if (values.oldPassword) {
+             formData.oldPassword = values.oldPassword;
+           }
+           formData.newPassword = values.newPassword;
+         }
 
         if (Object.keys(formData).length > 0) {
           onSubmit(formData);
