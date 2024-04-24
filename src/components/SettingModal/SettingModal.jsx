@@ -18,6 +18,7 @@ import InfoForm from './InfoForm/InfoForm';
 import { selectAuthUserData } from '../../redux/auth/selectors';
 import { useSelector } from 'react-redux';
 import { updateUserInfo, updateUserAvatars } from '../../redux/auth/operations';
+import { errorToast, successToast } from 'services/services';
 
 const SettingModal = ({ isModalOpen, onClose }) => {
   const data = useSelector(selectAuthUserData);
@@ -25,18 +26,29 @@ const SettingModal = ({ isModalOpen, onClose }) => {
   const inputRef = useRef(null)
 
   const handleSubmit = userData => {
-    console.log(userData);
-    dispatch(updateUserInfo(userData));
+    
+    dispatch(updateUserInfo(userData))
+      .unwrap().then(() => {
+      successToast('User information updated Successful')
+      }).then(() => {
+        onClose()
+      })
+      .catch(error => {
+      errorToast(error)
+      })
+    
   };
+
+
 
   const handleFileChange =  event => {
     const file = event.target.files[0];
     if (file) {
-      console.log(file);
+      
       try {
          dispatch(updateUserAvatars(file));
       } catch (error) {
-        console.error('Помилка при відправленні файлу на бекенд:', error);
+        errorToast(error)
       }
     }
   };

@@ -85,10 +85,12 @@ export const SvgUploadBtn = styled.svg`
   height: 12px;
   fill: transparent;
   stroke: var(--primary-color-blue);
+  
 `;
 
 export const AvatarInput = styled.input`
   display: none;
+  
 `;
 
 export const StyledForm = styled(Form)`
@@ -148,7 +150,6 @@ export const InfoLabel = styled.label`
   gap: 8px;
   color: var(--primary-color-black);
   margin-top: 24px;
-  margin-bottom: 8px;
   @media screen and (min-width: 768px) {
   }
 
@@ -286,13 +287,18 @@ export const SaveBtn = styled.button`
 `;
 
 export const SvgCloseBtn = styled.svg`
-  width: 24px;
-  height: 24px;
-  fill: transparent;
   position: absolute;
   top: 42px;
   right: 30px;
+  width: 24px;
+  height: 24px;
+  fill: transparent;
   stroke: var(--primary-color-blue);
+  &:hover,
+  &:focus {
+    cursor: pointer;
+    stroke: var(--secondary-color-orange);
+   transition: box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 `;
 
 export const StyledErrorMessage = styled(ErrorMessage)`
@@ -333,6 +339,7 @@ export const SvgIcon = styled.svg`
   justify-content: center;
   align-items: center;
   top: 14px;
+  
   @media screen and (min-width: 768px) {
     right: 280px;
   }
