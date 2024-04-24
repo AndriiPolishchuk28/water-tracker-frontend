@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { updateWaterRateThunk } from '../../../redux/auth/operations';
@@ -7,6 +8,7 @@ import {
   AmountWrapper,
   ModalLabelWater,
   InputWrapperWater,
+  ModalCloseBtn,
   ButtonWrapper,
   InputWrapper,
   ModalHeader,
@@ -19,8 +21,9 @@ import {
   ModalForm,
   ModalCalc,
   ModalLabel,
-  // ModalRadioInput,
-  // RadioLabel,
+  ModalRadioInputWoman,
+  ModalRadioInputMan,
+  RadioLabel,
   ModalInput,
   Amount,
   ModalButton,
@@ -91,9 +94,9 @@ const DailyModal = ({ onClose }) => {
     <ModalWrapper>
       <ButtonWrapper>
         <ModalHeader>My daily norma</ModalHeader>
-        <Modalsvg onClick={onClose}>
+        <ModalCloseBtn><Modalsvg onClick={onClose}>
           <use href={`${icons}#icon-x-mark`}></use>
-        </Modalsvg>
+        </Modalsvg></ModalCloseBtn>
       </ButtonWrapper>
       <FormulaWrapper>
         <ModalParagraphForGirl>
@@ -110,39 +113,33 @@ const DailyModal = ({ onClose }) => {
       </ModalInfo>
       <ModalForm onSubmit={handleSubmit}>
         <ModalCalc>Calculate your rate:</ModalCalc>
-        {/* <ModalLabel> */}
+       
           <GenderWrapper>
-            <ModalLabel htmlFor="man">
-            <input
-              id="man"
+            <ModalRadioInputWoman
+              id='woman'
+              type="radio"
+              value="girl"
+              checked={gender === 'woman'}
+              onChange={() => setGender('woman')}
+            />
+            <RadioLabel htmlFor="woman">For woman</RadioLabel>
+             <ModalRadioInputMan
+              id='man'
               type="radio"
               value="man"
               checked={gender === 'man'}
               onChange={() => setGender('man')}
-              style={{ marginRight: '8px' }}
             />
-            For man
-</ModalLabel>
-            <ModalLabel htmlFor="woman">
-            <input
-              id="woman"
-              type="radio"
-              value="woman"
-              checked={gender === 'woman'}
-              onChange={() => setGender('woman')}
-              style={{ marginRight: '8px' }}
-            />
-            For woman
-            </ModalLabel>
+<RadioLabel htmlFor="man">For man</RadioLabel>
           </GenderWrapper>
-        {/* </ModalLabel> */}
+        
         <InputWrapper>
           <ModalLabel>Your weight in kilograms:</ModalLabel>
-          <ModalInput 
-            type="number"
+          <ModalInput
+            type="text"
             value={weight}
             onChange={handleWeightChange}
-            placeholder='0'
+             placeholder='0'
           />
         </InputWrapper>
 
@@ -152,10 +149,10 @@ const DailyModal = ({ onClose }) => {
             a high physical. load in hours:
           </ModalLabel>
           <ModalInput
-            type="number"
+            type="text"
             value={activityTime}
             onChange={handleActivityTimeChange}
-            placeholder='0'
+             placeholder='0'
           />
         </InputWrapper>
         <AmountWrapper>
@@ -173,6 +170,7 @@ const DailyModal = ({ onClose }) => {
             onChange={handleInputChange}
             min={1}
             max={15000}
+         placeholder='0'
           />
         </InputWrapperWater>
         <ModalButton type="submit">Save</ModalButton>
