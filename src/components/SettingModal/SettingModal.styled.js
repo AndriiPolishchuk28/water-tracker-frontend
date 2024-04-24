@@ -142,6 +142,10 @@ export const InfoLabel = styled.label`
   font-size: 18px;
   line-height: 1.1;
   font-weight: 500;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
   color: var(--primary-color-black);
   margin-top: 24px;
   margin-bottom: 8px;
@@ -163,6 +167,7 @@ export const StyledInput = styled(Field)`
   font-size: 16px;
   height: 44px;
   width: 256px;
+
   color: var(--primary-color-blue);
   padding: 12px 36px 12px 10px;
   border-radius: 6px;
@@ -294,6 +299,21 @@ export const StyledErrorMessage = styled(ErrorMessage)`
   font-size: 12px;
   line-height: 1.25;
   color: var(--secondary-color-red);
+  position: absolute;
+  top: 73px;
+  @media screen and (min-width: 768px) {
+  }
+
+  @media screen and (min-width: 1440px) {
+  }
+`;
+
+export const PassErrorMessage = styled(ErrorMessage)`
+  font-size: 12px;
+  line-height: 1.25;
+  color: var(--secondary-color-red);
+  position: absolute;
+  top: 45px;
   @media screen and (min-width: 768px) {
   }
 

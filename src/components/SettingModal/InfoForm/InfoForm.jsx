@@ -19,6 +19,8 @@ import {
   GenderDiv,
   SvgIcon,
   InputSvgWrapper,
+  StyledErrorMessage,
+  PassErrorMessage,
 } from '../SettingModal.styled';
 
 const InfoForm = ({ onSubmit }) => {
@@ -79,16 +81,16 @@ const InfoForm = ({ onSubmit }) => {
             formData.gender = values.gender;
           }
         }
-         if (
-           values.newPassword &&
-           values.repeatNewPassword &&
-           values.newPassword === values.repeatNewPassword
-         ) {
-           if (values.oldPassword) {
-             formData.oldPassword = values.oldPassword;
-           }
-           formData.newPassword = values.newPassword;
-         }
+        if (
+          values.newPassword &&
+          values.repeatNewPassword &&
+          values.newPassword === values.repeatNewPassword
+        ) {
+          if (values.oldPassword) {
+            formData.oldPassword = values.oldPassword;
+          }
+          formData.newPassword = values.newPassword;
+        }
 
         if (Object.keys(formData).length > 0) {
           onSubmit(formData);
@@ -118,23 +120,29 @@ const InfoForm = ({ onSubmit }) => {
                   Other
                 </GenderLabel>
               </GenderDiv>
-              <InfoLabel htmlFor="name">Your Name</InfoLabel>
-              <StyledInput
-                type="text"
-                name="name"
-                id="name"
-                pattern=".{2,}"
-                errors={errors ? errors.name : undefined}
-                touched={touched.name ? 'true' : 'false'}
-              />
-              <InfoLabel htmlFor="email">Email</InfoLabel>
-              <StyledInput
-                type="email"
-                name="email"
-                id="email"
-                errors={errors ? errors.email : undefined}
-                touched={touched.email ? 'true' : 'false'}
-              />
+              <InfoLabel htmlFor="name">
+                Your Name
+                <StyledInput
+                  type="text"
+                  name="name"
+                  id="name"
+                  pattern=".{2,}"
+                  errors={errors ? errors.name : undefined}
+                  touched={touched.name ? 'true' : 'false'}
+                />
+                <StyledErrorMessage name="name" component="div" />
+              </InfoLabel>
+              <InfoLabel htmlFor="email">
+                Email
+                <StyledInput
+                  type="email"
+                  name="email"
+                  id="email"
+                  errors={errors ? errors.email : undefined}
+                  touched={touched.email ? 'true' : 'false'}
+                />
+                <StyledErrorMessage name="email" component="div" />
+              </InfoLabel>
             </InfoDiv>
             <PassDiv>
               <SecondTitle>Password</SecondTitle>
@@ -149,6 +157,7 @@ const InfoForm = ({ onSubmit }) => {
                   errors={errors ? errors.oldPassword : undefined}
                   touched={touched.oldPassword ? 'true' : 'false'}
                 />
+                <PassErrorMessage name="oldPassword" component="div" />
                 <SvgIcon type="button" onClick={passwordVisibile}>
                   {lookPassword
                     ? 'Hide' && <use href={`${icons}#icon-eye`}></use>
@@ -166,6 +175,7 @@ const InfoForm = ({ onSubmit }) => {
                   errors={errors ? errors.newPassword : undefined}
                   touched={touched.newPassword ? 'true' : 'false'}
                 />
+                <PassErrorMessage name="newPassword" component="div" />
                 <SvgIcon type="button" onClick={passwordRepeatVisibile}>
                   {lookRepeatPassword
                     ? 'Hide' && <use href={`${icons}#icon-eye`}></use>
@@ -185,6 +195,7 @@ const InfoForm = ({ onSubmit }) => {
                   errors={errors ? errors.repeatNewPassword : undefined}
                   touched={touched.repeatNewPassword ? 'true' : 'false'}
                 />
+                <PassErrorMessage name="repeatNewPassword" component="div" />
                 <SvgIcon type="button" onClick={passwordRepeatVisibile}>
                   {lookRepeatPassword
                     ? 'Hide' && <use href={`${icons}#icon-eye`}></use>
