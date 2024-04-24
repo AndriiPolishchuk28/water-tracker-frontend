@@ -9,12 +9,12 @@ export const StyledModal = styled(Popup)`
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.8);
-    z-index: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     inset: 0px;
     cursor: pointer;
+
   }
 `;
 
@@ -54,6 +54,11 @@ export const CloseBtn = styled.button`
   border: none;
   background-color: transparent;
   padding: 0;
+  transition: var(--transition-transform);
+  &:hover{
+    transform: var(--trasform-hover-focus)
+  }
+  
 `;
 
 export const SvgCloseBtn = styled.svg`
@@ -61,6 +66,9 @@ export const SvgCloseBtn = styled.svg`
   height: 24px;
   fill: transparent;
   stroke: var(--primary-color-blue);
+  
+
+ 
 `;
 
 export const ModalHeaderLogout = styled.h3`
@@ -108,10 +116,19 @@ export const BtnLogoutDelete = styled.button`
   background-color: var(--secondary-color-blue-3);
   color: var(--primary-color-blue);
   border-radius: 10px;
-
+  cursor: pointer;
+  transition: var(--transition-transform);
   &:first-child {
     background-color: var(--secondary-color-red);
     color: var(--primary-color-white);
+    
+  }
+
+  &:hover{
+    transform: var(--trasform-hover-focus);
+  }
+  &:focus{
+    transform: var(--trasform-hover-focus);
   }
 
   @media screen and (min-width: 768px) {
@@ -125,3 +142,4 @@ export const Spantext = styled.p`
   font-size: 16px;
   line-height: 1.25;
 `;
+

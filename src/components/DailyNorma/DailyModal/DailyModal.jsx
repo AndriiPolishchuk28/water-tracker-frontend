@@ -110,33 +110,39 @@ const DailyModal = ({ onClose }) => {
       </ModalInfo>
       <ModalForm onSubmit={handleSubmit}>
         <ModalCalc>Calculate your rate:</ModalCalc>
-        <ModalLabel>
+        {/* <ModalLabel> */}
           <GenderWrapper>
-            <label htmlFor="man">For man</label>
+            <ModalLabel htmlFor="man">
             <input
               id="man"
               type="radio"
               value="man"
               checked={gender === 'man'}
               onChange={() => setGender('man')}
+              style={{ marginRight: '8px' }}
             />
-
-            <label htmlFor="woman">For woman</label>
+            For man
+</ModalLabel>
+            <ModalLabel htmlFor="woman">
             <input
               id="woman"
               type="radio"
-              value="girl"
+              value="woman"
               checked={gender === 'woman'}
               onChange={() => setGender('woman')}
+              style={{ marginRight: '8px' }}
             />
+            For woman
+            </ModalLabel>
           </GenderWrapper>
-        </ModalLabel>
+        {/* </ModalLabel> */}
         <InputWrapper>
           <ModalLabel>Your weight in kilograms:</ModalLabel>
-          <ModalInput
-            type="text"
+          <ModalInput 
+            type="number"
             value={weight}
             onChange={handleWeightChange}
+            placeholder='0'
           />
         </InputWrapper>
 
@@ -146,9 +152,10 @@ const DailyModal = ({ onClose }) => {
             a high physical. load in hours:
           </ModalLabel>
           <ModalInput
-            type="text"
+            type="number"
             value={activityTime}
             onChange={handleActivityTimeChange}
+            placeholder='0'
           />
         </InputWrapper>
         <AmountWrapper>

@@ -42,7 +42,6 @@ cursor: pointer;
   &:focus {
     color: var(--secondary-color-orange);
   }
-}
 `;
 export const DailyNormaDialog = styled(Dialog)`
   width: 100%;
@@ -103,7 +102,7 @@ export const ModalParagraphForGirl = styled.p`
 line-height: 1.25;
 margin-bottom: 16px;
 color: var(--primary-color-black);
-}`;
+`;
 
 export const ModalParagraphForMan = styled.p`
   font-size: 16px;
@@ -150,13 +149,30 @@ export const ModalCalc = styled.p`
   color: var(--primary-color-black);
 `;
 
+// export const GenderWrapper = styled.div`
+//   display: flex;
+//   flex-direction: row-reverse;
+//   justify-content: flex-end;
+//   margin-bottom: 16px;
+//   align-items: flex-end;
+  
+// `;
+
+
 export const GenderWrapper = styled.div`
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: flex-end;
-  margin-bottom: 16px;
-  align-items: flex-end;
+ display: flex;
+  align-items: center;
+  gap: 24px;
+
 `;
+
+// export const ModalLabel = styled.label`
+//   font-family: 'Roboto';
+//   font-size: 16px;
+//   line-height: 1.25;
+//   margin-bottom: 8px;
+//   color: var(--primary-color-black);
+// `;
 
 export const ModalLabel = styled.label`
   font-family: 'Roboto';
@@ -165,6 +181,8 @@ export const ModalLabel = styled.label`
   margin-bottom: 8px;
   color: var(--primary-color-black);
 `;
+
+
 
 export const ModalRadioInput = styled.input.attrs({ type: 'radio' })`
   appearance: none;
@@ -182,18 +200,19 @@ export const ModalRadioInput = styled.input.attrs({ type: 'radio' })`
     height: 8px;
     margin: 2px;
     border-radius: 50%;
+  
   }
 
   &:checked:before {
     background: var(--primary-color-blue);
   }
 `;
-export const RadioLabel = styled.p`
-  margin-right: 24px;
-  font-size: 16px;
-  line-height: 125%;
-  color: var(--primary-color-black);
-`;
+// export const RadioLabel = styled.p`
+//   margin-right: 24px;
+//   font-size: 16px;
+//   line-height: 1.25;
+//   color: var(--primary-color-black);
+// `;
 
 export const InputWrapper = styled.div`
   margin-bottom: 16px;
@@ -212,12 +231,14 @@ export const InputWrapper = styled.div`
 `;
 
 export const ModalInput = styled.input`
-  border: 1px solid #d7e3ff;
+  border: 1px solid var(--secondary-color-blue-3);
   border-radius: 6px;
   padding: 12px 10px;
   width: 256px;
   height: 44px;
-  color: var(--primary-color-black);
+  outline: none;
+  
+  color: var(--primary-color-blue);
   &::placeholder {
     color: var(--primary-color-blue);
   }
@@ -258,6 +279,8 @@ export const ModalButton = styled.button`
   height: 36px;
   box-shadow: 0 4px 8px 0 rgba(64, 123, 255, 0.34);
   background: var(--primary-color-blue);
+  /* font-family: 'roboto'; */
+   font-family: 'roboto';
   font-weight: 500;
   font-size: 16px;
   line-height: 1.25;
@@ -271,6 +294,9 @@ export const ModalButton = styled.button`
     padding: 10px 30px;
     width: 160px;
     height: 44px;
+   
+    font-size: 18px;
+    line-height: 1.33;
   }
 `;
 
@@ -301,6 +327,7 @@ export const InputWrapperWater = styled.div`
 `;
 
 export const ModalLabelWater = styled.label`
+font-family: 'roboto';
   font-weight: 500;
   font-size: 18px;
   margin-bottom: 8px;

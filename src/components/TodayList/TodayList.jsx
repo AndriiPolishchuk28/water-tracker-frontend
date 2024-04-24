@@ -23,6 +23,7 @@ import {
   addWaterRateThunk,
 } from '../../redux/water/operations';
 import { selectListWaterOfDay } from '../../redux/water/selectors';
+import { OpenButton } from 'components/ModalWL/ModalWL.styled';
 
 const TodayList = () => {
   const [waterData, setWaterData] = useState([]);
@@ -70,9 +71,17 @@ const TodayList = () => {
     handleCloseModal();
   };
 
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
+    
+  };
+
+
   return (
     <>
       <ModalAddEdit onSave={handleSaveWaterData} />
+      
+       <OpenButton onClick={() => handleOpenModal(false)}>Add water</OpenButton>
       <List>
         <Title />
         {listWaterOfDay.map((item, index) => (
@@ -120,3 +129,4 @@ const TodayList = () => {
 };
 
 export default TodayList;
+

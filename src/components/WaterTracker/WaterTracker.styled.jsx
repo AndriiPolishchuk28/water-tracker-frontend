@@ -1,3 +1,4 @@
+import { OpenButton } from 'components/ModalWL/ModalWL.styled';
 import styled from 'styled-components';
 
 export const ProgressPanelContainer = styled.div`

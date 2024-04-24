@@ -43,7 +43,6 @@ export const UserLogoBtn = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  cursor: pointer;
 `;
 
 export const TextNameLogo = styled.p`
@@ -93,7 +92,12 @@ export const IconBtnStyle = styled.button`
   gap: 8px;
   background-color: transparent;
   border: none;
-  cursor: pointer;
-
+  transition: var(--transition-transform);
+  &:hover{
+    transform: var(--trasform-hover-focus)
+  }
+  &:hover{
+    transform: var(--trasform-hover-focus)
+  }
 `;
 

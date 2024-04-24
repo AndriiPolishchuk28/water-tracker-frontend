@@ -73,8 +73,8 @@ const UserLogoModal = () => {
         closeOnDocumentClick = "true"
       >
         <ActionsPopupContainer>
-          <IconBtnStyle>
-            <SvgSetting onClick={handleOpenSettingModal}>
+          <IconBtnStyle onClick={handleOpenSettingModal}>
+            <SvgSetting >
               <use href={`${sprite}#icon-cog-6-tooth`} />
             </SvgSetting>
 

@@ -7,6 +7,8 @@
   --secondary-color-blue-3: #d7e3ff;
   --secondary-color-red: #ef5050;
   --secondary-color-orange: #ff9d43;
+  --transition-transform: transform 1s ease-out;
+  --trasform-hover-focus: scale(1.1);
 }
 
 html {
@@ -67,6 +69,7 @@ button {
   width: auto;
   overflow: visible;
   background: transparent;
+  cursor: pointer;
 
   &:focus {
     outline: none;
