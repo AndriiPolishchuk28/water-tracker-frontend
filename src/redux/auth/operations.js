@@ -4,6 +4,9 @@ import { errorToast } from 'services/services';
 import { clearWaterData } from '../water/waterSlice';
 
 export const BASE_URL = 'https://watertracker-backand-codekartel.onrender.com/';
+
+// export const BASE_URL = 'http://localhost:3001/';
+
 axios.defaults.baseURL = BASE_URL;
 
 const setToken = token => {
