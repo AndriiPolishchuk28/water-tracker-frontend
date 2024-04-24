@@ -8,6 +8,7 @@ import PrivateRoute from './PrivateRoute/PrivateRoute';
 import PublicRoute from './PublicRoute/PublicRoute';
 import SharedLayout from './SharedLayout/SharedLayout';
 import GoogleTokenPage from 'pages/AuthPages/GoogleTokenPage';
+import '../utils/i18/i18';
 
 const WelcomePage = lazy(() => import('pages/WelcomePage/WelcomePage'));
 const HomePage = lazy(() => import('pages/HomePage/HomePage'));
