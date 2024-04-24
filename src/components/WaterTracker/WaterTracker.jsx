@@ -1,7 +1,7 @@
 // import { openAddWater } from 'redux/modals/modalsSlice';
-import { icons } from '../../assets/';
+// import { icons } from '../../assets/';
 import {
-  AddWaterBtn,
+  // AddWaterBtn,
   ProgressContainer,
   ProgressInput,
   ProgressMarks,
@@ -17,6 +17,8 @@ import {
 } from '../../redux/water/selectors';
 import { useEffect, useState } from 'react';
 import { getWaterPerDayThunk } from '../../redux/water/operations';
+import ModalAdd from './WaterTrackerModal';
+import { addWaterRateThunk } from '../../redux/water/operations';
 
 export const WaterTracker = () => {
   const dispatch = useDispatch();
@@ -33,6 +35,13 @@ export const WaterTracker = () => {
     const todayValue = todayData.reduce((acc, water) => acc + water.value, 0);
     setPercentages((todayValue / (todayNorma * 1000)) * 100);
   }, [todayData, todayNorma]);
+
+  const handleSaveWaterData = (result, time) => {
+    // const newData = [...waterData, { result, time }];
+    // console.log(newData);
+    // setWaterData(newData);
+    dispatch(addWaterRateThunk({ value: result, time }));
+  };
 
   return (
     <ProgressPanelContainer>
@@ -58,12 +67,13 @@ export const WaterTracker = () => {
           <span>100%</span>
         </ProgressPercents>
       </ProgressContainer>
-      <AddWaterBtn>
+      <ModalAdd onSave={handleSaveWaterData} open={false}/>
+      {/* <AddWaterBtn>
         <svg>
           <use href={`${icons}#icon-plus-circle`}></use>
         </svg>
         <span>Add water</span>
-      </AddWaterBtn>
+      </AddWaterBtn> */}
     </ProgressPanelContainer>
   );
 };

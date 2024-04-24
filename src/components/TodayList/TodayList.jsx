@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import ModalAddEdit from 'components/ModalWL/ModalAddEdit';
 import WaterListModal from 'components/WaterListModal/WaterListModal';
 import {
+  ListTitle,
   Title,
   List,
   ListElem,
@@ -21,11 +22,13 @@ import Dialog from '@mui/material/Dialog';
 import {
   getWaterPerDayThunk,
   addWaterRateThunk,
+  deleteWaterThunk,
+  updateWaterThunk
 } from '../../redux/water/operations';
 import { selectListWaterOfDay } from '../../redux/water/selectors';
 
 const TodayList = () => {
-  const [waterData, setWaterData] = useState([]);
+  // const [waterData, setWaterData] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedItemIndex, setSelectedItemIndex] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
@@ -53,30 +56,34 @@ const TodayList = () => {
     setIsVisible(true);
   };
 
-  const handleDeleteWaterData = index => {
-    const newData = waterData.filter((_, i) => i !== index);
-    setWaterData(newData);
+  const handleDeleteWaterData = id => {
+    dispatch(deleteWaterThunk(id));
   };
 
   const handleCloseModal = () => {
     setIsModalOpen(false);
     setSelectedItemIndex(null);
+    
   };
 
-  const handleSaveData = (result, time) => {
-    const newData = [...listWaterOfDay];
-    newData[selectedItemIndex] = { result, time };
-    setWaterData(newData);
+  const handleSaveData = (value, time) => {
+    if (selectedItemIndex !== null){
+    const updatedWaterData = {
+      _id: listWaterOfDay[selectedItemIndex]._id,
+      value,
+      time
+    }
+    dispatch(updateWaterThunk(updatedWaterData));
     handleCloseModal();
-  };
+  }};
 
   return (
     <>
-      <ModalAddEdit onSave={handleSaveWaterData} />
+      <ListTitle>Today</ListTitle>
       <List>
         <Title />
         {listWaterOfDay.map((item, index) => (
-          <ListElem key={index}>
+          <ListElem key={item._id}>
             <ListElemInfoContainer>
               <Icon>
                 <use href={`${sprite}#icon-glass`} />
@@ -87,7 +94,7 @@ const TodayList = () => {
             <ListElemButtonsContainer>
               <ChangeWaterBtn
                 onClick={() =>
-                  handleEditWaterData(index, item.result, item.time)
+                  handleEditWaterData(index, item.value, item.time)
                 }
               >
                 <ChangeBtnIcon>
@@ -95,22 +102,25 @@ const TodayList = () => {
                 </ChangeBtnIcon>
               </ChangeWaterBtn>
 
-              <DeleteWaterBtn onClick={() => handleDeleteWaterData(index)}>
+              <DeleteWaterBtn onClick={() => handleDeleteWaterData(item._id)}>
                 <DeleteBtnIcon>
                   <use href={`${sprite}#icon-trash-bin`} />
                 </DeleteBtnIcon>
               </DeleteWaterBtn>
             </ListElemButtonsContainer>
           </ListElem>
+          
         ))}
       </List>
+
+      <ModalAddEdit onSave={handleSaveWaterData} />
 
       <Dialog open={isModalOpen} onClose={handleCloseModal} maxWidth="800px">
         <WaterListModal
           onSave={handleSaveData}
           onClose={handleCloseModal}
-          result={waterData[selectedItemIndex]?.result}
-          time={waterData[selectedItemIndex]?.time}
+          result={listWaterOfDay[selectedItemIndex]?.result}
+          time={listWaterOfDay[selectedItemIndex]?.time}
           title={isEditing ? 'Add water' : 'Edit the entered amount of water'}
           isVisible={isVisible}
         />
