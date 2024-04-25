@@ -4,7 +4,6 @@ import { errorToast } from 'services/services';
 import { clearWaterData } from '../water/waterSlice';
 
 export const BASE_URL = 'https://watertracker-backand-codekartel.onrender.com/';
-// export const BASE_URL = 'http://localhost:3001/';
 axios.defaults.baseURL = BASE_URL;
 
 const setToken = token => {
@@ -23,6 +22,7 @@ export const signupUser = createAsyncThunk(
       setToken(data.newUser.token);
       return data;
     } catch (error) {
+      errorToast(error.response.data.message);
       return thunkApi.rejectWithValue(error.message);
     }
   }
@@ -36,7 +36,6 @@ export const signinUser = createAsyncThunk(
       setToken(data.user.token);
       return data;
     } catch (error) {
-      console.log(error);
       errorToast(error.response.data.message);
       return thunkApi.rejectWithValue(error.message);
     }
@@ -52,6 +51,7 @@ export const signoutUser = createAsyncThunk(
       dispatch(clearWaterData());
       return;
     } catch (error) {
+      errorToast(error.response.data.message);
       return rejectWithValue(error.message);
     }
   }
@@ -69,6 +69,7 @@ export const refreshUser = createAsyncThunk(
 
       return data;
     } catch (error) {
+      errorToast(error.response.data.message);
       return thunkApi.rejectWithValue(error.message);
     }
   }
@@ -88,6 +89,7 @@ export const updateUserAvatars = createAsyncThunk(
       });
       return data;
     } catch (error) {
+      errorToast(error.response.data.message);
       return thunkApi.rejectWithValue(error.message);
     }
   }
@@ -100,6 +102,7 @@ export const updateUserInfo = createAsyncThunk(
       const { data } = await axios.patch('users/update', userData);
       return data;
     } catch (error) {
+      errorToast(error.response.data.message);
       return thunkApi.rejectWithValue(error.message);
     }
   }
@@ -112,6 +115,7 @@ export const updateWaterRateThunk = createAsyncThunk(
       const { data } = await axios.patch('water/calc', waterRate);
       return data;
     } catch (error) {
+      errorToast(error.response.data.message);
       return thunkApi.rejectWithValue(error.message);
     }
   }
@@ -126,7 +130,6 @@ export const forgotPassword = createAsyncThunk(
       setToken(data.user.token);
       return data;
     } catch (error) {
-      console.log(error);
       errorToast(error.response.data.message);
       return thunkApi.rejectWithValue(error.message);
     }
@@ -141,7 +144,6 @@ export const recoverPassword = createAsyncThunk(
       setToken(data.user.token);
       return data;
     } catch (error) {
-      console.log(error);
       errorToast(error.response.data.message);
       return thunkApi.rejectWithValue(error.message);
     }
@@ -155,9 +157,9 @@ export const setTokenFromGoogleAuth = createAsyncThunk(
     try {
       setToken(token);
       const { data } = await axios.get('/users/info');
-      console.log(token, data);
       return data;
     } catch (error) {
+      errorToast(error.response.data.message);
       return thunkApi.rejectWithValue(error.message);
     }
   }

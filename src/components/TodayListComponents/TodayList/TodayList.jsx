@@ -24,9 +24,11 @@ import {
   getWaterPerDayThunk,
   addWaterRateThunk,
   deleteWaterThunk,
-  updateWaterThunk
+
+  updateWaterThunk,
 } from '../../../redux/water/operations';
 import { selectListWaterOfDay } from '../../../redux/water/selectors';
+
 
 const TodayList = () => {
 
@@ -62,19 +64,19 @@ const TodayList = () => {
   const handleCloseModal = () => {
     setIsModalOpen(false);
     setSelectedItemIndex(null);
-    
   };
 
   const handleSaveData = (value, time) => {
-    if (selectedItemIndex !== null){
-    const updatedWaterData = {
-      _id: listWaterOfDay[selectedItemIndex]._id,
-      value,
-      time
+    if (selectedItemIndex !== null) {
+      const updatedWaterData = {
+        _id: listWaterOfDay[selectedItemIndex]._id,
+        value,
+        time,
+      };
+      dispatch(updateWaterThunk(updatedWaterData));
+      handleCloseModal();
     }
-    dispatch(updateWaterThunk(updatedWaterData));
-    handleCloseModal();
-  }};
+  };
 
   return (
     <>
@@ -86,7 +88,7 @@ const TodayList = () => {
       ) : (
       <List>
         <Title />
-        {listWaterOfDay.map((item, index) => (
+        {listWaterOfDay?.map((item, index) => (
           <ListElem key={item._id}>
             <ListElemInfoContainer>
               <Icon>
@@ -113,7 +115,6 @@ const TodayList = () => {
               </DeleteWaterBtn>
             </ListElemButtonsContainer>
           </ListElem>
-          
         ))}
       </List>
       )}
@@ -128,6 +129,8 @@ const TodayList = () => {
           time={listWaterOfDay[selectedItemIndex]?.time}
           title={isEditing ? 'Add water' : 'Edit the entered amount of water'}
           isVisible={isVisible}
+          initialWater={listWaterOfDay?.[selectedItemIndex]?.value}
+          initialTime={listWaterOfDay?.[selectedItemIndex]?.time}
         />
       </Dialog>
     </>

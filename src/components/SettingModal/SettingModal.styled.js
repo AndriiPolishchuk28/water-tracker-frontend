@@ -8,7 +8,6 @@ export const SettingDiv = styled.div`
   flex-direction: column;
   width: 280px;
   height: 852px;
-  overflow: hidden;
   @media screen and (min-width: 768px) {
     width: 704px;
     height: 860px;
@@ -142,9 +141,12 @@ export const InfoLabel = styled.label`
   font-size: 18px;
   line-height: 1.1;
   font-weight: 500;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
   color: var(--primary-color-black);
   margin-top: 24px;
-  margin-bottom: 8px;
   @media screen and (min-width: 768px) {
   }
 
@@ -163,6 +165,7 @@ export const StyledInput = styled(Field)`
   font-size: 16px;
   height: 44px;
   width: 256px;
+
   color: var(--primary-color-blue);
   padding: 12px 36px 12px 10px;
   border-radius: 6px;
@@ -281,19 +284,39 @@ export const SaveBtn = styled.button`
 `;
 
 export const SvgCloseBtn = styled.svg`
-  width: 24px;
-  height: 24px;
-  fill: transparent;
   position: absolute;
   top: 42px;
   right: 30px;
+  width: 24px;
+  height: 24px;
+  fill: transparent;
   stroke: var(--primary-color-blue);
+  &:hover,
+  &:focus {
+    cursor: pointer;
+    stroke: var(--secondary-color-orange);
+   transition: box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 `;
 
 export const StyledErrorMessage = styled(ErrorMessage)`
   font-size: 12px;
   line-height: 1.25;
   color: var(--secondary-color-red);
+  position: absolute;
+  top: 73px;
+  @media screen and (min-width: 768px) {
+  }
+
+  @media screen and (min-width: 1440px) {
+  }
+`;
+
+export const PassErrorMessage = styled(ErrorMessage)`
+  font-size: 12px;
+  line-height: 1.25;
+  color: var(--secondary-color-red);
+  position: absolute;
+  top: 45px;
   @media screen and (min-width: 768px) {
   }
 
@@ -313,6 +336,7 @@ export const SvgIcon = styled.svg`
   justify-content: center;
   align-items: center;
   top: 14px;
+
   @media screen and (min-width: 768px) {
     right: 280px;
   }

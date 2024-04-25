@@ -8,8 +8,6 @@ const GoogleTokenPage = () => {
   const navigate = useNavigate();
   const { token } = useParams();
 
-  console.log(token);
-
   useEffect(()=>{
     if (token) {
       dispatch(setTokenFromGoogleAuth(token))

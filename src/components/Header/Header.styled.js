@@ -13,3 +13,19 @@ export const HeaderContainer = styled.header`
     padding-top: 12px;
   }
 `;
+
+export const WrapperAuth = styled.div`
+  display: flex;
+`;
+
+export const WrapperBtn = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-left: 5px;
+`;
+
+export const BtnLanguage = styled.button`
+  font-family: 'Roboto', sans-serif;
+  color: var(--primary-color-blue);
+  cursor: pointer;
+`;
