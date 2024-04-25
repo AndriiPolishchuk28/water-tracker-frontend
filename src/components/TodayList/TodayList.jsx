@@ -28,7 +28,6 @@ import {
 import { selectListWaterOfDay } from '../../redux/water/selectors';
 
 const TodayList = () => {
-  // const [waterData, setWaterData] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedItemIndex, setSelectedItemIndex] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
