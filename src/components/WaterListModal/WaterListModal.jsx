@@ -28,9 +28,9 @@ import { icons } from '../../assets';
 // import { MenuItem } from '@mui/material';
 import { getCurrentTime, generateHours } from 'utils/timeUtils';
 
-const WaterListModal = ({ onSave, onClose, title, isVisible }) => {
-  const [result, setResult] = useState(50);
-  const [time, setTime] = useState(getCurrentTime());
+const WaterListModal = ({ onSave, onClose, title, isVisible, initialWater = 50, initialTime=getCurrentTime() }) => {
+  const [result, setResult] = useState(initialWater);
+  const [time, setTime] = useState(initialTime);
 
   const handleChange = event => {
     const inputValue = event.target.value;
