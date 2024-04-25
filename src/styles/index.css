@@ -67,6 +67,7 @@ button {
   width: auto;
   overflow: visible;
   background: transparent;
+  cursor: pointer;
 
   &:focus {
     outline: none;
