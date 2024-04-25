@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import sprite from '../../../assets/icons/sprite.svg';
 import {
   HeaderSignInLink,
@@ -6,9 +7,11 @@ import {
 } from './UserAuth.styled';
 
 const UserAuth = () => {
+  const { t } = useTranslation();
+
   return (
     <HeaderSignInLink to="/signin">
-      <TextHeaderSingIn>Sign in</TextHeaderSingIn>
+      <TextHeaderSingIn>{t('signin_page.signin')}</TextHeaderSingIn>
       <IconUser>
         <use href={`${sprite}#icon-user`} />
       </IconUser>

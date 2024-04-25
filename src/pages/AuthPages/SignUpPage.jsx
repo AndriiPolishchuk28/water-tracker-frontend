@@ -5,8 +5,10 @@ import Container from 'components/Container/Container';
 import { PageWrapper, AuthHeder, StyledLink } from './AuthPagesStyled.js';
 import Background from 'components/Background/Background';
 import { successToast, errorToast } from '../../services/services';
+import { useTranslation } from 'react-i18next';
 
 const SignUpPage = () => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
 
   const handleSubmit = formData => {
@@ -25,9 +27,9 @@ const SignUpPage = () => {
       <Background />
       <Container>
         <PageWrapper>
-          <AuthHeder>Sign Up</AuthHeder>
+          <AuthHeder>{t('signup_page.signup')}</AuthHeder>
           <AuthForm onSubmit={handleSubmit} isSignUp={true} />
-          <StyledLink to="/signin">Sign in</StyledLink>
+          <StyledLink to="/signin">{t('signup_page.signin')}</StyledLink>
         </PageWrapper>
       </Container>
     </div>

@@ -6,8 +6,10 @@ import Background from 'components/Background/Background';
 import { errorToast, successToast } from 'services/services';
 import { forgotPassword } from '../../redux/auth/operations';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const ForgotPasswordPage = () => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleSubmit = formData => {
@@ -26,10 +28,10 @@ const ForgotPasswordPage = () => {
     <div>
       <WrapperContainer>
         <PageWrapper>
-          <AuthHeder>Recover password:</AuthHeder>
+          <AuthHeder>{t('forgot_page.recoverPassword')}</AuthHeder>
           <AuthForm onSubmit={handleSubmit} isForgotPassword={true} />
           <LinkWrapper>
-            <StyledLink to="/signin">Sign in</StyledLink>
+            <StyledLink to="/signin">{t('signin_page.signin')}</StyledLink>
           </LinkWrapper>
         </PageWrapper>
         <Background />

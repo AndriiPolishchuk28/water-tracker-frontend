@@ -26,6 +26,7 @@ import {
 } from './WaterListModal.styled';
 import { icons } from '../../assets';
 import { getCurrentTime, generateHours } from 'utils/timeUtils';
+import { useTranslation } from 'react-i18next';
 
 const WaterListModal = ({
   onSave,
@@ -37,6 +38,8 @@ const WaterListModal = ({
 }) => {
   const [result, setResult] = useState(initialWater);
   const [time, setTime] = useState(initialTime);
+  const { t } = useTranslation();
+
 
   const handleChange = event => {
     const inputValue = event.target.value;
@@ -95,8 +98,8 @@ const WaterListModal = ({
         </ResultContainer>
       )}
       <DataContainer>
-        <DataTitle>Correct entered data:</DataTitle>
-        <DataText>Amount of water:</DataText>
+        <DataTitle>{t('water_list_mod.correct')}</DataTitle>
+        <DataText>{t('water_list_mod.amount')}</DataText>
         <DataBtnsContainer>
           <DataBtn onClick={decrement}>
             <IconBtn>
@@ -111,7 +114,7 @@ const WaterListModal = ({
           </DataBtn>
         </DataBtnsContainer>
       </DataContainer>
-      <LabelTime>Recording time:</LabelTime>
+      <LabelTime>{t('water_list_mod.time')}</LabelTime>
       <InputTime
         select
         value={time}
@@ -124,11 +127,11 @@ const WaterListModal = ({
           </MenuItemCustom>
         ))}
       </InputTime>
-      <LabelMl>Enter the value of the water used:</LabelMl>
+      <LabelMl>{t('water_list_mod.waterUsed')}</LabelMl>
       <InputMl value={result} onChange={handleChange} />
       <SaveContainer>
         <SaveResultTxt>{`${result}ml`}</SaveResultTxt>
-        <SaveBtn onClick={handleSave}>Save</SaveBtn>
+        <SaveBtn onClick={handleSave}>{t('water_list_mod.save')}</SaveBtn>
       </SaveContainer>
     </Container>
   );

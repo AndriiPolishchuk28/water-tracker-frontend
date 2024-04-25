@@ -13,10 +13,12 @@ import {
 } from './AuthFormStyled';
 import { useState } from 'react';
 import { icons } from '../../assets';
+import { useTranslation } from 'react-i18next';
 
 export const AuthForm = ({ onSubmit, isSignUp, isForgotPassword, isRecoverPassword }) => {
   const [lookPassword, setLookPassword] = useState(false);
   const [lookRepeatPassword, seLookRepeatPassword] = useState(false);
+  const { t } = useTranslation();
 
   const passwordVisibile = () => {
     setLookPassword(prevLookPassword => !prevLookPassword);
@@ -67,7 +69,7 @@ export const AuthForm = ({ onSubmit, isSignUp, isForgotPassword, isRecoverPasswo
           <StyledForm>
             {!isRecoverPassword && (
               <InputWrapper>
-                <StaledLabel htmlFor="email">Enter your email</StaledLabel>
+                <StaledLabel htmlFor="email">{t('auth_form.email')}</StaledLabel>
                 <StyledField
                   type="email"
                   id="email"
@@ -82,12 +84,12 @@ export const AuthForm = ({ onSubmit, isSignUp, isForgotPassword, isRecoverPasswo
 
             {!isForgotPassword && (
               <InputWrapper>
-                <StaledLabel htmlFor="password">Password</StaledLabel>
+                <StaledLabel htmlFor="password">{t('auth_form.password')}</StaledLabel>
                 <InputSvgWrapper>
                   <StyledField
                     type={lookPassword ? 'text' : 'password'}
                     name="password"
-                    placeholder="Password"
+                    placeholder={t('auth_form.password')}
                     pattern=".{8,}"
                     errors={errors ? errors.password : undefined}
                     touched={touched.password ? 'true' : 'false'}
@@ -106,13 +108,13 @@ export const AuthForm = ({ onSubmit, isSignUp, isForgotPassword, isRecoverPasswo
             {(isSignUp || isRecoverPassword) && (
               <InputWrapper>
                 <StaledLabel htmlFor="repeatPassword">
-                  Repeat Password
+                {t('auth_form.repeatPassword')}
                 </StaledLabel>
                 <InputSvgWrapper>
                   <StyledField
                     type={lookRepeatPassword ? 'text' : 'password'}
                     name="repeatPassword"
-                    placeholder="Repeat Password"
+                    placeholder={t('auth_form.repeatPassword')}
                     pattern=".{8,}"
                     errors={errors ? errors.repeatPassword : undefined}
                     touched={touched.repeatPassword ? 'true' : 'false'}
@@ -129,10 +131,10 @@ export const AuthForm = ({ onSubmit, isSignUp, isForgotPassword, isRecoverPasswo
             )}
 
             <Button type="submit">
-              {isSignUp ? 'Sign up'
-                : isForgotPassword ? 'Send'
-                  : isRecoverPassword ? 'Change password'
-                    : 'Sign in'}
+              {isSignUp ? t('signup_page.signup')
+                : isForgotPassword ? t('auth_form.send')
+                  : isRecoverPassword ?  t('auth_form.changePassword')
+                    : t('signin_page.signin')}
             </Button>
           </StyledForm>
         );

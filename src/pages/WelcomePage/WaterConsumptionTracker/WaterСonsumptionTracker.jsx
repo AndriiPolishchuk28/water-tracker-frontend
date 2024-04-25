@@ -11,8 +11,10 @@ import {
   PersonalSettingsIcon,
   Button,
 } from './WaterConsumptionTracker.styled';
+import { useTranslation } from 'react-i18next';
 
 const WaterConsumptionTracker = () => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
 
   function TryClick() {
@@ -20,27 +22,31 @@ const WaterConsumptionTracker = () => {
   }
   return (
     <WaterConsumption>
-      <Title>Water consumption tracker</Title>
-      <Record>Record daily water intake and track</Record>
-      <Benefits>Tracker Benefits</Benefits>
+      <Title>{t('water_tracker.title')}</Title>
+      <Record>
+        {t('water_tracker.record')}
+        <br/>
+        {t('water_tracker.instake')}
+      </Record>
+      <Benefits>{t('water_tracker.benefits')}</Benefits>
       <List>
         <Item>
           <HabitDriveIcon />
-          <p>Habit drive</p>
+          <p>{t('water_tracker.habit')}</p>
         </Item>
         <Item>
           <ViewStatisticsIcon />
 
-          <p>View statistics</p>
+          <p>{t('water_tracker.view')}</p>
         </Item>
         <Item>
           <PersonalSettingsIcon />
 
-          <p>Personal rate setting</p>
+          <p>{t('water_tracker.personal')}</p>
         </Item>
       </List>
       <Button type="button" onClick={TryClick}>
-        Try tracker
+      {t('water_tracker.try')}
       </Button>
     </WaterConsumption>
   );
