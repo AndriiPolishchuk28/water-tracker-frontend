@@ -36,7 +36,14 @@ const Calendar = () => {
   const monthName = currentDate.toLocaleString('en-US', { month: 'long' });
   const month = currentDate.getMonth() + 1;
 
+  console.log(percentagePerMonth);
+  console.log(waterPerDay);
+  console.log(dailyWaterRate);
+  console.log(token);
+
   useEffect(() => {
+    if(waterPerDay.length === 0) return;
+    console.log('disp');
     dispatch(getMonthPercentageThunk(`${currentYear}-${month}`));
   }, [month, currentYear, dispatch, waterPerDay, dailyWaterRate, token]);
 
