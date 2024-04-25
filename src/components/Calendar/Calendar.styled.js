@@ -28,7 +28,7 @@ export const MonthYearText = styled.span`
   font-size: 16px;
   line-height: 1.25;
   color: var(--primary-color-blue);
-  width: 140px;
+  width: 153px;
   display: inline-block;
   text-align: center;
 `;

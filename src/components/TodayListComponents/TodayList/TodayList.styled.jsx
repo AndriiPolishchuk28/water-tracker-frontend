@@ -35,6 +35,7 @@ export const ListElem = styled.li`
   border-bottom: 1px solid var(--secondary-color-blue-3);
   padding: 12px;
   height: 46px;
+
 `;
 export const ListElemInfoContainer = styled.div`
   width: 70%;
@@ -75,7 +76,9 @@ export const ResultTime = styled.span`
   font-size: 12px;
   font-weight: 400;
   line-height: 24px;
+
   color: var(--primary-color-black);
+
 `;
 export const ChangeWaterBtn = styled.button`
   display: flex;
@@ -142,4 +145,7 @@ export const ChangeBtnIcon = styled.svg`
   height: 16px;
   stroke: var(--secondary-color-blue-2);
   fill: transparent;
+  &:hover {
+    stroke: var(--secondary-color-orange);
+  }
 `;

@@ -13,11 +13,13 @@ import {
   SvgCloseBtn,
   TextLogout,
 } from './Logout.styled';
+import { clearWaterData } from '../../../redux/water/waterSlice';
 
 const UserLogoutModal = ({ isOpen, onClose }) => {
   const dispatch = useDispatch();
   const handleLogout = () => {
     dispatch(signoutUser());
+    dispatch(clearWaterData());
     onClose();
   };
 
