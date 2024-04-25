@@ -84,7 +84,7 @@ export const ProcentageWater = styled.p`
   font-family: 'Roboto', sans-serif;
   font-size: 10px;
   line-height: 1.6;
-  color: var(--secondary-color-blue-2);
+  color: var(--primary-color-blue);
   text-align: center;
   margin-top: 4px;
 `;

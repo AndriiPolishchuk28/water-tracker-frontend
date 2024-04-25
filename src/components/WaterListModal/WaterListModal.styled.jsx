@@ -268,4 +268,5 @@ export const IconBtn = styled.svg`
   width: 24px;
   height: 24px;
   fill: var(--secondary-color-blue-2);
+  stroke: var(--secondary-color-blue-2);
 `;
