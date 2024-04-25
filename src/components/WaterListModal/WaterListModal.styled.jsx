@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 import { TextField, MenuItem } from '@mui/material';
-// import { OutlinedInput } from '@mui/material';
-// import { styled } from '@mui/system';
 
 export const OpenButton = styled.button`
   width: 280px;
@@ -49,12 +47,11 @@ export const CloseButton = styled.button`
 `;
 export const ResultContainer = styled.div`
   display: flex;
-  // justify-content: center;
   align-items: center;
   gap: 16px;
   width: 100%;
   height: 52px;
-  background-color: #ecf2ff;
+  background-color: var(--secondary-color-blue-1);
   border-radius: 10px;
   padding: 8px 24px;
 
@@ -96,7 +93,7 @@ export const DataTitle = styled.h3`
   font-size: 18px;
   font-weight: 500;
   line-height: 20px;
-  color: #2f2f2f;
+  color: var(--primary-color-black);
 `;
 export const DataText = styled.p`
   font-family: Roboto;
@@ -120,15 +117,14 @@ export const DataBtn = styled.button`
   height: 44px;
   border-radius: 50%;
   border: 1px solid #9ebbff;
-  // opacity: 0px;
   cursor: pointer;
+  color: var(--secondary-color-blue-2)
   background-color: transparent;
   padding: 0;
   &:hover {
     box-shadow: 0px 2px 4px 0px #407bff33;
   }
 `;
-export const DataDeleteBtn = styled.button``;
 export const DataResult = styled.p`
   width: 92px;
   height: 36px;
@@ -220,10 +216,6 @@ export const InputMl = styled.input`
   border: 1px solid #d7e3ff;
   color: #407bff;
   outline: none;
-
-  @media only screen and (min-width: 768px) {
-    width: 544px;
-  }
   @media only screen and (min-width: 1440px) {
     width: 100%;
   }
@@ -275,5 +267,5 @@ export const SaveBtn = styled.button`
 export const IconBtn = styled.svg`
   width: 24px;
   height: 24px;
-  stroke: var(--primary-color-blue);
+  fill: var(--secondary-color-blue-2);
 `;
