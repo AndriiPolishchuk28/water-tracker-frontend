@@ -4,14 +4,11 @@ import {
   IconUser,
   TextHeaderSingIn,
 } from './UserAuth.styled';
-import { useTranslation } from 'react-i18next';
 
 const UserAuth = () => {
-  const { t } = useTranslation();
-
   return (
     <HeaderSignInLink to="/signin">
-      <TextHeaderSingIn>{t('header.signin')}</TextHeaderSingIn>
+      <TextHeaderSingIn>Sign in</TextHeaderSingIn>
       <IconUser>
         <use href={`${sprite}#icon-user`} />
       </IconUser>
