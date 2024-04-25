@@ -19,8 +19,10 @@ import { useEffect, useState } from 'react';
 import { getWaterPerDayThunk } from '../../redux/water/operations';
 import ModalAdd from './WaterTrackerModal';
 import { addWaterRateThunk } from '../../redux/water/operations';
+import { useTranslation } from 'react-i18next';
 
 export const WaterTracker = () => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const [percentages, setPercentages] = useState(null);
 
@@ -46,7 +48,7 @@ export const WaterTracker = () => {
   return (
     <ProgressPanelContainer>
       <ProgressContainer>
-        <TodayTitle>Today</TodayTitle>
+        <TodayTitle>{t('progress_panel.today')}</TodayTitle>
         <ProgressInput
           style={{ backgroundSize: `${percentages}% 100%` }}
           onChange={() => {}}

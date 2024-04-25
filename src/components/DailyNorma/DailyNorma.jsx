@@ -12,8 +12,10 @@ import {
   DailyNormaDialog,
   DailyNormaButton,
 } from './DailyNormaStyled';
+import { useTranslation } from 'react-i18next';
 
 export const DailyNorma = () => {
+  const { t } = useTranslation();
   const waterRate = useSelector(selectWaterRate);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -27,7 +29,7 @@ export const DailyNorma = () => {
 
   return (
     <DailyNormaWrapper>
-      <DailyNormaHeader>My daily norma</DailyNormaHeader>
+      <DailyNormaHeader>{t('daily_norma.norma')}</DailyNormaHeader>
       <WaterRateWrapper>
         <WaterRateParagraph>{waterRate} L</WaterRateParagraph>
         <DailyNormaButton onClick={handleEditClick}>Edit</DailyNormaButton>

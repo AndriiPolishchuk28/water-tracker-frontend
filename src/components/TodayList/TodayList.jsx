@@ -26,7 +26,11 @@ import {
   updateWaterThunk,
 } from '../../redux/water/operations';
 import { selectListWaterOfDay } from '../../redux/water/selectors';
+
+import { useTranslation } from 'react-i18next';
+
 import ModalDellWater from 'components/ModalWL/ModalDellWater';
+
 
 const TodayList = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -37,6 +41,7 @@ const TodayList = () => {
   const [isVisible, setIsVisible] = useState(true);
   const dispatch = useDispatch();
   const listWaterOfDay = useSelector(selectListWaterOfDay);
+  const { t } = useTranslation();
 
   useEffect(() => {
     dispatch(getWaterPerDayThunk());
@@ -78,7 +83,7 @@ const TodayList = () => {
 
   return (
     <>
-      <ListTitle>Today</ListTitle>
+      <ListTitle>{t('today_list.today')}</ListTitle>
       <List>
         <Title />
         {listWaterOfDay?.map((item, index) => (
@@ -129,7 +134,7 @@ const TodayList = () => {
           onClose={handleCloseModal}
           result={listWaterOfDay[selectedItemIndex]?.result}
           time={listWaterOfDay[selectedItemIndex]?.time}
-          title={isEditing ? 'Add water' : 'Edit the entered amount of water'}
+          title={isEditing ? t('water_tracker_mod.add') :  t('water_tracker_mod.editTheEntered')}
           isVisible={isVisible}
           initialWater={listWaterOfDay?.[selectedItemIndex]?.value}
           initialTime={listWaterOfDay?.[selectedItemIndex]?.time}

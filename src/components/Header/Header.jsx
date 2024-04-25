@@ -4,23 +4,23 @@ import {
   HeaderContainer,
   WrapperAuth,
   WrapperBtn,
-  // BtnLanguage,
+  BtnLanguage,
 } from './Header.styled';
 import { selectAuthIsSignedIn } from '../../redux/auth/selectors';
 import { useSelector } from 'react-redux';
 import UserAuth from './UserAuth/UserAuth';
 import UserLogoModal from './UserLogoModal/UserLogoModal';
-// import { LANGUAGE_STORAGE_KEY } from '../../constants';
-// import { useTranslation } from 'react-i18next';
+import { LANGUAGE_STORAGE_KEY } from '../../constants';
+import { useTranslation } from 'react-i18next';
 
 const Header = () => {
   const isLoggedIn = useSelector(selectAuthIsSignedIn);
-  // const { i18n } = useTranslation();
+  const { i18n } = useTranslation();
 
-  // const change = lng => {
-  //   i18n.changeLanguage(lng);
-  //   localStorage.setItem(LANGUAGE_STORAGE_KEY, lng);
-  // };
+  const change = lng => {
+    i18n.changeLanguage(lng);
+    localStorage.setItem(LANGUAGE_STORAGE_KEY, lng);
+  };
 
   return (
     <WrapperContainer>
@@ -29,8 +29,8 @@ const Header = () => {
         <WrapperAuth>
           {isLoggedIn ? <UserLogoModal /> : <UserAuth />}
           <WrapperBtn>
-            {/* <BtnLanguage onClick={() => change('ua')}>UA</BtnLanguage>
-            <BtnLanguage onClick={() => change('en')}>EN</BtnLanguage> */}
+            <BtnLanguage onClick={() => change('ua')}>UA</BtnLanguage>
+            <BtnLanguage onClick={() => change('en')}>EN</BtnLanguage>
           </WrapperBtn>
         </WrapperAuth>
       </HeaderContainer>

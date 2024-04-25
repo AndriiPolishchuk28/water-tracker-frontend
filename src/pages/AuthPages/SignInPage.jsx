@@ -4,12 +4,15 @@ import { BASE_URL, signinUser } from '../../redux/auth/operations';
 import { WrapperContainer } from 'components/Container/ContainerStyled';
 import { AuthHeder, StyledLink, PageWrapper, LinkWrapper, Button } from './AuthPagesStyled';
 import Background from 'components/Background/Background';
+import { useTranslation } from 'react-i18next';
 
 const SignInPage = () => {
   const dispatch = useDispatch();
   const handleSubmit = formData => {
     dispatch(signinUser(formData));
   };
+
+  const { t } = useTranslation();
 
   const googleButtonCLick = () => {
     window.location.href = `${BASE_URL}users/google`;
@@ -19,14 +22,14 @@ const SignInPage = () => {
     <div>
       <WrapperContainer>
         <PageWrapper>
-          <AuthHeder>Sign In</AuthHeder>
+          <AuthHeder>{t('signin_page.signin')}</AuthHeder>
           <AuthForm onSubmit={handleSubmit} />
           <Button onClick={googleButtonCLick}>
-            Sign in with Google
+             {t('signin_page.withGoogle')}
           </Button>
           <LinkWrapper>
-            <StyledLink to="/signup">Sign up</StyledLink>
-            <StyledLink to="/forgot-password">Forgot password?</StyledLink>
+            <StyledLink to="/signup">{t('signin_page.signup')}</StyledLink>
+            <StyledLink to="/forgot-password">{t('signin_page.forgotPassword')}</StyledLink>
           </LinkWrapper>
         </PageWrapper>
         <Background />

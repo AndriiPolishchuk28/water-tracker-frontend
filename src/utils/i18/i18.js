@@ -21,7 +21,7 @@ i18n
         translation: require('./dictionaries/ua/translation.json'),
       },
     },
-    fallbackLng: 'ua',
+    fallbackLng: 'en',
     debug: false,
     returnObjects: true,
     whitelist: ['ua', 'en'],

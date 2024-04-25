@@ -3,12 +3,14 @@ import Dialog from '@mui/material/Dialog';
 import { AddWaterBtn } from './WaterTracker.styled';
 import WaterListModal from 'components/WaterListModal/WaterListModal';
 import { icons } from '../../assets/';
+import { useTranslation } from 'react-i18next';
 
 const ModalAdd = ({ onSave }) => {
   const [waterData, setWaterData] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
+  const { t } = useTranslation();
 
   const handleSaveWaterData = (result, time) => {
     setWaterData([...waterData, { result, time }]);
@@ -21,7 +23,7 @@ const ModalAdd = ({ onSave }) => {
   const handleOpenModal = (isEditing) => {
     setIsModalOpen(true);
     setIsEditing(isEditing);
-    setIsVisible(!isEditing); 
+    setIsVisible(!isEditing);
   };
 
   return (
@@ -34,7 +36,8 @@ const ModalAdd = ({ onSave }) => {
             handleCloseModal();
           }}
           onClose={handleCloseModal}
-          title={isEditing ? "Edit the entered amount of water" : "Add water"}
+          title={isEditing ?  t('water_tracker_mod.editTheEntered') : t('water_tracker_mod.add')}
+
           isVisible={!isVisible}
         />
       </Dialog>
@@ -43,7 +46,7 @@ const ModalAdd = ({ onSave }) => {
         <svg>
           <use href={`${icons}#icon-plus-circle`}></use>
         </svg>
-        <span>Add water</span>
+        <span>{t('water_tracker_mod.add')}</span>
       </AddWaterBtn>
     </>
   );

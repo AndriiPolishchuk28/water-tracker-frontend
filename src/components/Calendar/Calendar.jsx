@@ -21,9 +21,15 @@ import {
   selectMonthPercentage,
   selectWaterRate,
 } from '../../redux/water/selectors';
+
+
+import { useTranslation } from 'react-i18next';
+
 import { selectAuthIsLoading } from '../../redux/auth/selectors';
 
+
 const Calendar = () => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const percentagePerMonth = useSelector(selectMonthPercentage);
   const waterPerDay = useSelector(selectListWaterOfDay);
@@ -76,7 +82,7 @@ const Calendar = () => {
   return (
     <CalendarWrapper>
       <TitleWrapper>
-        <MonthText>Month</MonthText>
+        <MonthText>{t('calendar.month')}</MonthText>
         <div>
           <SvgIcon onClick={goToPreviousMonth} width={6} height={10}>
             <use href={`${icons}#icon-chevron-left`}></use>

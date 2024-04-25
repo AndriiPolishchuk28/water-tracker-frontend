@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import Dialog from '@mui/material/Dialog';
 import { OpenButton, ModalReverse} from './ModalWL.styled';
 import WaterListModal from 'components/WaterListModal/WaterListModal';
+import { useTranslation } from 'react-i18next';
 
 const ModalAddEdit = ({ onSave }) => {
   const [waterData, setWaterData] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
+  const { t } = useTranslation();
 
   const handleSaveWaterData = (result, time) => {
     setWaterData([...waterData, { result, time }]);
@@ -20,7 +22,7 @@ const ModalAddEdit = ({ onSave }) => {
   const handleOpenModal = (isEditing) => {
     setIsModalOpen(true);
     setIsEditing(isEditing);
-    setIsVisible(!isEditing); 
+    setIsVisible(!isEditing);
   };
 
   return (
@@ -33,11 +35,11 @@ const ModalAddEdit = ({ onSave }) => {
             handleCloseModal();
           }}
           onClose={handleCloseModal}
-          title={isEditing ? "Edit the entered amount of water" : "Add water"}
+          title={isEditing ?  t('water_tracker_mod.editTheEntered') : t('water_tracker_mod.add')}
           isVisible={!isVisible}
         />
       </Dialog>
-      <OpenButton onClick={() => handleOpenModal(false)}>Add water</OpenButton>
+      <OpenButton onClick={() => handleOpenModal(false)}>{t('water_tracker_mod.add')}</OpenButton>
     </ModalReverse>
   );
 };
