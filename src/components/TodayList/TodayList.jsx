@@ -26,10 +26,13 @@ import {
   updateWaterThunk,
 } from '../../redux/water/operations';
 import { selectListWaterOfDay } from '../../redux/water/selectors';
+import ModalDellWater from 'components/ModalWL/ModalDellWater';
 
 const TodayList = () => {
   // const [waterData, setWaterData] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalDell, setIsModalDell] = useState(false);
+  const [idWaterToDell, setIdWaterToDell] = useState(null);
   const [selectedItemIndex, setSelectedItemIndex] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
@@ -99,7 +102,12 @@ const TodayList = () => {
                 </ChangeBtnIcon>
               </ChangeWaterBtn>
 
-              <DeleteWaterBtn onClick={() => handleDeleteWaterData(item._id)}>
+              <DeleteWaterBtn
+                onClick={() => {
+                  setIsModalDell(true);
+                  setIdWaterToDell(item._id);
+                }}
+              >
                 <DeleteBtnIcon>
                   <use href={`${sprite}#icon-trash-bin`} />
                 </DeleteBtnIcon>
@@ -110,7 +118,12 @@ const TodayList = () => {
       </List>
 
       <ModalAddEdit onSave={handleSaveWaterData} />
-
+      <ModalDellWater
+        id={idWaterToDell}
+        deleteWater={handleDeleteWaterData}
+        setIsModalDell={setIsModalDell}
+        isModalDell={isModalDell}
+      />
       <Dialog open={isModalOpen} onClose={handleCloseModal} maxWidth="800px">
         <WaterListModal
           onSave={handleSaveData}
