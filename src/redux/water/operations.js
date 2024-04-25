@@ -9,7 +9,6 @@ export const getMonthPercentageThunk = createAsyncThunk(
       const { data } = await axios.get(`water/month/?date=${date}`);
       return data;
     } catch (error) {
-      errorToast(error.response.data.message);
       return thunkApi.rejectWithValue(error.message);
     }
   }
