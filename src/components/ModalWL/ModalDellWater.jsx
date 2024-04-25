@@ -95,7 +95,7 @@ const ModalDellWater = ({ id, deleteWater, isModalDell, setIsModalDell }) => {
           flexDirection: 'row',
           justifyContent: 'space-between',
           '@media only screen and (max-width: 768px)': {
-            flexDirection: 'column',
+            flexDirection: 'column-reverse',
             gap: '24px',
             marginLeft: '0',
             width: '100%',
