@@ -35,6 +35,10 @@ const Calendar = () => {
   const month = currentDate.getMonth() + 1;
 
   useEffect(() => {
+    dispatch(getMonthPercentageThunk(`${currentYear}-${month}`));
+  }, [dispatch]);
+
+  useEffect(() => {
     if (waterPerDay.length === 0) return;
     dispatch(getMonthPercentageThunk(`${currentYear}-${month}`));
   }, [month, currentYear, dispatch, waterPerDay, dailyWaterRate]);
