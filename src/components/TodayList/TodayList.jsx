@@ -43,9 +43,6 @@ const TodayList = () => {
   useEffect(() => {});
 
   const handleSaveWaterData = (result, time) => {
-    // const newData = [...waterData, { result, time }];
-    // console.log(newData);
-    // setWaterData(newData);
     dispatch(addWaterRateThunk({ value: result, time }));
   };
 
@@ -88,7 +85,7 @@ const TodayList = () => {
               <Icon>
                 <use href={`${sprite}#icon-glass`} />
               </Icon>
-              <ResultMl>{item.value}ml</ResultMl>
+              <ResultMl>{item.value} ml</ResultMl>
               <ResultTime>{item.time}</ResultTime>
             </ListElemInfoContainer>
             <ListElemButtonsContainer>

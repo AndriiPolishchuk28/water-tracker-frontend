@@ -17,20 +17,14 @@ export const Title = styled.h3`
 `;
 export const List = styled.ul`
   width: 100%;
-  // margin-bottom: 16px;
   height: 200px;
   overflow-y: auto;
-  // display: flex;
-  // flex-direction: column-reverse;
-  // background-color: #000;
-  // margin-bottom: 24px;
 `;
 export const ListElem = styled.li`
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid #d7e3ff;
-  padding: 5px;
-  // height: 50px;
+  border-bottom: 1px solid var(--secondary-color-blue-3);
+  padding: 12px 0;
 `;
 export const ListElemInfoContainer = styled.div`
   width: 70%;
@@ -71,7 +65,7 @@ export const ResultTime = styled.span`
   font-size: 12px;
   font-weight: 400;
   line-height: 24px;
-  color: #2f2f2f;
+  color: var(--secondary-color-blue-2);
 `;
 export const ChangeWaterBtn = styled.button`
   display: flex;
@@ -79,7 +73,6 @@ export const ChangeWaterBtn = styled.button`
   align-items: center;
   width: 24px;
   height: 24px;
-  // background-color: #000;
   background-color: transparent;
   cursor: pointer;
 `;
@@ -89,7 +82,6 @@ export const DeleteWaterBtn = styled.button`
   align-items: center;
   width: 24px;
   height: 24px;
-  // background-color: #000;
   background-color: transparent;
   cursor: pointer;
 `;
@@ -105,4 +97,7 @@ export const ChangeBtnIcon = styled.svg`
   height: 16px;
   stroke: var(--secondary-color-blue-2);
   fill: transparent;
+  &:hover {
+    stroke: var(--secondary-color-orange);
+  }
 `;
