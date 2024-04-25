@@ -1,9 +1,9 @@
 {
   "files": {
     "main.css": "/water-tracker-frontend/static/css/main.21e03680.css",
-    "main.js": "/water-tracker-frontend/static/js/main.e9d1d0c8.js",
+    "main.js": "/water-tracker-frontend/static/js/main.4a0e1f81.js",
     "static/js/660.7153159b.chunk.js": "/water-tracker-frontend/static/js/660.7153159b.chunk.js",
-    "static/js/348.edb5fcfe.chunk.js": "/water-tracker-frontend/static/js/348.edb5fcfe.chunk.js",
+    "static/js/348.d1d27c51.chunk.js": "/water-tracker-frontend/static/js/348.d1d27c51.chunk.js",
     "static/js/188.1d5c55b0.chunk.js": "/water-tracker-frontend/static/js/188.1d5c55b0.chunk.js",
     "static/js/750.85745858.chunk.js": "/water-tracker-frontend/static/js/750.85745858.chunk.js",
     "static/js/528.041ceb2d.chunk.js": "/water-tracker-frontend/static/js/528.041ceb2d.chunk.js",
@@ -33,9 +33,9 @@
     "static/media/personal-rate-setting.svg": "/water-tracker-frontend/static/media/personal-rate-setting.08985f6a16d27a203593b7903d173927.svg",
     "static/media/view-statistics.svg": "/water-tracker-frontend/static/media/view-statistics.1d15fba1c5e024b51c017bad4ac84aa0.svg",
     "main.21e03680.css.map": "/water-tracker-frontend/static/css/main.21e03680.css.map",
-    "main.e9d1d0c8.js.map": "/water-tracker-frontend/static/js/main.e9d1d0c8.js.map",
+    "main.4a0e1f81.js.map": "/water-tracker-frontend/static/js/main.4a0e1f81.js.map",
     "660.7153159b.chunk.js.map": "/water-tracker-frontend/static/js/660.7153159b.chunk.js.map",
-    "348.edb5fcfe.chunk.js.map": "/water-tracker-frontend/static/js/348.edb5fcfe.chunk.js.map",
+    "348.d1d27c51.chunk.js.map": "/water-tracker-frontend/static/js/348.d1d27c51.chunk.js.map",
     "188.1d5c55b0.chunk.js.map": "/water-tracker-frontend/static/js/188.1d5c55b0.chunk.js.map",
     "750.85745858.chunk.js.map": "/water-tracker-frontend/static/js/750.85745858.chunk.js.map",
     "528.041ceb2d.chunk.js.map": "/water-tracker-frontend/static/js/528.041ceb2d.chunk.js.map",
@@ -45,6 +45,6 @@
   },
   "entrypoints": [
     "static/css/main.21e03680.css",
-    "static/js/main.e9d1d0c8.js"
+    "static/js/main.4a0e1f81.js"
   ]
 }
