@@ -3,10 +3,8 @@ import styled from 'styled-components';
 export const Container = styled.div`
 display: flex;
 flex-direction: column;
-// justify-content: space-between;
 width: 100%;
 height: 256px;
-// gap: 24px;
 `
 
 export const ListTitle = styled.h3`
@@ -16,7 +14,6 @@ export const ListTitle = styled.h3`
   line-height: 32px;
   text-align: left;
   color: var(--primary-color-black);
-  // margin-bottom: 14px;
 `;
 
 export const Title = styled.h3`
@@ -88,6 +85,22 @@ export const ChangeWaterBtn = styled.button`
   height: 24px;
   background-color: transparent;
   cursor: pointer;
+  position: relative;
+
+  &::after {
+    content: '__';
+    position: absolute;
+    top: 70%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s ease; 
+    color: var(--secondary-color-blue-2);
+  }
+
+  &:hover::after {
+    opacity: 1;
+  }
   
 `;
 export const DeleteWaterBtn = styled.button`
@@ -98,6 +111,22 @@ export const DeleteWaterBtn = styled.button`
   height: 24px;
   background-color: transparent;
   cursor: pointer;
+  position: relative;
+
+  &::after {
+    content: '__';
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s ease; 
+    color: var(--secondary-color-red);
+  }
+
+  &:hover::after {
+    opacity: 1;
+  }
 `;
 
 export const DeleteBtnIcon = styled.svg`
@@ -105,21 +134,12 @@ export const DeleteBtnIcon = styled.svg`
   height: 16px;
   stroke: var(--secondary-color-red);
   fill: transparent;
-  transition: margin-bottom 0.2s ease; 
   margin-bottom: 0; 
-  &:hover {
-    margin-bottom: 2px; 
-    border-bottom: 1px solid var(--secondary-color-red); 
-  }
 `;
+
 export const ChangeBtnIcon = styled.svg`
   width: 16px;
   height: 16px;
   stroke: var(--secondary-color-blue-2);
-  transition: margin-bottom 0.2s ease; 
   fill: transparent;
-  &:hover {
-    margin-bottom: 2px; 
-    border-bottom: 1px solid var(--secondary-color-blue-2); 
-  }
 `;

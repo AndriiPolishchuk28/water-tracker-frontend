@@ -23,9 +23,9 @@ import {
   SaveBtn,
   IconBtn,
   MenuItemCustom,
-  IconBtnPM
+  IconBtnPM,
 } from './WaterListModal.styled';
-import {icons} from '../../../assets'
+import { icons } from '../../../assets';
 import { getCurrentTime, generateHours } from 'utils/timeUtils';
 
 const WaterListModal = ({ onSave, onClose, title, isVisible }) => {
@@ -65,7 +65,6 @@ const WaterListModal = ({ onSave, onClose, title, isVisible }) => {
   };
   const handleSave = () => {
     onSave(result, time);
- 
   };
 
   return (

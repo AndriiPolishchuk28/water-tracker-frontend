@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 import { TextField, MenuItem } from '@mui/material';
-// import { OutlinedInput } from '@mui/material';
-// import { styled } from '@mui/system';
 
 export const OpenButton = styled.button`
   width: 280px;
@@ -49,7 +47,6 @@ export const CloseButton = styled.button`
 `;
 export const ResultContainer = styled.div`
   display: flex;
-  // justify-content: center;
   align-items: center;
   gap: 16px;
   width: 100%;
@@ -96,7 +93,7 @@ export const DataTitle = styled.h3`
   font-size: 18px;
   font-weight: 500;
   line-height: 20px;
-  color:var(--primary-color-black);
+  color: var(--primary-color-black);
 `;
 export const DataText = styled.p`
   font-family: Roboto;
@@ -120,15 +117,15 @@ export const DataBtn = styled.button`
   height: 44px;
   border-radius: 50%;
   border: 1px solid var(--secondary-color-blue-2);
-  // opacity: 0px;
   cursor: pointer;
   background-color: transparent;
   padding: 0;
+  transition: box-shadow 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
   &:hover {
     box-shadow: 0px 2px 4px 0px #407bff33;
   }
 `;
-export const DataDeleteBtn = styled.button``;
+
 export const DataResult = styled.p`
   width: 92px;
   height: 36px;
@@ -175,12 +172,16 @@ export const InputTime = styled(TextField)`
       border: none;
     }
   }
-    @media only screen and (min-width: 768px) {
-      & .MuiOutlinedInput-root {width: 544px;}
+  @media only screen and (min-width: 768px) {
+    & .MuiOutlinedInput-root {
+      width: 544px;
     }
-    @media only screen and (min-width: 1440px) {
-      & .MuiOutlinedInput-root {width: 100%;}
+  }
+  @media only screen and (min-width: 1440px) {
+    & .MuiOutlinedInput-root {
+      width: 100%;
     }
+  }
 `;
 
 export const MenuItemCustom = styled(MenuItem)`
@@ -201,10 +202,10 @@ export const MenuItemCustom = styled(MenuItem)`
 `;
 
 export const InputMl = styled.input`
-font-family: Roboto;
-font-size: 16px;
-font-weight: 400;
-line-height: 20px;
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
   width: 100%;
   height: 44px;
   padding: 12px 10px;
@@ -257,6 +258,7 @@ export const SaveBtn = styled.button`
   font-weight: 500;
   line-height: 20px;
   cursor: pointer;
+  transition: box-shadow 0.3s ease-in 0.1s, color 0.2s ease-out 0.2s;
   &:hover {
     box-shadow: 0px 4px 8px 0px #407bff57;
   }
