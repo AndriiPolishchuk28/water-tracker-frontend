@@ -58,14 +58,14 @@ export const ResultMl = styled.span`
   font-size: 18px;
   font-weight: 400;
   line-height: 24px;
-  color: #407bff;
+  color: var(--primary-color-blue);
 `;
 export const ResultTime = styled.span`
   font-family: Roboto;
   font-size: 12px;
   font-weight: 400;
   line-height: 24px;
-  color: var(--secondary-color-blue-2);
+  color: var(--primary-color-black);
 `;
 export const ChangeWaterBtn = styled.button`
   display: flex;

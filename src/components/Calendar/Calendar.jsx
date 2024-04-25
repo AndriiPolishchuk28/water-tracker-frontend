@@ -21,8 +21,12 @@ import {
   selectMonthPercentage,
   selectWaterRate,
 } from '../../redux/water/selectors';
-import { selectAuthToken } from '../../redux/auth/selectors';
+
+
 import { useTranslation } from 'react-i18next';
+
+import { selectAuthIsLoading } from '../../redux/auth/selectors';
+
 
 const Calendar = () => {
   const { t } = useTranslation();
@@ -30,7 +34,7 @@ const Calendar = () => {
   const percentagePerMonth = useSelector(selectMonthPercentage);
   const waterPerDay = useSelector(selectListWaterOfDay);
   const dailyWaterRate = useSelector(selectWaterRate);
-  const token = useSelector(selectAuthToken);
+  const loading = useSelector(selectAuthIsLoading);
 
   const [todayDate] = useState(new Date());
   const [currentDate, setCurrentDate] = useState(new Date());
@@ -40,7 +44,12 @@ const Calendar = () => {
 
   useEffect(() => {
     dispatch(getMonthPercentageThunk(`${currentYear}-${month}`));
-  }, [month, currentYear, dispatch, waterPerDay, dailyWaterRate, token]);
+  }, [dispatch, currentYear, month]);
+
+  useEffect(() => {
+    if (waterPerDay.length === 0 || loading) return;
+    dispatch(getMonthPercentageThunk(`${currentYear}-${month}`));
+  }, [month, currentYear, dispatch, waterPerDay, dailyWaterRate, loading]);
 
   const goToPreviousMonth = () => {
     const previousMonth = new Date(
