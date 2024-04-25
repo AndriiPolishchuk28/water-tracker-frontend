@@ -26,7 +26,7 @@ import {
   IconBtnPM,
 } from './WaterListModal.styled';
 import { icons } from '../../../assets';
-import { getCurrentTime, generateHours } from 'utils/timeUtils';
+import { getCurrentTime, generateHours } from '../../../utils/timeUtils';
 
 const WaterListModal = ({ onSave, onClose, title, isVisible, initialWater = 50, initialTime=getCurrentTime() }) => {
   const [result, setResult] = useState(initialWater);
